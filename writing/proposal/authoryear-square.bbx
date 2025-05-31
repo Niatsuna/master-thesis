@@ -1,0 +1,70 @@
+\ProvidesFile{authoryear-square.bbx}
+[\abx@bbxid]
+
+\RequirePackage{xpatch}
+
+\RequireBibliographyStyle{standard}
+\ExecuteBibliographyOptions{sorting=anyt,pagetracker,labelyear}
+\ExecuteBibliographyOptions{firstinits,useprefix,maxbibnames=999,maxcitenames=2,block=space}
+
+\defbibenvironment{bibliography}
+  {\list
+     {}
+     {\setlength{\leftmargin}{\bibhang}%
+      \setlength{\itemindent}{-\leftmargin}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item}
+
+\DeclareFieldFormat{shorthandwidth}{#1}
+\defbibenvironment{shorthands}
+  {\list
+     {\printfield[shorthandwidth]{shorthand}}
+     {\setlength{\labelwidth}{\shorthandwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}%
+      \renewcommand*{\makelabel}[1]{##1\hss}}}
+  {\endlist}
+  {\item}
+
+\InitializeBibliographyStyle{}
+
+%% Changes to standard style
+\renewcommand*{\nameyeardelim}{\addspace}
+\renewcommand*{\bibpagerefpunct}{\iflistundef{pageref}{\addspace}{\addperiod\addspace}}
+\renewcommand*{\finentrypunct}{\iflistundef{pageref}{\addperiod}{}}%
+\renewbibmacro*{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+\xpatchbibmacro{pageref:comp}{\multilistdelim}%
+  {\ifboolexpr{test {\ifnumless{\value{listcount}}{\value{liststop}}}or test \ifmoreitems}{\multilistdelim}{\finallistdelim}}{}{}
+\DeclareFieldFormat
+  [article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+  {title}{#1\isdot}
+
+%% Add the citekey
+\xpatchbibdriver{misc}{\setunit{\labelnamepunct}}{\setunit*{\labelnamepunct}}{}{}
+\renewbibmacro*{begentry}{%
+  \printtext[brackets]{%
+    \begingroup%
+      \defcounter{maxnames}{\blx@maxcitenames}%
+      \iffieldundef{shorthand}%
+        {\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}}%
+           {\iffieldundef{label}{\printfield[citetitle]{labeltitle}}{\printfield{label}}%
+            %\setunit{\nameyeardelim}%
+            %\iffieldundef{labelyear}{}{\printfield{labelyear}\printfield{extrayear}}%
+           }%
+           {\printnames{labelname}%
+            \setunit{\nameyeardelim}%
+            \iffieldundef{labelyear}{}{\printfield{labelyear}\printfield{extrayear}}}}%
+        {\printfield{shorthand}}%
+    \endgroup%
+  }%
+  \printtext{}\setunit{\addspace}\newblock% \printtext{\quad}or \addspace
+}
+
+\endinput

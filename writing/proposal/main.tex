@@ -1,0 +1,77 @@
+\documentclass[10pt]{book}
+\usepackage[%
+	language=english,paper=a4paper,largepaper=true,%
+	algorithm=false,%
+	biblatexstyle=authoryear-square,
+	biblatexOptions={natbib=true,backend=biber},%
+	acronymOptions={smaller,printonlyused},%,withpage
+]{ifiseries}
+%\usepackage[language=english,theorems=numbersfirst,paper=a4paper]{ifiseries}
+% <++USE language=german IF YOUR DOCUMENT WILL BE IN GERMAN ++>
+
+% <++CHANGE PDF SETTINGS++>
+\hypersetup{pdftitle=Systematic Analysis and Improvement of Edge Computing Simulators}
+\hypersetup{pdfauthor=Darlin Stücker}
+\hypersetup{pdfsubject=Proposal for a Master's Thesis}
+\hypersetup{pdfkeywords=}
+
+%\usepackage{etex}		% fix for miktex version 2.9 and above
+%\reserveinserts{10}		% fix for miktex version 2.9 and above
+%\usepackage{fixltx2e}	% fix for latex version from 2015 and below
+%\usepackage[resetfonts]{cmap}
+%\usepackage{nameref}
+
+%\usepackage[format=hang]{caption}
+%\usepackage{textcomp}
+\usepackage{todonotes}
+
+\lstset{
+	frame=single,
+	breaklines=true,
+	numbers=left,
+	numbersep=6pt,
+	tabsize=3,
+}
+
+\ExecuteBibliographyOptions{sortcase=false,babel=other,backref=true,abbreviate=false}
+\ExecuteBibliographyOptions{isbn=false,url=true,doi=true,eprint=false}
+\addbibresource{bibliography.bib}
+% <++PERHAPS CHANGE NAME OF BIBLIOGRAPHY RESOURCE ON LINE ABOVE OR ADD ADDITIONAL RESOURCES++>
+
+\begin{document}
+
+\frontmatter
+
+\studtitlepage%
+{Systematic Analysis and Improvement of Edge Computing Simulators}% title
+{}% subtitle
+{Darlin Stücker}% author
+{Proposal for a Master's Thesis}% type
+{\today}% date
+{Software Engineering Group}% chair
+{Prof. Dr. Wilhelm Hasselbring\\Hendrik Ken Reiter, M.Sc.} % advisors
+\cleardoublepage
+%\studeidesstatt
+
+%\chapter*{Abstract}
+%\blindtext
+
+%\section*{Acknowledgements}
+%<++ACKNOWLEDGEMENTS++>
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+\mainmatter
+
+%% the actual thesis
+%% use \include{filename} and \includeonly{filename} to organize your thesis
+\include{chapter/01_introduction}
+\include{chapter/02_goals}
+\include{chapter/03_foundations}
+\include{chapter/04_approach}
+\include{chapter/05_schedule}
+
+\backmatter
+\tocbibliography
+\end{document}
