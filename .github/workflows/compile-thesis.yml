@@ -1,0 +1,45 @@
+name: Compile Thesis
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'writing/thesis/**'
+      - 'writing/kcss/**'
+
+permissions:
+  contents: write
+
+jobs:
+  compile-thesis:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: main.tex
+        working_directory: writing/thesis
+        args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+    - name: Rename PDF
+      run: mv writing/thesis/main.pdf writing/thesis/thesis.pdf
+        
+    - name: Update Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: thesis-latest
+        name: Thesis (Latest)
+        body: |
+          Latest compiled thesis document from main branch
+          
+          📄 **Download**: [thesis.pdf](../../releases/download/thesis-latest/thesis.pdf)
+          
+          Last updated: ${{ github.event.head_commit.timestamp }}
+          Commit: ${{ github.sha }}
+        files: writing/thesis/thesis.pdf
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
