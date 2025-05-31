@@ -1,1 +1,49 @@
 \chapter{Schedule}
+
+\begin{ganttchart}[
+    vgrid={draw=black!80, *3{dotted}, draw=black!80, *3{dotted}, draw=black!80, *3{dotted}, draw=black!80, *3{dotted}, draw=black!80, *3{dotted}, draw=black!80, *3{dotted}, draw=black!80},
+    hgrid,
+    x unit=0.5cm,
+    y unit title=0.5cm,
+    y unit chart=0.5cm,
+    title/.append style={fill=blue!10},
+    title height=1,
+    bar height=0.4,
+    group height=0.4,
+    title/.style={fill=gray!20},
+    title label font=\small,
+    bar label font=\scriptsize,
+    vrule label node/.append style={anchor=north}
+]{1}{26}
+  \gantttitle{\scriptsize Master's Thesis Timeline (June - November 2025)}{26} \\
+  \gantttitle{}{1}
+  \gantttitle{\tiny June}{4}
+  \gantttitle{\tiny July}{4}
+  \gantttitle{\tiny August}{4}
+  \gantttitle{\tiny September}{4}
+  \gantttitle{\tiny October}{4}
+  \gantttitle{\tiny November}{4}
+  \gantttitle{}{1} \\
+
+  \ganttgroup{Writing}{4}{23} \\
+
+  % Phase 1: Research and Literature Review
+  \ganttset{group/.append style={draw=black, fill=blue}, bar/.append style={draw=black, fill=cyan}}
+  \ganttgroup{Research and Analysis}{2}{7} \\
+  \ganttbar{Literature Review}{2}{7} \\
+  \ganttbar{Analysis}{4}{7} \\
+
+  % Phase 2: Ecoscape
+  \ganttset{group/.append style={draw=black, fill=green}, bar/.append style={draw=black, fill=lime}}
+  \ganttgroup{Ecoscape}{8}{19} \\
+  \ganttbar{Analysis}{8}{9} \\
+  \ganttbar{Implementation}{10}{17} \\
+  \ganttbar{Evaluation}{18}{19} \\
+
+   % Milestones
+  \ganttvrule{Start}{1}
+  \ganttvrule{Deadline}{25}
+  \ganttset{vrule label node/.append style={yshift=-3mm}}
+  \ganttvrule{Soft Deadline}{23}
+  
+\end{ganttchart}
