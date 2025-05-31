@@ -24,6 +24,9 @@ jobs:
         root_file: main.tex
         working_directory: writing/proposal
         args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+    - name: Rename PDF
+      run: mv writing/proposal/main.pdf writing/proposal/proposal.pdf
         
     - name: Update Release
       uses: softprops/action-gh-release@v1
@@ -37,6 +40,6 @@ jobs:
           
           Last updated: ${{ github.event.head_commit.timestamp }}
           Commit: ${{ github.sha }}
-        files: writing/proposal/main.pdf
+        files: writing/proposal/proposal.pdf
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
