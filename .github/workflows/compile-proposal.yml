@@ -1,0 +1,39 @@
+name: Compile Proposal
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'writing/proposal/**'
+      - 'writing/kcss/**'
+
+jobs:
+  compile-proposal:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: main.tex
+        working_directory: writing/proposal
+        args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+        
+    - name: Update Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: proposal-latest
+        name: Proposal (Latest)
+        body: |
+          Latest compiled proposal document from main branch
+          
+          📄 **Download**: [proposal.pdf](../../releases/download/proposal-latest/proposal.pdf)
+          
+          Last updated: ${{ github.event.head_commit.timestamp }}
+          Commit: ${{ github.sha }}
+        files: writing/proposal/main.pdf
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
