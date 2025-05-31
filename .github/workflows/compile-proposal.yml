@@ -7,6 +7,9 @@ on:
       - 'writing/proposal/**'
       - 'writing/kcss/**'
 
+permissions:
+  contents: write
+
 jobs:
   compile-proposal:
     runs-on: ubuntu-latest
