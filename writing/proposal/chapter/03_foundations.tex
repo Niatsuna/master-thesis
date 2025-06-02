@@ -1,1 +1,29 @@
 \chapter{Foundations and Technologies}
+In following sections present an overview of foundations and technologies, which are viable for the thesis.
+This chapter can be seen as a starting point and will be visited in more detail in the thesis.
+
+\section{Edge Computing}
+Edge Computing represents a distributed computing pattern that brings computation and data storage closer to the source of data generation and
+therefore reduces latency bandwidth usage [\cite{7488250}]. In comparison the traditional approach of cloud computing, which centralizes resources in distant
+data centers, edge computing distributes computational resources across geographically dispersed nodes positioned at the so called edge of the network.
+\\
+Some commonly known projects for edge computing are self-driving cars, that uses sensor data and make split-second decisions [\cite{9546662}], 
+smart glasses, that read real-time visual data like gesture recognition and spatial tracking to determine actions [\cite{10134901}], and to some degree smart homes, that access local sensor data like from thermostats, security cameras and voice recognition and process these locally for more routine commands [\cite{7488250}].
+The latter also uses cloud computing for more complex commands.
+
+\section{Kubernetes}
+Kubernetes is an open-source container orchestration platform that automates the deployment, scaling and management of containerized applications across distributed computing environments by implementing a master-worker architecture [\cite{10.5555/3175917}].
+It provides a robust framework for managing microservices architectures by abstracting underlying infrastructe complexity.
+Core abstractions include Pods, as the smallest deployable units, Services for network endpoints and deployments for lifecycle management.
+
+Based on the high abstraction, lifecycle management and robustness, Kubernetes became a highly respected and mostly standard framework in the industry and research field [\cite{10.1145/3539606}].
+
+\section{Ecoscape}
+\todo{1) Write the subsections 2) Do i need to cite Ecoscape here? If yes: How ?}
+Ecoscape allows for configurations of scenarios that run on a Kubernetes environment and provides means to evaluate the performance of specific operators within this environment.
+It focus highly on fault tolerance, scalability and the optimization of middleware.
+To achieve this, multiple technologies beside Kubernetes are used.
+\subsection{Prometheus}
+\subsection{Kafka}
+\subsection{Kepler}
+\subsection{Chaos Mesh}
