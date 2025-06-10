@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'writing/proposal/**'
-      - 'writing/kcss/**'
+    - 'writing/proposal/**'
+    - 'writing/kcss/**'
 
 permissions:
   contents: write
@@ -13,11 +13,11 @@ permissions:
 jobs:
   compile-proposal:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v3
       with:
@@ -27,17 +27,24 @@ jobs:
 
     - name: Rename PDF
       run: mv writing/proposal/main.pdf writing/proposal/proposal.pdf
-        
-    - name: Update Release
+
+    - name: Delete existing release
+      run: |
+        gh release delete proposal-latest --yes || true
+        git push --delete origin proposal-latest || true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create new release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: proposal-latest
-        name: Proposal (Latest)
+        name: Proposal
         body: |
           Latest compiled proposal document from main branch
-          
-          📄 **Download**: [proposal.pdf](../../releases/download/proposal-latest/proposal.pdf)
-          
+
+          ---
+
           Last updated: ${{ github.event.head_commit.timestamp }}
           Commit: ${{ github.sha }}
         files: writing/proposal/proposal.pdf
