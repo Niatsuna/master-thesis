@@ -19,11 +19,27 @@ Core abstractions include Pods, as the smallest deployable units, Services for n
 Based on the high abstraction, lifecycle management and robustness, Kubernetes became a highly respected and mostly standard framework in the industry and research field [\cite{10.1145/3539606}].
 
 \section{Ecoscape}
-\todo{1) Write the subsections 2) Do i need to cite Ecoscape here? If yes: How ?}
-Ecoscape allows for configurations of scenarios that run on a Kubernetes environment and provides means to evaluate the performance of specific operators within this environment.
-It focus highly on fault tolerance, scalability and the optimization of middleware.
+Ecoscape is a benchmark tool that allows for JSON configurations of scenarios that run on a Kubernetes enviroment and provides means to evaluate the performance of specific operators within said enviroment.
+Said configuration is divided into 
+\begin{itemize}
+  \item system - Defines the distributed system resources and replicas
+  \item infrastructure - Defines the network and its characteristics
+  \item data - Defines generation of data
+  \item chaos -  Defines artifically infrastructure faults
+\end{itemize}
+The focus hereby lays on fault tolerance and scalability as well as the optimization of middleware through the deployed operators.
 To achieve this, multiple technologies beside Kubernetes are used.
+
 \subsection{Prometheus}
-\subsection{Kafka}
+Prometheus is an open-source monitoring and alerting system, which employs a pull-based architecture to collect metrics from configured targets and stores them in a time-series database with multi-dimensional data model using labels for flexible quering.
+It has become the standard monitoring solution for Kubernetes environments due to its service discovery capabilities and integration with containerized applications, which is exactly the purpose of Prometheus in the Ecoscape landscape. [\cite{prometheus2024}]
+\subsection{Apache Kafka}
+Apache Kafka (hereinafter called Kafka) is a distributed streaming platform developed for handling high-throuput, real-time data feeds. Kafka organizes data into topics that are partitioned and replicated across brokers for fault tolerance and scalability, which are supported due to the distributed commit log architecture.
+Beyond messaging, Kafka has evolved into a comprehensive streaming platform for real-time processing and system-integration, making it essential for event-driven architectures and real-time analytics, like Ecoscape. [\cite{kafka2024}]
 \subsection{Kepler}
+Kubernetes Efficient Power Level Exporter - also called Kepler - is an open-source tool developed for monitoring energy consumption in containerized enviroments.
+By collecting system metrics and using machine learning models to estimate power consumptions at the container and pod level, it adresses the lack of granular energy visibility in Kubernetes.
+Kepler exports energy metrics in Prometheus format, enabling its seemless integration in existing monitoring infrastructure like Ecoscape's. [\cite{kepler2024}]
 \subsection{Chaos Mesh}
+Chaos Mesh is a cloud-native chaos engineering platform for Kubernetes, which implements chaos engineering principles by providing controlled fault injection capabilities including network failures, resource stress and pod disruptions.
+It thereby provides systematic resilience testing of distributed systems, which allows developers to identify weaknesses before failures occur in production. [\cite{chaosmesh2024}]
