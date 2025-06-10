@@ -4,8 +4,10 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'writing/thesis/**'
-      - 'writing/kcss/**'
+    - 'writing/thesis/**'
+    - 'writing/kcss/**'
+  workflow_dispatch:
+
 
 permissions:
   contents: write
@@ -13,11 +15,11 @@ permissions:
 jobs:
   compile-thesis:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v3
       with:
@@ -27,17 +29,24 @@ jobs:
 
     - name: Rename PDF
       run: mv writing/thesis/main.pdf writing/thesis/thesis.pdf
-        
-    - name: Update Release
+
+    - name: Delete existing release
+      run: |
+        gh release delete thesis-latest --yes || true
+        git push --delete origin thesis-latest || true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create new release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: thesis-latest
-        name: Thesis (Latest)
+        name: Thesis
         body: |
           Latest compiled thesis document from main branch
-          
-          📄 **Download**: [thesis.pdf](../../releases/download/thesis-latest/thesis.pdf)
-          
+
+          ---
+
           Last updated: ${{ github.event.head_commit.timestamp }}
           Commit: ${{ github.sha }}
         files: writing/thesis/thesis.pdf
