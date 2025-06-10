@@ -1,10 +1,10 @@
 \chapter{Foundations and Technologies}
-In following sections present an overview of foundations and technologies, which are viable for the thesis.
-This chapter can be seen as a starting point and will be visited in more detail in the thesis.
+The following sections describe an overview of foundations and technologies.
+This chapter can be seen as a starting point and will be elaborated in more detail in the thesis.
 
 \section{Edge Computing}
 Edge Computing represents a distributed computing pattern that brings computation and data storage closer to the source of data generation and
-therefore reduces latency bandwidth usage [\cite{7488250}]. In comparison the traditional approach of cloud computing, which centralizes resources in distant
+therefore reduces latency and bandwidth usage [\cite{7488250}]. In comparison the traditional approach of cloud computing, which centralizes resources in distant
 data centers, edge computing distributes computational resources across geographically dispersed nodes positioned at the so called edge of the network.
 \\
 Some commonly known projects for edge computing are self-driving cars, that uses sensor data and make split-second decisions [\cite{9546662}], 
@@ -37,7 +37,7 @@ It has become the standard monitoring solution for Kubernetes environments due t
 Apache Kafka (hereinafter called Kafka) is a distributed streaming platform developed for handling high-throuput, real-time data feeds. Kafka organizes data into topics that are partitioned and replicated across brokers for fault tolerance and scalability, which are supported due to the distributed commit log architecture.
 Beyond messaging, Kafka has evolved into a comprehensive streaming platform for real-time processing and system-integration, making it essential for event-driven architectures and real-time analytics, like Ecoscape. [\cite{kafka2024}]
 \subsection{Kepler}
-Kubernetes Efficient Power Level Exporter - also called Kepler - is an open-source tool developed for monitoring energy consumption in containerized enviroments.
+Kubernetes-based Efficient Power Level Exporter - also called Kepler - is an open-source tool developed for monitoring energy consumption in containerized enviroments.
 By collecting system metrics and using machine learning models to estimate power consumptions at the container and pod level, it adresses the lack of granular energy visibility in Kubernetes.
 Kepler exports energy metrics in Prometheus format, enabling its seemless integration in existing monitoring infrastructure like Ecoscape's. [\cite{kepler2024}]
 \subsection{Chaos Mesh}
