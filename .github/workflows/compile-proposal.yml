@@ -6,6 +6,8 @@ on:
     paths:
     - 'writing/proposal/**'
     - 'writing/kcss/**'
+  workflow_dispatch:
+
 
 permissions:
   contents: write
