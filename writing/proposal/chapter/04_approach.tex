@@ -5,30 +5,34 @@
   \caption{Approach of the Thesis}
   \label{fig:approach_figure}
 \end{figure}
-Figure \ref{fig:approach_figure} visualises the general approach of the thesis showing distinct steps to meet the goal of the thesis.
-The following sections describe each steps in more detail.
 
-\section{Literature Review \& Analyzation}\label{approach:literature-review}
-The edge computing simulation landscape is vast with different simulators, which can have all different bias, metrics, implementations, characteristics and features.
-For advancing ecoscape as a proper edge computing simulator, it is necessary to learn more about existing simulators and review as well as analyze their respective structure.
+Figure \ref{fig:approach_figure} visualises the general approach of the thesis showing distinct steps to meet the goals of the thesis.
+First the state of art is determined, which is neatly followed by an analysis to determine the Requirements catalogue (1).
+Then, Ecoscape is analyzed to have a comparable base to the content of the catalogue (2) and based on that comparison the implementation takes place (3).
+At the end an evaluation of Ecoscape takes place (4).
+\\
+In the following sections, each step is further described.
+\section{State of Art and Requirements catalogue}\label{approach:state-of-art}
+The computing simulation landscape is vast with different simulators, which can have all different bias, metrics, implementations, use-cases, focus and features.
+There are for example pure edge computing simulators like EdgeSim++ [\cite{10612841}] or EdgeCloudSim [\cite{10.1002/ett.3493}] , pure fog computing simulators like iFogSim [\cite{gupta2016ifogsimtoolkitmodelingsimulation}] or YAFS [\cite{8758823}] and hybrid variants like PureEdgeSim [\cite{9188059}] or FogNetSim++ [\cite{8502760}].
 
-This step includes, defining which simulator is deemed to be part of the state of art and why, as well as analyze their respective metrics and their definitions as well as features and characteristics.
-Understanding each simulator with individual testing and try-outs, should furthermore support the gained knowledge from the literature review. 
+To have a common ground, we firstly use literature review to compute a list of simulators that we deem state of art.
+We further determine their respective quality characteristics, use-cases, focus and approach through said literature review and with further testing a broader knowledge about each simulator can be determined.
 
-\section{Catalogue of Requirements}\label{approach:catalogue}
-The reviews from section \ref{approach:literature-review} will be compared and evaluated to determine, what exactly is the state of art for simulators.
-This results in the analysis of similarities and differences as well as their configurations to determine the requirements a simulator should meet.
+Through similarities and differences, we can determine the respective components of the requirements catalogue which fulfills goal G1.
 
 \section{Ecoscape}\label{approach:ecoscape}
-\subsection{Analyzation of Current State}\label{approach:ecoscape-current}
-Firstly, to advance Ecoscape in any way, the current state needs to be analyzed and compared to the catalogue to have a basic understanding how ecoscape can improve.
-The matter should follow a similar fashion as the literature review from section \ref{approach:literature-review} to ensure fairness and robustness.
+\subsection{Analysis of current state}\label{approach:ecoscape-current-state}
+To advance Ecoscape, we firstly need to determine Ecoscapes strength and weaknesses in comparison to the requirements catalogue. 
+Therefore in a similar manner as we reviewed and tested the state of art simulators in section \ref{approach:state-of-art}, we need to review and test Ecoscape.
+We then can compare the resulting points with the catalogue to determine the set of requirements that Ecoscape currently meets and some where it underperforms.
+This gives us an agenda for the next step.
 
-\subsection{Implementation}\label{approach:ecoscape-impl}
-This step depends on the result of section \ref{approach:ecoscape-current} and is about implementing the missing features as well as improving existing features to meet the requirements of section \ref{approach:catalogue}'s catalogue.
-The implementation will be done part of the Ecoscape project and should be documented as well as steadily tested to guarantee satisfying results.
+\subsection{Implementation}\label{approach:ecoscape-implementation}
+Based on the result of section \ref{approach:ecoscape-current-state}, the currently good and bad points of ecoscape should be clear. This step therefore is focusing on implementing missing features as well as improving existing features 
+to meet the requirements catalogue.
+The implementation will be done part of the Ecoscape project and therefore should be good documented as well as steadily tested to guarantee satisfying results. 
 
-\subsection{Evaluation}\label{approach:ecoscape-eval}
+\subsection{Evaluation}\label{approach:ecoscape-evaluation}
 At the end, an evaluation takes place to determine if the resulting version of Ecoscape is meeting expectations. This will be done via user study or expert interviews.
 The exact parameters of said evaluation still need to be defined.
-
