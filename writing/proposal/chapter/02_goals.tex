@@ -1,12 +1,17 @@
-\chapter{Goal}
-\todo{Introduction / Nod to hendrik's dissertation ?}
-\section{G1: Advancing Ecoscape to a proper edge simulator}
-Ecoscape at the current state provides a mean to evaluate deployed applications in the Kubernetes enviroment.
-The goal of this thesis is mainly, by identifying missing characteristics and problems within Ecoscape, to advance Ecoscape to a proper, robust and efficient edge computing simulator that
-is on par with other simulators that are deemed state of art in the edge computing simulation landscape.
+\chapter{Goals}
+This thesis will contribute to the dissertation of Hendrik Reiter, which is about Ecoscape as an edge computing simulator.
 
+\section{G1: Definition of Requirements Catalogue}\label{goal-def-of-req-catalogue}
+For developing a proper edge computing simulator, a set of requirements need to be determined based on the current state of art and in form of a catalogue.
+This catalogue should include
+\begin{itemize}
+  \item Definition and range of metrics
+  \item Definition of necessary and optional features
+  \item Definition of simulator specific characteristics
+\end{itemize}
+The content needs to be clear and comprehensive so it can be used to easily and strictly categorize an edge computing simulator as proper or insufficient.
 
-
-The focus should lie on the prospect of an easy to use and correct edge computing simulator and the implementation of missing features that are deemed to be especially necessary.
-
-\todo{It is a bit short ? Struggle how to further explain a goal which result is heavy leaning on research. That is the main goal, everything else are mostly questions (steps)}
+\section{G2: Ecoscape as a proper edge computing simulator}
+At the current state Ecoscape is a benchmark designed to evaluate deployed applications in the Kubernetes edge based enviroment with a focus on realistic faul scenarios and quantifiable scores.
+Thereby, Ecoscape needs to be further developed to a proper edge computing simulator in the sense of the requirements catalogue from G1.
+This includes on implementing missing features, metrics but also update existing characteristics of Ecoscape, so that the requirements are met.
