@@ -60,6 +60,8 @@ abstract = {Many Internet of Things (IoT) systems generate a massive amount of d
   doi={10.1109/TITS.2021.3109481}
   }
 
+% ---------- Foundations
+% Kubernetes
 @book{10.5555/3175917,
 author = {Hightower, Kelsey and Burns, Brendan and Beda, Joe},
 title = {Kubernetes: Up and Running Dive into the Future of Infrastructure},
@@ -90,43 +92,82 @@ numpages = {37},
 keywords = {survey, containers, scheduling, orchestration, Kubernetes}
 }
 
-@ARTICLE{10612841,
-  author={Lu, Qiu and Li, Gaoxing and Ye, Hengzhou},
-  journal={IEEE Internet of Things Journal}, 
-  title={EdgeSim++: A Realistic, Versatile, and Easily Customizable Edge Computing Simulator}, 
-  year={2024},
-  volume={11},
-  number={21},
-  pages={35341-35360},
-  keywords={Edge computing;Task analysis;Internet of Things;Resource management;Machine learning;Computer architecture;Machine learning algorithms;Artificial intelligence;cloud computing;edge computing;machine learning;modeling and simulation;resource management;task offloading},
-  doi={10.1109/JIOT.2024.3434641}}
-
-@article{10.1002/ett.3493,
-  author = {Sonmez, Cagatay and Ozgovde, Atay and Ersoy, Cem},
-  title = {EdgeCloudSim: An environment for performance evaluation of edge computing systems},
-  year = {2018},
-  issue_date = {November 2018},
-  publisher = {John Wiley \& Sons, Inc.},
-  address = {USA},
-  volume = {29},
-  number = {11},
-  url = {https://doi.org/10.1002/ett.3493},
-  doi = {10.1002/ett.3493},
-  journal = {Trans. Emerg. Telecommun. Technol.},
-  month = nov,
-  numpages = {1}
+% Prometheus
+@misc{prometheus2024,
+title = {Prometheus: Monitoring system and time series database},
+author = {{Prometheus Team}},
+year = {2024},
+url = {https://prometheus.io/},
+note = {Accessed: June 2025}
 }
 
-@misc{gupta2016ifogsimtoolkitmodelingsimulation,
-      title={iFogSim: A Toolkit for Modeling and Simulation of Resource Management Techniques in Internet of Things, Edge and Fog Computing Environments}, 
-      author={Harshit Gupta and Amir Vahid Dastjerdi and Soumya K. Ghosh and Rajkumar Buyya},
-      year={2016},
-      eprint={1606.02007},
+% Kafka
+@misc{kafka2024,
+title = {Apache Kafka: A distributed streaming platform},
+author = {{Apache Software Foundation}},
+year = {2024},
+url = {https://kafka.apache.org/},
+note = {Accessed: June 2025}
+}
+
+% Kepler
+@misc{kepler2024,
+title = {Kepler: Kubernetes Efficient Power Level Exporter},
+author = {{Sustainable Computing Consortium}},
+year = {2024},
+url = {https://sustainable-computing.io/},
+note = {Accessed: June 2025}
+}
+
+% Chaos Mesh
+@misc{chaosmesh2024,
+title = {Chaos Mesh: A Powerful Chaos Engineering Platform for Kubernetes},
+author = {{PingCAP}},
+year = {2024},
+url = {https://chaos-mesh.org/},
+note = {Accessed: June 2025}
+}
+
+% ------ Testbeds
+@misc{pfandzelter2024lessonslearnedbuildingedge,
+      title={Lessons Learned from Building Edge Software System Testbeds}, 
+      author={Tobias Pfandzelter and David Bermbach},
+      year={2024},
+      eprint={2403.16869},
       archivePrefix={arXiv},
       primaryClass={cs.DC},
-      url={https://arxiv.org/abs/1606.02007}, 
+      url={https://arxiv.org/abs/2403.16869}, 
+}
+% ---------- Simulators
+%iFogSim2
+@misc{mahmud2021ifogsim2extendedifogsimsimulator,
+      title={IFogSim2: An Extended iFogSim Simulator for Mobility, Clustering, and Microservice Management in Edge and Fog Computing Environments}, 
+      author={Redowan Mahmud and Samodha Pallewatta and Mohammad Goudarzi and Rajkumar Buyya},
+      year={2021},
+      eprint={2109.05636},
+      archivePrefix={arXiv},
+      primaryClass={cs.DC},
+      url={https://arxiv.org/abs/2109.05636}, 
 }
 
+%EdgeCloudSim
+@article{https://doi.org/10.1002/ett.3493,
+author = {Sonmez, Cagatay and Ozgovde, Atay and Ersoy, Cem},
+title = {EdgeCloudSim: An environment for performance evaluation of edge computing systems},
+journal = {Transactions on Emerging Telecommunications Technologies},
+volume = {29},
+number = {11},
+pages = {e3493},
+doi = {https://doi.org/10.1002/ett.3493},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3493},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/ett.3493},
+note = {e3493 ett.3493},
+abstract = {Abstract Edge computing is a fast growing field of research that covers a spectrum of technologies bringing the cloud computing services closer to the end user. Growing interest in this area yields many edge computing approaches that need to be evaluated and optimized. Experimenting on the real cloud environments is not always feasible due to the operational cost and the scalability. Despite increasing research activity, this field lacks a simulation tool that supports the modeling of both computational and networking resources to handle the edge computing scenarios. Existing network simulators can model the network behavior at different levels of granularity. The cloud computing simulators support the modeling and simulation of the computational infrastructures and services efficiently. Starting from the available simulators, a significant programming effort is required to obtain a simulation tool meeting the actual needs. On the other hand, designing a new edge computing tool has many challenges such as the scalability, extensibility, and modeling the mobility, network, and virtualized resources. To decrease the barriers, a new simulator tool called EdgeCloudSim streamlined for the edge computing scenarios is proposed in this work. EdgeCloudSim builds upon CloudSim to address the specific demands of edge computing research and support the necessary functionalities. To demonstrate the capabilities of EdgeCloudSim, an experiment setup based on different edge architectures is simulated. In addition, the effect of the edge server capacity and the mobility on the overall system performance are investigated.},
+year = {2018}
+}
+
+
+%YAFS
 @ARTICLE{8758823,
   author={Lera, Isaac and Guerrero, Carlos and Juiz, Carlos},
   journal={IEEE Access}, 
@@ -138,69 +179,70 @@ keywords = {survey, containers, scheduling, orchestration, Kubernetes}
   keywords={Relays;Large scale integration;Wireless communication;OFDM;Interference cancellation;Channel estimation;Real-time systems;Complex networks;fog computing;Internet of Things;simulator},
   doi={10.1109/ACCESS.2019.2927895}}
 
-  @ARTICLE{8502760,
-  author={Qayyum, Tariq and Malik, Asad Waqar and Khan Khattak, Muazzam A. and Khalid, Osman and Khan, Samee U.},
-  journal={IEEE Access}, 
-  title={FogNetSim++: A Toolkit for Modeling and Simulation of Distributed Fog Environment}, 
-  year={2018},
-  volume={6},
-  number={},
-  pages={63570-63583},
-  keywords={Cloud computing;Edge computing;Computational modeling;Sensors;Data centers;Protocols;Resource management;Cloud;fog;edge network;IoT;mobility models;OMNeT++},
-  doi={10.1109/ACCESS.2018.2877696}}
 
-  @INPROCEEDINGS{9188059,
-  author={Mechalikh, Charafeddine and Taktak, Hajer and Moussa, Faouzi},
-  booktitle={2019 International Conference on High Performance Computing \& Simulation (HPCS)}, 
-  title={PureEdgeSim: A Simulation Toolkit for Performance Evaluation of Cloud, Fog, and Pure Edge Computing Environments}, 
-  year={2019},
+%EdgeAISim
+@article{Nandhakumar_2024,
+   title={EdgeAISim: A toolkit for simulation and modelling of AI models in edge computing environments},
+   volume={31},
+   ISSN={2665-9174},
+   url={http://dx.doi.org/10.1016/j.measen.2023.100939},
+   DOI={10.1016/j.measen.2023.100939},
+   journal={Measurement: Sensors},
+   publisher={Elsevier BV},
+   author={Nandhakumar, Aadharsh Roshan and Baranwal, Ayush and Choudhary, Priyanshukumar and Golec, Muhammed and Gill, Sukhpal Singh},
+   year={2024},
+   month=feb, pages={100939} }
+
+
+%MockFog 2.0
+@article{Hasenburg_2023,
+   title={MockFog 2.0: Automated Execution of Fog Application Experiments in the Cloud},
+   volume={11},
+   ISSN={2372-0018},
+   url={http://dx.doi.org/10.1109/TCC.2021.3074988},
+   DOI={10.1109/tcc.2021.3074988},
+   number={1},
+   journal={IEEE Transactions on Cloud Computing},
+   publisher={Institute of Electrical and Electronics Engineers (IEEE)},
+   author={Hasenburg, Jonathan and Grambow, Martin and Bermbach, David},
+   year={2023},
+   month=jan, pages={58–70} }
+
+
+%FogNetSim++
+@article{fognetsimplspls,
+author = {Qayyum, Tariq and Malik, Asad and Khattak, Muazzam and Khan, Samee},
+year = {2018},
+month = {10},
+pages = {1-1},
+title = {FogNetSim++: A Toolkit for Modeling and Simulation of Distributed Fog Environment},
+volume = {PP},
+journal = {IEEE Access},
+doi = {10.1109/ACCESS.2018.2877696}
+}
+
+%EmuFog
+@INPROCEEDINGS{8368525,
+  author={Mayer, Ruben and Graser, Leon and Gupta, Harshit and Saurez, Enrique and Ramachandran, Umakishore},
+  booktitle={2017 IEEE Fog World Congress (FWC)}, 
+  title={EmuFog: Extensible and scalable emulation of large-scale fog computing infrastructures}, 
+  year={2017},
   volume={},
   number={},
-  pages={700-707},
-  keywords={Cloud computing;Computational modeling;Edge computing;Task analysis;Load modeling;Peer-to-peer computing;Performance evaluation;Simulation;Modeling;Edge Computing;Fog;Cloud;Load Balancing;Internet of Things.},
-  doi={10.1109/HPCS48598.2019.9188059}}
+  pages={1-6},
+  keywords={Edge computing;Network topology;Emulation;Topology;Partitioning algorithms;Computational modeling;Resource management;Fog Computing;Emulation Framework},
+  doi={10.1109/FWC.2017.8368525}}
 
 
-
-@misc{prometheus2024,
-title = {Prometheus: Monitoring system and time series database},
-author = {{Prometheus Team}},
-year = {2024},
-url = {https://prometheus.io/},
-note = {Accessed: June 2025}
-}
-
-@misc{kafka2024,
-title = {Apache Kafka: A distributed streaming platform},
-author = {{Apache Software Foundation}},
-year = {2024},
-url = {https://kafka.apache.org/},
-note = {Accessed: June 2025}
-}
-
-@misc{kepler2024,
-title = {Kepler: Kubernetes Efficient Power Level Exporter},
-author = {{Sustainable Computing Consortium}},
-year = {2024},
-url = {https://sustainable-computing.io/},
-note = {Accessed: June 2025}
-}
-
-@misc{chaosmesh2024,
-title = {Chaos Mesh: A Powerful Chaos Engineering Platform for Kubernetes},
-author = {{PingCAP}},
-year = {2024},
-url = {https://chaos-mesh.org/},
-note = {Accessed: June 2025}
-}
-
-@misc{pfandzelter2024lessonslearnedbuildingedge,
-      title={Lessons Learned from Building Edge Software System Testbeds}, 
-      author={Tobias Pfandzelter and David Bermbach},
-      year={2024},
-      eprint={2403.16869},
-      archivePrefix={arXiv},
-      primaryClass={cs.DC},
-      url={https://arxiv.org/abs/2403.16869}, 
-}
+%FogTorch
+@ARTICLE{7919155,
+  author={Brogi, Antonio and Forti, Stefano},
+  journal={IEEE Internet of Things Journal}, 
+  title={QoS-Aware Deployment of IoT Applications Through the Fog}, 
+  year={2017},
+  volume={4},
+  number={5},
+  pages={1185-1192},
+  keywords={Internet of things;Cloud computing;Quality of service;Bandwidth;Computational modeling;Sensors;Fog computing;IoT;QoS-aware deployment},
+  doi={10.1109/JIOT.2017.2701408}}
 

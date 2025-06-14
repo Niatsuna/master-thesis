@@ -14,11 +14,24 @@ At the end an evaluation of Ecoscape takes place (\ref{approach:ecoscape-evaluat
 In the following sections, each step is further described.
 \section{State of Art and Requirements Catalogue}\label{approach:state-of-art}
 The computing simulation landscape is vast with different simulators, which can have all different bias, metrics, implementations, use-cases, focus and features.
-There are for example pure edge computing simulators like EdgeSim++ [\cite{10612841}] or EdgeCloudSim [\cite{10.1002/ett.3493}] , pure fog computing simulators like iFogSim [\cite{gupta2016ifogsimtoolkitmodelingsimulation}] or YAFS [\cite{8758823}] and hybrid variants like PureEdgeSim [\cite{9188059}] or FogNetSim++ [\cite{8502760}].
+There are in general pure edge computing simulators, pure fog computing simulators and hybrid simulators that could have qualities that could potentially be important insights to our research. 
+\ \\
+To have a common ground, we firstly use literature review to compute a list of simulators that we deem representative for the state of art based on specific criteria.
+For this we look at simulators which are highly cited and widely adopted as well as covering multiple paradigms, have contemporary relevance in recent research trends and show diversity in their research regarding niches and methodologies.
 
-To have a common ground, we firstly use literature review to compute a list of simulators that we deem state of art based on the general consens of the edge computing landscape.
-We further determine their respective quality characteristics, use-cases, focus and approach through said literature review and with further testing a broader knowledge about each simulator can be determined.
-This testing can be done by running the simulators with the same use-cases, testbeds like presented by \cite{pfandzelter2024lessonslearnedbuildingedge} and subsequently comparing the results.
+Based on that the following list of simulators can be determined and will be further elaborated in detail in the thesis:
+\begin{itemize}
+  \item iFogSim2 [\cite{mahmud2021ifogsim2extendedifogsimsimulator}]
+  \item EdgeCloudSim [\cite{https://doi.org/10.1002/ett.3493}]
+  \item YAFS [\cite{8758823}]
+  \item EdgeAISim [\cite{Nandhakumar_2024}]
+  \item MockFog 2.0 [\cite{Hasenburg_2023}]
+  \item FogNetSim++ [\cite{fognetsimplspls}]
+  \item EmuFog [\cite{8368525}]
+  \item FogTorch [\cite{7919155}]
+\end{itemize}
+We further determine their respective quality characteristics, use-cases, focuses, approaches and architectures through said literature review and with further testing we gain a broader knowledge about each simulator in said list.
+This testing can be done by running the simulators with the same use-cases and data and subsequently comparing the results. Regarding that, a few key points of \cite{pfandzelter2024lessonslearnedbuildingedge} should be studied and applied.
 This gives us a good overview of the current state of art simulators and their respective strengths and weaknesses as well as their similarities and differences.
 Based on the results of the literature review and the testing, we then can construct a requirements catalogue that defines the necessary and optional features, metrics and characteristics of a proper edge computing simulator.
 
