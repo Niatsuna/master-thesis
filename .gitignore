@@ -19,7 +19,7 @@
 *.run.xml
 
 !writing/kcss/*
-!presentations/*
+!presentation/*
 !writing/proposal/img/*
 !writing/thesis/img/*
 
