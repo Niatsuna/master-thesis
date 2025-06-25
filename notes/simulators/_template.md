@@ -11,6 +11,7 @@
 - Simulation Type:
 - Focus: 
 - Design Philosophy:
+- Architecture:
 
 ### Reported Use Cases
 - Primary:
