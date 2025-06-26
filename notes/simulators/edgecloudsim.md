@@ -73,6 +73,7 @@
 - Installation Complexity: Medium
 - Platform Support: Cross-platform (via Java)
 - Documentation Quality: Good (Github documentation, research papers, example scenarios)
+  - Diclaimer: The installation guide is a youtube series (?)
 ### Programming Interface
 - Configuration Method: XML configuration files + Java code for custom scenarios
 - API Design: Object-oriented CloudSim-based API with modular components for edge-specific functionality
