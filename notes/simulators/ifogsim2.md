@@ -132,3 +132,4 @@
 
 ## Additional Notes
 - No native Kubernetes support, most-comprehensive simulator for edge-fog computing, high focus on IoT devices, very simplified energy consumption metric
+- Claiming a 28% better utilization of memory than e.g. EdgeCloudSim
