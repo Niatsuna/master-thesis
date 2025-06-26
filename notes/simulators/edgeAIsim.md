@@ -72,6 +72,8 @@
 ### Setup & Installation
 - Dependencies: Python 3.7+, PyTorch, EdgeSimPy, NumPy, specialized AI libraries
 - Installation Complexity: Medium to High (multiple AI dependencies, PyTorch installation)
+  - Disclaimer: The Installation guide is not up to date as PyTorch had some changes.
+    Works with: Python 3.12.0, torch (new name of pytorch) and all latest versions of the packages
 - Platform Support: Cross-platform (Python-based with PyTorch compatibility)
 - Documentation Quality: Good (GitHub documentation, research paper, code examples)
 ### Programming Interface
