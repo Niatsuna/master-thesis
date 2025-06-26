@@ -13,20 +13,20 @@
   - research diversity (different research niches and methodologies)
 ### Core Simulators - Most cited & widely adopted
 - iFogSim2
-  - [Paper](https://arxiv.org/abs/2109.05636) & [Github][https://github.com/Cloudslab/iFogSim]
+  - [Paper](https://arxiv.org/abs/2109.05636) & [Github](https://github.com/Cloudslab/iFogSim)
 - EdgeCloudSim
-  - [Paper](https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3493) & [Github][https://github.com/purdue-dcsl/EdgeCloudSim]
+  - [Paper](https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3493) & [Github](https://github.com/purdue-dcsl/EdgeCloudSim)
 - YAFS (Yet Another Fog Simulator)
-  - [Paper](https://ieeexplore.ieee.org/document/8758823) & [Github][https://github.com/acsicuib/YAFS]
+  - [Paper](https://ieeexplore.ieee.org/document/8758823) & [Github](https://github.com/acsicuib/YAFS)
 
 ### Established & Specialized Tools
 - EdgeAISim
-  - [Paper](https://arxiv.org/abs/2310.05605) & [Github][https://github.com/MuhammedGolec/EdgeAISIM]
+  - [Paper](https://arxiv.org/abs/2310.05605) & [Github](https://github.com/MuhammedGolec/EdgeAISIM)
 - MockFog 2.0
-  - [Paper](https://arxiv.org/abs/2009.10579) & [Github][https://github.com/MoeweX/MockFog2]
+  - [Paper](https://arxiv.org/abs/2009.10579) & [Github](https://github.com/MoeweX/MockFog2)
 - FogNetSim++
-  - [Paper](https://www.researchgate.net/publication/328484070_FogNetSim_A_Toolkit_for_Modeling_and_Simulation_of_Distributed_Fog_Environment) & [Github][https://github.com/rtqayyum/fognetsimpp]
+  - [Paper](https://www.researchgate.net/publication/328484070_FogNetSim_A_Toolkit_for_Modeling_and_Simulation_of_Distributed_Fog_Environment) & [Github](https://github.com/rtqayyum/fognetsimpp)
 - EmuFog
-  - [Paper](https://ieeexplore.ieee.org/document/8368525) & [Github][https://github.com/emufog/emufog]
+  - [Paper](https://ieeexplore.ieee.org/document/8368525) & [Github](https://github.com/emufog/emufog)
 - FogTorch
-  - [Paper](https://ieeexplore.ieee.org/document/7919155) & [Github][https://github.com/di-unipi-socc/FogTorch]
+  - [Paper](https://ieeexplore.ieee.org/document/7919155) & [Github](https://github.com/di-unipi-socc/FogTorch)
