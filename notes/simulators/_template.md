@@ -12,6 +12,9 @@
 - Focus: 
 - Design Philosophy:
 - Architecture:
+  <!---
+  Describe architecture here
+  --->
 
 ### Reported Use Cases
 - Primary:
@@ -36,13 +39,13 @@
 - Task Depedencies:
 - Data Flow:
 - Service Migration:
+### Fault Tolerance
 ### Metrics
-- Latency:
-- Energy Consumption:
-- Resource Utilization:
-- Network Performance:
-- Cost:
-- Service:
+<!---
+List each metric with a definition
+--->
+
+#### Others
 - Custom:
 - Output Format:
 
@@ -70,19 +73,5 @@
 
 ---
 
-## Assessment
-### Strengths
-### Weaknesses
-### Best Use Cases
-### Worst Use Cases (Avoid when)
-### Simple Rating (1 - 5)
-- Functionality : 
-- Usability:
-- Performance:
-- Documentation:
-- Community:
-- Overall:
-
----
-
 ## Additional Notes
+<!--- Some additional notes that are not already mentioned above --->
