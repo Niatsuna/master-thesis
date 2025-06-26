@@ -119,4 +119,5 @@
 ---
 
 ## Additional Notes
-No native Kubernetes support, go-to simulator for MEC research, easy to extend
+No native Kubernetes support, go-to simulator for MEC research, easy to extend,
+very simplified energy consumption metric
