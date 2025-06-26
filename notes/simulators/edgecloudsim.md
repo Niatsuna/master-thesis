@@ -63,6 +63,7 @@
 - **Task Failure Rate**: % of tasks that fail due to resource constraints or timeouts
 - **Network Congestion Failures**: Tasks dropped due to network capacity limits
 - **Service Availability**: Percentage of time services are accessible and responsive
+#### Others
 - **Custom Metrics**: Allowed through simulation event hooks, user-defined calculations can access device states, network conditions and application metrics
 - **Output Format**: CSV export, Visual Charts (MATLAB Integration), Statistical reports (mean, median, 95th percentile)
 
