@@ -15,7 +15,7 @@
 - iFogSim2
   - [Paper](https://arxiv.org/abs/2109.05636) & [Github](https://github.com/Cloudslab/iFogSim)
 - EdgeCloudSim
-  - [Paper](https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3493) & [Github](https://github.com/purdue-dcsl/EdgeCloudSim)
+  - [Paper](https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3493) & [Github](https://github.com/CagataySonmez/EdgeCloudSim/tree/master)
 - YAFS (Yet Another Fog Simulator)
   - [Paper](https://ieeexplore.ieee.org/document/8758823) & [Github](https://github.com/acsicuib/YAFS)
 
