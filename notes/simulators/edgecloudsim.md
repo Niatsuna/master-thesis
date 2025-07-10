@@ -106,7 +106,7 @@
 ### Custom Metrics & Extensibility
 - **Custom Metric Support**: Yes, via simulation event hooks and user-defined calculations
 - **Metric Aggregation**: Statistical summaries (mean, median, 95th percentile)
-- **Output Formats**: CSV export, Visual Charts (MATLAB Compatible), Statistical reports
+- **Output Formats**: log files, Visual Charts (MATLAB Compatible), Statistical reports
 
 ---
 
@@ -154,7 +154,7 @@
 - **Real-world Data Integration**: Limited support for importing real-world mobility traces
 - **Data Pattern Support**: Periodic task generation, bursty traffic patterns, random mobilityp patterns
 - **Input Data**: XML configurations files Java parameter settings
-- **Output Data**: CSV files, MATLAB-compatible formats
+- **Output Data**: Log files
 - **Trace Generation**: Synthetic mobility traces, Poisson-based task generation
 - **Data Validation**: Basic input validation for configuration parameters
 
@@ -177,6 +177,8 @@
 - Limited built-in support for modern AI/ML workloads
 - Single-threaded execution limits scalability
 - No security or privacy modeling capabilities
+- No energy modeling
+- Output is .log file formatted and therefore needs a translator for csv for matlab
 
 ### Best Use Cases
 - MEC research and evaluation
