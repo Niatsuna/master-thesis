@@ -61,26 +61,10 @@
 ---
 
 ## Metrics & Evaluation
-
-### Performance Metrics
-<!-- List each metric with clear definition and measurement approach -->
-- **Latency Metrics**: 
-  -
-- **Throughput Metrics**:
-  -
-- **Resource Metrics**:
-  -
-- **Quality of Service**:
-  -
-- **Cost Metrics**:
-  - 
-- **Additional Metrics**:
-  - 
-
-### Custom Metrics & Extensibility
-- **Custom Metric Support**: <!-- Can users define new metrics? -->
-- **Metric Aggregation**: <!-- Real-time / Batch / Statistical summaries -->
-- **Output Formats**: <!-- CSV / JSON / XML / Database / Visualization -->
+- **Metric Architecture**: <!-- Scenario-Level, Simulator-Level, Application-Level -->
+- **Output Configurability**: <!-- Configurable or not ? Standard Output -->
+- **Custom Metric Support**: <!-- Can users define new metrics ? If yes, how hard is it ?-->
+- **Notes**: <!-- Additionaly Notes for metrics (Optional) -->
 
 ---
 

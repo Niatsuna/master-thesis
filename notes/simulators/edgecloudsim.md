@@ -62,51 +62,10 @@
 ---
 
 ## Metrics & Evaluation
-
-### Performance Metrics
-<!-- List each metric with clear definition and measurement approach -->
-> **Disclaimer**: The Paper itself doesn't present the default metrics but the metrics can be found in the logger (SimLogger.java). 
-> Other papers also mentioned derived metrics that are calculated metrics based on the 43 implemented default metrics from the logger, like Failure, Success and Completion Rates for Tasks as well as Response Time.
-
-- **Latency Metrics**: 
-  - **Network Delay** : Overall network delay experienced by tasks (aggregated across all network types) as well as separated delay metrics for each network type (GSM/Cellular, WAN, MAN, WLAN)
-  - **Service Time**: Total time taken to service a task (includes processing + network delays) as well as seperated metrics for each layer (Cloud, Edge, Mobile)
-  - **Processing Time**: Pure computational time required to execute tasks (excluding network delays) as well as seperated metrics for each layer (Cloud, Edge, Mobile)
-- **Throughput Metrics**:
-  - **Completed Task** : Total number of tasks that were successfully completed during the simulation as well as separated metrics for each layer (Cloud, Edge, Mobile)
-  - **Failed Task**: Total number of tasks that failed during execution as well as separated metrics for each layer (Cloud, Edge, Mobile)
-  - **Uncompleted Task**: Total number of tasks that were not completed during the simulation as well as seprate metrics for each layer (Cloud, Edge, Mobile)
-  
-- **Resource Metrics**:
-  - **Bandwidth Usage Metrics**: Metrics for Bandwidth utilization for all types (GSM/cellular, WAN, MAN, WLAN)
-  - **Failed Tasks Due To VM Capacity**: Total number of tasks that failed due to insuffiecient VM capacity as well as separated metrics for each layer (Cloud, Edge, Mobile)
-  - **Failed Tasks Due to Bandwith**: Total number of taskt that failed due to insufficient bandwith as well as seprated metrics for each type (GSM/Cellular, WAN, MAN, WLAN)
-  
-- **Quality of Service**:
-  - **QoE**: Quality of Experience metric measuring user satisfaction with service delivery
-    > According to Sample_app5/VehicularMobileDeviceManager:
-    >
-    > QoE starts here at a value of 100.
-    > If the service takes too much time the QoE decreases based on a set sensitivity and the factual
-    > difference of QoE in between the maxDelay and the doubled maxDelay
-    >
-    > 1. Perfect Performance: serviceTime <= maxDelay (QoE = 100)
-    > 2. Linear Degradation: serviceTime > maxDelay, QoE decreases linearly based on the excess delay
-    > 3. Minimum Floor: QoE >= 100 * (1 - delaySensitivity) (Performance Floor)
-    > 4. Saturation Point: At serviceTime = 2 * maxDelay, QoE reaches its minimum and stays constant
-  - **Failed Tasks Due to Mobility**: Number of tasks that failued due-to mobility-related issues (e.g. out-of-range)
-  - **Rejected Tass Due to WLAN Range**: Number of tastks rejected due to being outside WLAN coverage range
-  
-- **Cost Metrics**:
-  - **Task execution cost**: Financial cost associated with task execution (e.g. Cloud resource usage costs)
-- **Additional Metrics**:
-  - **Orchestrator Overhead**: Overhead time/cost introduced by the orchestration system for task scheduling and management
-  
-
-### Custom Metrics & Extensibility
-- **Custom Metric Support**: Yes, via simulation event hooks and user-defined calculations
-- **Metric Aggregation**: Statistical summaries (mean, median, 95th percentile)
-- **Output Formats**: log files, Visual Charts (MATLAB Compatible), Statistical reports
+- **Metric Architecture**: Simulator-Level (centralized in SimLogger.java)
+- **Output Configurability**: Limited (console output, .log files)
+- **Custom Metric Support**: Yes, but requires modifying SimLogger.java
+- **Notes**: 43 predefined metrics available, derived metrics often calculated in research papers
 
 ---
 
