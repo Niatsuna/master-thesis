@@ -66,7 +66,7 @@
 ### Performance Metrics
 <!-- List each metric with clear definition and measurement approach -->
 > **Disclaimer**: The Paper itself doesn't present the default metrics but the metrics can be found in the logger (SimLogger.java). 
-> Other papers also mentioned derived metrics that are calculated metrics based on the 43 implemented default metrics from the logger.
+> Other papers also mentioned derived metrics that are calculated metrics based on the 43 implemented default metrics from the logger, like Failure, Success and Completion Rates for Tasks as well as Response Time.
 
 - **Latency Metrics**: 
   - **Network Delay** : Overall network delay experienced by tasks (aggregated across all network types) as well as separated delay metrics for each network type (GSM/Cellular, WAN, MAN, WLAN)
