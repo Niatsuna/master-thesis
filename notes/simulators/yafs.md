@@ -1,135 +1,173 @@
 # YAFS (Yet Another Fog Simulator)
 ## Basic Information
-- Programming Language: Python
-- Base: SimPy
-- First Published: July 2019
-- Last Updated (Access: June 2025): June 2022
-- [Paper](https://ieeexplore.ieee.org/document/8758823)
-- [Github](https://github.com/acsicuib/YAFS)
+- **Programming Language**: Python 2.7
+- **Base Framework**: SimPy (discrete event simulator)
+- **First Published**: July 2019
+- **Last Updated** (Access: July 2025): June 2022
+- [Paper](https://ieeexplore.ieee.org/document/8758823) | [Code](https://github.com/acsicuib/YAFS)
+- **Development Status**: Inactive
 
 ### Core Architecture & Design
-- Simulation Type: Discrete event simulation (SimPy-based)
-- Focus: Fog Computing, IoT scenarios, Dynamic topologies, Complex Network Analysis
-- Design Philosophy: Highly customizable and adaptable simulator based on Complex Network theory for dynamic fog computing environments with JSON-based configuration
-- Architecture: Modular design with dynamic components
-  - **Dynamic Topology Management**: Entities and network links can be created or removed during simulation runtime
-  - **Dynamic Message Sources**: Sensors can generate messages from different access points throughout the simulation
-  - **Complex Network Integration**: Network topology based on Complex Network theory enabling topological feature analysis
-  - **NoSQL Database Storage**: Raw format results storage for flexible statistical analysis
-  - **Runtime Algorithm Execution**: Placement allocation and orchestration algorithms run continuously during simulation
-
-### Reported Use Cases
-- Primary: IoT scenarios in fog computing, Dynamic resource placement, Network topology analysis
-- Academic: Service placement policies, fog computing optimization, complex network analysis in distributed systems
-- Industrial: Smart city applications, IoT deployments, fog-based service architectures
+- **Simulation Type**: Discrete event simulation
+- **Focus**: IoT, Fog Computing, Edge Computing, Resource allocation
+- **Design Philosophy**: Lightweight, robust and highly configurable simulator based on Complex Network theory with minimal class structure (only 7 classes)
+- **Architecture Pattern**: Modular with minimal class architecture for low learning curve
+- **Key Innovation / Differentiator**: Complex Network theory integration for topology modeling, dynamic control of all processes, customized distribution support
 
 ---
 
 ## Functional Capabilities
-### Network Modeling
-- Topology Support: Dynamic multi-tier topologies based on Complex Network theory, hierarchical fog architectures
-- Network Types: Fog networks, IoT wireless networks, backbone connections
-- Mobility Support: Advanced mobility modeling with GPX trace support, dynamic endpoint movement
-- Network Delays: Complex network-based delay modeling with topological considerations
-### Device & Resource Modeling
-- Device Types: IoT sensors, Fog nodes, Cloud servers, Mobile endpoints, Network gateways
-- Resource Modeling: CPU, Memory, Storage, Network bandwidth, Custom resource attributes
-- Heterogeneity: Full support for heterogeneous fog node configurations
-- Scaling: Designed for large-scale IoT and fog deployments
-### Application Modeling
-- Application Types: IoT applications, Fog services, Distributed applications, Mobile applications
-- Task Dependencies: Complex application workflows with service dependencies
-- Data Flow: Message-based communication, sensor data streams, request-response patterns
-- Service Migration: Dynamic service migration with placement optimization algorithms
-### Fault Tolerance
-- Dynamic topology changes during runtime (node failures, network partitions)
-- Service migration during failures
-- Network link failures and recovery
-- Custom failure modeling through event-driven mechanisms
-### Metrics
-- **Service Response Time**: End-to-end time from request initiation to response completion
-- **Network Transmission Delay**: Time for data transmission across fog network tiers
-- **Service Placement Efficiency**: Optimization metrics for service allocation decisions
-- **Resource Utilization**: CPU, memory, and network resource usage across fog nodes
-- **Network Topology Metrics**: Complex network centrality measures, clustering coefficients, path lengths
-- **Service Migration Overhead**: Cost and time associated with dynamic service migrations
-- **Message Transmission Statistics**: Volume and patterns of IoT message flows
-- **Geographic Performance**: Location-based performance metrics for mobile scenarios
-- **Service Availability**: Uptime and accessibility metrics for fog services
-- **Dynamic Workload Metrics**: Performance under varying IoT workload conditions
-- **Energy Consumption**: Basic energy modeling for fog nodes and IoT devices
-- **Network Congestion**: Utilization and congestion metrics across network links
-- **Service Discovery Time**: Time for service location and binding in dynamic topologies
-- **Handoff Performance**: Metrics for mobile endpoint transitions between fog nodes
-- **Complex Network Indicators**: Betweenness centrality, closeness centrality, degree distribution
+- **Topology Support**: Complex Networks theory-based modeling (any topology possible)
+- **Network Types**: Generic network modeling through Complex Networks
+- **Protocol Support**: Generic protocol abstraction
+- **Mobility Support**: Dynamic topology changes, node mobility through topology evolution
+- **Network Delays**: Configurable network delays through link properties
+- **Bandwidth Modeling**: Configurable bandwidth through link attributes
+- **Communication Patterns**: Customizable routing through selection algorithms
 
-#### Others
-- **Custom Metrics**: Extensible through Python event hooks and custom analysis functions
-- **Output Format**: NoSQL database (raw format), CSV export, JSON results, statistical summaries, network visualization support
+### Device & Infrastructure Modeling
+- **Device Types**: Generic nodes (network devices, cloud abstractions, software modules, workloads)
+- **Resource Modeling**: Configurable resource modeling through node attributes
+- **Heterogeneity Support**: Full heterogeneity support through node properties
+- **Scaling Capabilities**: Scalable through Complex Networks theory
+- **Hardware Abstraction**: Generic hardware abstraction through node modeling
+
+### Application & Workload Modeling
+- **Application Types**: Generic application modeling, IoT applications, fog services
+- **Task Dependencies**: Configurable through application module dependencies
+- **Data Flow Patterns**: Customizable data flow through selection algorithms
+- **Service Migration**: Dynamic service placement through placement algorithms
+- **Workload Generation**: Customizable distributions including timestamp arrays
+- **QoS Requirements**: Configurable QoS through custom policies
+
+### Fault Tolerance & Reliability
+- **Failure Models**: Link failures, node failures through dynamic topology control
+- **Fault Detection**: Event-based detection through simulation events
+- **Recovery Strategies**: Configurable through custom policies
+- **Reliability Metrics**: Accessible through raw event data
+
+### Security & Privacy
+- **Security Modeling**: Not explicitly supported
+- **Privacy Mechanisms**: Not explicitly supported
+- **Attack Simulation**: Not explicitly supported
+- **Security Metrics**: Not explicitly supported
+
+### Energy & Sustainability
+- **Energy Modeling**: Not explicitly supported
+- **Power States**: Not explicitly supported
+- **Energy Harvesting**: Not explicitly supported
+- **Carbon Footprint**: Not explicitly supported
+
+---
+
+## Metrics & Evaluation
+- **Metric Architecture**: Simulator-Level (raw event data accessible from any point)
+- **Output Configurability**: Highly configurable (raw event data format)
+- **Custom Metric Support**: Yes, full access to all simulation events and data
+- **Notes**: No hidden variables, complete transparency of simulation data
+
+---
 
 ## Technical Implementation
-### Setup & Installation
-- Dependencies: Python 3.6+, SimPy, NetworkX, geopy (for mobility), NoSQL database
-- Installation Complexity: Medium (pip-based installation, multiple dependencies)
-- Platform Support: Cross-platform (Python-based)
-- Documentation Quality: Excellent (comprehensive documentation, tutorials, user guide, API reference)
+
+### Setup & Deployment
+- **Dependencies**: Python 2.7, SimPy, NetworkX, other Python libraries
+- **Installation Complexity**: Easy (manual download and installation)
+- **Platform Support**: Cross-platform (Python-based)
+- **Documentation Quality**: Good (tutorial, architecture details, examples, API reference)
+- **Community Support**: Limited (inactive development)
+
 ### Programming Interface
-- Configuration Method: JSON-based configuration files + Python scripting for custom scenarios
-- API Design: Object-oriented Python API with modular components, event-driven architecture
-- Extensibility: Highly extensible through Python inheritance, custom placement algorithms, orchestration policies
-- Example Scenarios: Rich set of examples (basic, service movement, topology changes, user movement, dynamic workloads)
+- **Configuration Method**: Pure Python programming
+- **API Design**: Object-oriented with minimal class structure (7 classes)
+- **Extensibility**: Highly extensible through custom policies and algorithms
+- **Integration Capabilities**: Python ecosystem integration
+- **Example Scenarios**: Multiple examples provided
+
 ### Performance & Scalability
-- Simulation Speed: Optimized for dynamic fog computing scenarios
-- Memory Usage: Efficient memory management with NoSQL storage
-- Parallelization: Single-threaded discrete event simulation
-- Large-scale Support: Supports hundreds of IoT devices and multiple fog nodes
+- **Simulation Speed**: Efficient discrete event simulation
+- **Memory Efficiency**: Lightweight design
+- **Parallelization**: Single-threaded (SimPy limitation)
+- **Large-scale Support**: Scalable through Complex Networks
+- **Optimization Features**: Raw event access for optimization
+
 ### Validation & Accuracy
-- Validation Methods: Validated against theoretical models, published in peer-reviewed journals
-- Accuracy Claims: Realistic modeling of fog computing environments with complex network theory integration
-- Known Limitations: Single-threaded execution, discrete event simulation constraints
-- Calibration Requirements: Requires proper JSON configuration and network topology parameters
+- **Validation Methods**: Comparative studies with iFogSim
+- **Accuracy Claims**: Validated against other simulators
+- **Benchmarking**: Performance comparison studies available
+- **Known Limitations**: Python 2.7 dependency, single-threaded execution
+- **Calibration Requirements**: Manual configuration of network and resource parameters
+
+---
+## Research & Development Support
+
+### Experimental Design
+- **Scenario Management**: Python-based scenario configuration
+- **Reproducibility**: Deterministic execution through SimPy
+- **Statistical Analysis**: Raw data access for custom analysis
+- **Visualization**: Custom visualization through Python libraries
+
+### Data Generation & Management
+- **Synthetic Data Generation**: Customizable distributions, timestamp arrays
+- **Real-world Data Integration**: Python-based data integration capabilities
+- **Data Pattern Support**: Customizable patterns through distributions
+- **Input Data**: Python configuration, custom data formats
+- **Output Data**: Raw event data format
+- **Trace Generation**: Custom trace generation capabilities
+- **Data Validation**: Python-based validation
 
 ---
 
 ## Assessment
+
 ### Strengths
-- **Unique Complex Network Integration**: Only simulator leveraging complex network theory for topology analysis
-- **Dynamic Topology Support**: Runtime creation/removal of network entities and links
-- **Excellent Documentation**: Comprehensive tutorials, examples, and API documentation
-- **JSON-based Configuration**: User-friendly configuration without deep programming knowledge
-- **Flexible Architecture**: Highly customizable through Python scripting
-- **Academic Foundation**: Strong research backing with multiple publications
-- **Mobility Support**: Advanced mobility modeling with GPX trace integration
-- **NoSQL Storage**: Flexible result storage for statistical analysis
-- **Open Source**: MIT license with active community support
+- Extremely lightweight and simple architecture (only 7 classes)
+- Complex Network theory integration for advanced topology modeling
+- Highly configurable and extensible
+- Full transparency of simulation data
+- Low learning curve
+- Dynamic control of all simulation aspects
+- Strong theoretical foundation with Complex Networks
+- Python ecosystem integration
 
 ### Weaknesses
-- **Limited AI/ML Support**: No built-in support for modern AI workloads or machine learning models
-- **Single-threaded**: No parallel execution capabilities
-- **Python Performance**: May be slower than Java-based simulators for large-scale scenarios
-- **Complexity**: Requires understanding of complex network theory for full utilization
-- **Limited Energy Modeling**: Basic energy consumption modeling
-- **Dependency Heavy**: Multiple Python dependencies required for full functionality
+- Limited to Python 2.7 (deprecated Python version)
+- Inactive development
+- No built-in energy modeling
+- No security or privacy features
+- Limited documentation compared to larger simulators
+- Requires significant programming knowledge
+- No GUI or visual configuration tools
+- Single-threaded execution
 
 ### Best Use Cases
-- IoT scenarios requiring dynamic topology changes
-- Fog computing research with complex network analysis
-- Service placement algorithm development and evaluation
-- Mobile fog computing with mobility requirements
-- Research requiring topological feature analysis
-- Dynamic workload scenarios with runtime changes
-- Academic research in fog computing architectures
+- Research requiring custom algorithms and policies
+- Complex network topology analysis
+- Fog computing resource allocation studies
+- Scenarios requiring high customization
+- Academic research with programming focus
+- Prototype development for new fog computing concepts
 
 ### Worst Use Cases (Avoid when)
-- Pure cloud computing simulations without fog components
-- AI/ML-specific edge computing research
-- Real-time simulation requirements
-- Massive parallel processing needs
-- Simple static topology scenarios
-- Performance-critical simulations requiring high execution speed
-- Scenarios not requiring complex network analysis
+- Production or commercial environments
+- Large-scale parallel simulations
+- Energy-focused studies
+- Security-focused research
+- GUI-based simulation requirements
+- Modern Python 3.x development environments
+- Scenarios requiring extensive built-in features
+
+### Maturity Assessment
+- **Development Status**: Inactive
+- **Industry Adoption**: Limited academic adoption
+- **Publication Impact**: Moderate citation impact
+- **Future Roadmap**: No apparent future development
 
 ---
 
 ## Additional Notes
-No native Kubernetes support, unique complex network theory integration, excellent for research but limited for AI/ML workloads, very flexible configuration through JSON
+- Based on SimPy discrete event simulation framework
+- Emphasizes simplicity and customization over built-in features
+- Requires Python 2.7 which limits modern adoption
+- Strong theoretical foundation but limited practical features
+- Excellent for researchers who prefer building from scratch
