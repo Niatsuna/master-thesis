@@ -6,7 +6,7 @@
 - **Last Updated** (Access: July 2025): February 2024
 - [Paper](https://arxiv.org/abs/2310.05605) | [Code](https://github.com/MuhammedGolec/EdgeAISIM)
 - **Development Status**: Inactive* 
- > **Note:** It is a very small project is relatively new. But no development was spotted in the last few months (around a year)
+ > **Note:** It is a very small project and relatively new. But no development was spotted in the last few months (around a year ago was the last activity)
 
 ### Core Architecture & Design
 - **Simulation Type**: Discrete event simulation
