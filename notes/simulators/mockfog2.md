@@ -1,12 +1,14 @@
 # MockFog 2.0
 ## Basic Information
+ > **Disclaimer**: MockFog 2.0 is not a simulator but an emulator! 
+ > It mimicks (replica) a real system using actual hardware/software components, rather than mimics the behaivour of a real system!
 - **Programming Language**: JavaScript (Node.js)
 - **Base Framework**: Custom (Cloud-based emulation)
 - **First Published**: September 2021
   > **MockFog 1.0**: August 2019
 - **Last Updated** (Access: July 2025): June 2019
 - [Paper](https://ieeexplore.ieee.org/document/9411706/) | [Code](https://github.com/MoeweX/MockFog2)
-- **Development Status**: Active
+- **Development Status**: Inactive
 
 ### Core Architecture & Design
 - **Simulation Type**: Cloud-based emulation (not traditional simulation)
@@ -128,7 +130,6 @@
 - **Automated experiment orchestration** reduces manual effort
 - **Cloud-based scaling** allows testing at realistic scales
 - **Full application lifecycle management** from deployment to results collection
-- **Active development** with ongoing feature additions
 - **Comprehensive documentation** and examples
 
 ### Weaknesses
@@ -160,7 +161,7 @@
 - **Research requiring custom hardware modeling**
 
 ### Maturity Assessment
-- **Development Status**: Active development
+- **Development Status**: Inactive development
 - **Industry Adoption**: Growing adoption in research and industry
 - **Publication Impact**: Well-cited in fog computing research
 - **Future Roadmap**: Continuous development with new features planned
