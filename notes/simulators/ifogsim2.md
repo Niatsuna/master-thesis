@@ -1,135 +1,177 @@
 # iFogSim2
 ## Basic Information
-- Programming Language: Java
-- Base: CloudSim
-- First Published: August 2022 (iFogSim1: September 2017)
-- Last Updated (Access: June 2025): August 2021 
-- [Paper](https://arxiv.org/abs/2109.05636)
-- [Github](https://github.com/Cloudslab/iFogSim)
+- **Programming Language**: Java
+- **Base Framework**: CloudSim
+- **First Published**: August 2022
+  > **iFogSim (v1)**: September 2017
+- **Last Updated** (Access: June 2025): August 2021
+- [Paper](https://arxiv.org/abs/2109.05636) | [Code](https://github.com/Cloudslab/iFogSim)
+- **Development Status**: Sporadic (Updated only the licence this year)
 
 ### Core Architecture & Design
-- Simulation Type: Event-driven discrete simulation
-- Focus: IoT, Edge/Fog Computing, Microservice Management, Service Migration
-- Design Philosophy: Modular architecture designed to overcome limitations of monolithic simulators, supporting real-world datasets and dynamic service management
-- Architecture: Modular design with separate components for mobility management, microservice orchestration, and dynamic clustering
-  - **Mobility Management**: Supports real mobility datasets and random mobility models with service migration capabilities
-  - **Microservice Orchestration**: Dynamic scaling and placement of microservices across multi-tier infrastructure
-  - **Dynamic Distributed Clustering**: Adaptive cluster formation for Edge/Fog nodes
-  - **Service Migration**: Cross-tier service migration with placement policies
-
-### Reported Use Cases
-- Primary: IoT applications, Edge/Fog computing scenarios, Microservice deployment and management
-- Academic: Service migration research, clustering algorithms, microservice orchestration, mobility-aware computing
-- Industrial: Smart healthcare systems, crowd-sensing applications, audio translation services, CPS applications
+- **Simulation Type**: Event-driven simulation
+- **Focus**: IoT, Mobile Edge Computing, Fog Computing, General Edge Computing, Microservices
+- **Design Philosophy**: Extended CloudSim-based framework designed for comprehensive Edge/Fog computing scenarios with focus on mobility, clustering and microservice orchestration
+- **Architecture Pattern**: Modular (Extended with three new components: Mobility, Clustering, Microservices)
+- **Key Innovation / Differentiator**: Advanced mobility support with real datasets, microservice orchestration across multi-tier infrastructure, dynamic distributed clustering, service migration management
 
 ---
 
 ## Functional Capabilities
-### Network Modeling
-- Topology Support: Multi-tier hierarchical (Cloud-Fog-Edge-IoT), flexible topology configuration
-- Network Types: Various network types including cellular, WiFi, wired connections
-- Mobility Support: Advanced mobility modeling with real dataset support and random mobility models
-- Network Delays: Realistic network latency modeling between different tiers
-### Device & Resource Modeling
-- Device Types: IoT sensors, Edge devices, Fog nodes, Cloud data centers, Mobile devices
-- Resource Modeling: CPU (MIPS), Memory (RAM), Storage, Network bandwidth, Battery (for mobile devices)
-- Heterogeneity: Support for heterogeneous device configurations across different tiers
-- Scaling: Designed for large-scale IoT and Edge deployments
-### Application Modeling
-- Application Types: IoT applications, Microservices, Traditional monolithic applications, CPS applications
-- Task Dependencies: Complex application workflows with inter-service dependencies
-- Data Flow: Request-response patterns, stream processing, sensor data flows
-- Service Migration: Advanced service migration across multi-tier infrastructure with placement policies
-### Fault Tolerance
-- Mobility-aware fault modeling with handoff scenarios
-- Service migration during node failures
-- Dynamic cluster reformation during failures
-- Resource constraint-based failure simulation
-### Metrics
-- **End-to-end Application Latency**: Total time from request initiation to response completion across all tiers
-- **Network Transmission Delay**: Time taken for data transmission between different network tiers (IoT-Edge-Fog-Cloud)
-- **Service Response Time**: Time from service request to service response delivery
-- **Migration Latency**: Time overhead incurred during service migration between nodes
-- **CPU Utilization**: Percentage of processing capacity used across all tiers (MIPS consumed/total MIPS available)
-- **Memory Usage**: RAM consumption patterns across fog/edge nodes and IoT devices
-- **Network Bandwidth Consumption**: Amount of network bandwidth utilized for data transmission (bytes/second)
-- **Energy Consumption**: Power consumption modeling for battery-powered IoT and mobile devices (simplified linear model)
-- **Network Usage Statistics**: Total data volume transmitted across different network segments
-- **Data Transmission Volume**: Total bytes transferred between different infrastructure tiers
-- **Network Congestion**: Network utilization measured against maximum capacity with congestion indicators
-- **Inter-tier Communication Overhead**: Communication cost and frequency between Cloud-Fog-Edge-IoT tiers
-- **Handoff Frequency**: Number of network handoffs per mobile device per time unit during mobility
-- **Service Migration Success Rate**: Percentage of successful service migrations out of total migration attempts
-- **Location-based Performance**: Performance metrics correlated with geographical positions and mobility patterns
-- **Service Availability**: Percentage of time services remain accessible and responsive to requests
-- **Cluster Formation Efficiency**: Effectiveness metrics for dynamic distributed clustering algorithms
-- **Load Balancing Effectiveness**: Distribution evenness of workload across available resources
-- **Microservice Orchestration Overhead**: Resource and time overhead for microservice management and coordination
-#### Others
-- **Custom Metrics**: User-defined performance indicators through extensible measurement framework
-- **Output Format**: CSV files, statistical summaries, graphical visualization support, custom reporting capabilities
+- **Topology Support**: Hierachical (Multi-tier: Cloud-Fog-Edge-Device), Custom topologies
+- **Network Types**: WiFi, Cellular, Ehternet, Custom network types
+- **Protocol Support**: TCP/IP, HTTP, MQTT, Custom protocols
+- **Mobility Support**: Advanced mobility models with real mobility datasets support
+- **Network Delays**: Propagation, Queueing, Processing, Transmission delays
+- **Bandwidth Modeling**: Variable bandwidth with congestion awareness
+- **Communication Patterns**: Unicast, Multicast, Publish-Subscribe, Request-Response
+
+### Device & Infrastructure Modeling
+- **Device Types**: IoT sensors, Actuators, Fog nodes, Edge servers, Cloud datacenters, Mobile devices
+- **Resource Modeling**: CPU (MIPS), Memory, Storage, Network bandwidth, Battery life
+- **Heterogeneity Support**: Support for heterogeneous device capabilities and performance characteristics
+- **Scaling Capabilities**: Large-scale support for thousands of devices and multiple fog/edge nodes
+- **Hardware Abstraction**: Generic hardware models with MIPS-based processing and configurable resource constraints
+
+### Application & Workload Modeling
+- **Application Types**: Microservices, Monolithic applications, IoT applications, Real-time applications
+- **Task Dependencies**: DAG-based application modeling, Sequential and parallel task dependencies
+- **Data Flow Patterns**: Stream processing, Request-response, Publish-Subscribe patterns
+- **Service Migration**: Live migration, Service replication, Dynamic service placement
+- **Workload Generation**: Synthetic workload generation, Real-world trace-based workloads
+- **QoS Requirements**: Latency, Throughput, Reliability, Energy efficiency constraints
+
+### Fault Tolerance & Reliability
+- **Failure Models**: Device failures, Network failures, Service failures, Mobility-related failures
+- **Fault Detection**: Monitoring mechanicsms, Heartbeat protocols, Timeout-based detection
+- **Recovery Strategies**: Service migration, Redundancy, Clustering-based recovery
+- **Reliability Metrics**: Service availability, Failure rate, Recovery time, Fault tolerance effectiveness
+
+### Security & Privacy
+- **Security Modeling**: Basic security modeling capabilities
+- **Privacy Mechanisms**: Limited privacy support
+- **Attack Simulation**: Not excplicitly supported
+- **Security Metrics**: Basic security-related metrics
+
+### Energy & Sustainability
+- **Energy Modeling**: Device-level energy consumption modeling
+- **Power States**: Active, Idle Sleep states
+- **Energy Harvesting**: Not excplicitly supported
+- **Carbon Footprint**: Not excplicitly supported
+
+---
+
+## Metrics & Evaluation
+- **Metric Architecture**: Application-Level (distributed across example applications)
+- **Output Configurability**: Limited (console output only by default)
+- **Custom Metric Support**: Yes, but requires implementing in each application
+- **Notes**: No standardized metric set, metrics vary by scenario/application
+
+---
 
 ## Technical Implementation
-### Setup & Installation
-- Dependencies: Java 8+, CloudSim 5, external JAR libraries included
-- Installation Complexity: Medium (Git-based installation, IDE setup required)
-- Platform Support: Cross-platform (Java-based)
-- Documentation Quality: Good (GitHub documentation, research papers, tutorial examples)
+
+### Setup & Deployment
+- **Dependencies**: Java 8+, Eclipse IDE or IntelliJ IDEA (encouraged by README.md instructions)
+- **Installation Complexity**: Medium
+- **Platform Support**: Cross-platform (via Java)
+- **Documentation Quality**: Good (tutorials, examples and research papers)
+- **Community Support**: Active (mainted by University of Melbourne Cloud Computing Lab)
+
 ### Programming Interface
-- Configuration Method: Java-based configuration with programmatic setup
-- API Design: Object-oriented design with clear separation of concerns, modular components
-- Extensibility: Highly extensible with modular architecture, custom mobility models, placement policies
-- Example Scenarios: Multiple comprehensive examples (Healthcare, Crowd-sensing, Audio Translation)
+- **Configuration Method**: Java code configuration with XML support for topology definition
+- **API Design**: Object-oriented CloudSim-based API with extended modular components
+- **Extensibility**: Highly extensible through inheritance, interfaces and plugin architecture
+- **Integration Capabilities**: CloudSim compatibility, External tool intergation possible with manual implementation
+- **Example Scenarios**: Audio Translation, Healthcare, Crowd-sensing scenarios
+
 ### Performance & Scalability
-- Simulation Speed: Optimized for complex Edge/Fog scenarios with microservices
-- Memory Usage: Efficient memory management for large-scale deployments
-- Parallelization: Single-threaded discrete event simulation (CloudSim limitation)
-- Large-scale Support: Supports hundreds of IoT devices and multiple fog/edge nodes
+- **Simulation Speed**: Optimized for large-scale edge/fog computing scenarios
+- **Memory Efficiency**: Efficient memory management with optimized RAM usage
+  > **Note**: Claims 28% better memory usage than competitors (e.g. EdgeCloudSim) 
+- **Parallelization**: Single-threaded but optimized for performance
+- **Large-scale Support**: Thousands of devices and multiple fog/edge nodes
+- **Optimization Features**: Dynamic clustering, Caching mechanisms, Incremental simulation
+
 ### Validation & Accuracy
-- Validation Methods: Validated against theoretical models and real-world datasets
-- Accuracy Claims: Realistic modeling of Edge/Fog environments with support for actual mobility datasets
-- Known Limitations: Single-threaded execution, discrete event simulation constraints
-- Calibration Requirements: Requires proper configuration of mobility patterns, resource parameters, and service dependencies
+- **Validation Methods**: Empirical validation, Comparative studies with other simulators
+- **Accuracy Claims**: Realistic modeling of fog/edge environments with validated networking and mobility models
+- **Benchmarking**: Performance comparisons with existing simulators showing improved efficiency
+- **Known Limitations**: Single-threaded execution, Limited real-time capabilities
+- **Calibration Requirements**: Proper configuration of mobility patterns, network parameters and resource constraints
+
+---
+## Research & Development Support
+
+### Experimental Design
+- **Scenario Management**: Java-based scenario configuration, XML topology definition
+- **Reproducibility**: Deterministic execution with seed control
+- **Statistical Analysis**: Built-in statistical analysis capabilities
+- **Visualization**: Graphical visualization support, Real-time monitoring
+
+### Data Generation & Management
+- **Synthetic Data Generation**: Synthetic mobility patterns, Workload generation, Network condition simulation
+- **Real-world Data Integration**: Support for real mobility datasets, Trace file integration
+- **Data Pattern Support**: Periodic, Bursty,  Random patterns, Custom mobility patterns
+- **Input Data**: Java configuration, XML files, Real-world mobility traces
+- **Output Data**: Console output (default), Custom file format requires manual implementation
+- **Trace Generation**: Synthetic trace generation, Real-world trace integration
+- **Data Validation**: Input validation, Consistency cehcks, Parameter validation
 
 ---
 
 ## Assessment
+
 ### Strengths
-- **Comprehensive feature set**: Most feature-rich fog computing simulator available
-- **Advanced mobility support**: Real dataset integration and sophisticated mobility models
-- **Microservice orchestration**: Native support for modern microservice architectures
-- **Service migration**: Advanced migration capabilities across multi-tier infrastructure
-- **Modular architecture**: Overcomes limitations of monolithic simulator designs
-- **Active development**: Built on latest CloudSim 5 with ongoing updates
-- **Rich example scenarios**: Multiple realistic use cases provided
-- **Research-backed**: Strong academic foundation with peer-reviewed publications
+- Comprehensive fog/edge computing simulation capabilities
+- Advanced mobility support with real dataset integration
+- Microservice orchestration and management
+- Dynamic clustering mechanisms
+- Strong academic backing and research support
+- Excellent extensibility and customization options
+- Full compatibility with CloudSim 5
+- Well-documented with multiple example scenarios
 
 ### Weaknesses
-- **Complexity**: Steeper learning curve compared to simpler simulators
-- **Single-threaded**: Limited parallel execution capabilities
-- **Java dependency**: Requires Java development environment
-- **Documentation gaps**: Some advanced features may lack comprehensive documentation
-- **Setup complexity**: More complex installation process compared to plug-and-play alternatives
+- Single-threaded execution limits scalability
+- Limited real-time simulation capabilities
+- Requires Java programming knowledge for customization
+- **Default output is console-only; file output requires manual implementation**
+- Limited built-in security modeling
+- No native containerization support
+- Energy modeling capabilities are basic
+- Steeper learning curve compared to GUI-based simulators
 
 ### Best Use Cases
-- IoT and Edge computing research with mobility requirements
+- IoT and fog computing research
 - Microservice deployment and orchestration studies
-- Service migration algorithm development and evaluation
-- Dynamic clustering research in distributed environments
-- Multi-tier application performance analysis
-- Mobility-aware computing scenarios
-- Large-scale IoT deployments with heterogeneous devices
+- Mobility-aware edge computing scenarios
+- Multi-tier infrastructure optimization
+- Service migration and clustering algorithm development
+- Academic research and prototyping
+- Large-scale fog computing infrastructure planning
 
 ### Worst Use Cases (Avoid when)
-- Simple proof-of-concept simulations without advanced features
-- Pure cloud computing scenarios without edge components
-- Real-time simulation requirements (discrete event limitation)
-- Massive parallel processing needs
-- Quick prototyping without complex mobility or microservice requirements
-- Non-Java environments where Java integration is problematic
+- Real-time system simulation requirements
+- Massive parallel processing scenarios
+- Security-focused edge computing research
+- Container-based application modeling
+- Pure cloud computing simulations
+- Scenarios requiring extensive energy modeling
+- Non-Java development environments
+
+### Maturity Assessment
+- **Development Status**: Sporadic development
+- **Industry Adoption**: Strong academic adoption, growing industrial interest
+- **Publication Impact**: Well-cited in edge/fog computing research community
+- **Future Roadmap**: No information
 
 ---
 
 ## Additional Notes
-- No native Kubernetes support, most-comprehensive simulator for edge-fog computing, high focus on IoT devices, very simplified energy consumption metric
-- Claiming a 28% better utilization of memory than e.g. EdgeCloudSim
+- Strong integration with CloudSim ecosystem
+- Supports both basic iFogSim scenarios and advanced iFogSim2 features
+- Excellent for research in mobility-aware edge computing
+- Good balance between simulation accuracy and performance
+- Active community support through GitHub and research publications
+- Suitable for both academic research and industrial prototyping
