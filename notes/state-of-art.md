@@ -25,7 +25,7 @@
 - MockFog 2.0
   - [Paper](https://arxiv.org/abs/2009.10579) & [Github](https://github.com/MoeweX/MockFog2)
 - FogNetSim++
-  - [Paper](https://www.researchgate.net/publication/328484070_FogNetSim_A_Toolkit_for_Modeling_and_Simulation_of_Distributed_Fog_Environment) & [Github](https://github.com/rtqayyum/fognetsimpp)
+  - [Paper](https://ieeexplore.ieee.org/document/8502760) & [Github](https://github.com/rtqayyum/fognetsimpp)
 - EmuFog
   - [Paper](https://ieeexplore.ieee.org/document/8368525) & [Github](https://github.com/emufog/emufog)
 - FogTorch
