@@ -1,140 +1,174 @@
 # EdgeAISim
 ## Basic Information
-- Programming Language: Python
-- Base: EdgeSimPy
-- First Published: October 2023
-- Last Updated (Access: June 2025): February 2024
-- [Paper](https://arxiv.org/abs/2310.05605)
-- [Github](https://github.com/MuhammedGolec/EdgeAISIM)
+- **Programming Language**: Python
+- **Base Framework**: EdgeSimPy (extends EdgeSimPy simulator)
+- **First Published**: October 2023
+- **Last Updated** (Access: July 2025): February 2024
+- [Paper](https://arxiv.org/abs/2310.05605) | [Code](https://github.com/MuhammedGolec/EdgeAISIM)
+- **Development Status**: Inactive* 
+ > **Note:** It is a very small project is relatively new. But no development was spotted in the last few months (around a year)
 
 ### Core Architecture & Design
-- Simulation Type: Discrete event simulation (EdgeSimPy-based)
-- Focus: AI-driven Edge Computing, Reinforcement Learning, Energy-efficient Resource Management
-- Design Philosophy: AI-integrated edge computing simulator designed to optimize power usage and task migration through advanced machine learning algorithms
-- Architecture: Modular AI-enhanced design extending EdgeSimPy
-  - **AI Module Integration**: Reinforcement Learning algorithms (Multi-Armed Bandit, Deep Q-Networks, Graph Neural Networks, Actor-Critic)
-  - **Task Scheduling**: AI-driven task allocation and scheduling algorithms
-  - **Energy Management**: Power-aware resource management with multiple consumption models
-  - **Service Migration**: Intelligent service migration using AI decision-making
-  - **Network Flow Scheduling**: Max-Min fairness algorithm for bandwidth allocation
-  - **Mobility Support**: User mobility modeling with base station handoffs
-
-### Reported Use Cases
-- Primary: AI-driven edge computing, Energy-efficient task scheduling, Intelligent service migration
-- Academic: Reinforcement learning in edge computing, AI-based resource management, sustainable edge computing research
-- Industrial: IoT task optimization, mobile edge computing, energy-aware edge deployments
+- **Simulation Type**: Discrete event simulation
+- **Focus**: AI/ML Edge Computing, Resource management, Energy optimization
+- **Design Philosophy**: AI-enhanced edge computing simulation with focus on intelligent resource management and energy optimization
+- **Architecture Pattern**: Modular extension of EdgeSimPy with AI model integration
+- **Key Innovation / Differentiator**: Integration of advanced AI models (Multi-Armed Bandit, Deep Q-Networks, GNNs, Actor-Critic) for intelligent edge resource management
 
 ---
 
 ## Functional Capabilities
-### Network Modeling
-- Topology Support: Multi-tier edge computing architectures (Base Stations - Edge Servers - Users)
-- Network Types: Cellular networks, wireless edge connections, wired backbone connections
-- Mobility Support: User mobility models with base station coverage and handoff scenarios
-- Network Delays: Network flow modeling with Max-Min fairness bandwidth scheduling
-### Device & Resource Modeling
-- Device Types: Base stations, Network switches, Edge servers, Mobile users, IoT devices
-- Resource Modeling: CPU, RAM, Hard disk, Network bandwidth, Power consumption models (Linear, Quadratic, Cubic)
-- Heterogeneity: Support for heterogeneous edge server configurations
-- Scaling: Designed for large-scale edge deployments with multiple edge servers
-### Application Modeling
-- Application Types: IoT applications, Mobile services, AI/ML workloads, Compute-intensive tasks
-- Task Dependencies: Task-based application modeling with resource requirements (CPU, memory)
-- Data Flow: Request-response patterns, task migration flows, service consumption patterns
-- Service Migration: AI-driven service migration with intelligent placement decisions
-### Fault Tolerance
-- AI-driven failure recovery through intelligent task redistribution
-- Service migration during server failures
-- Network-aware fault tolerance with base station handoffs
-- Resource constraint-based failure modeling
-### Metrics
-- **Power Consumption**: Primary optimization metric with multiple consumption models (Linear, Quadratic, Cubic)
-- **Task Completion Time**: End-to-end time for task execution including migration overhead
-- **Service Response Time**: Time from task submission to service completion
-- **Resource Utilization**: CPU, RAM, and disk utilization across edge servers
-- **Energy Efficiency**: Power consumption per completed task, energy optimization metrics
-- **Task Migration Success Rate**: Percentage of successful AI-driven task migrations
-- **Server Selection Accuracy**: Effectiveness of AI algorithms in optimal server selection
-- **Network Bandwidth Utilization**: Usage of available network capacity with Max-Min fairness
-- **Service Availability**: Uptime and accessibility of services across edge infrastructure
-- **AI Algorithm Performance**: Convergence rates, learning efficiency, reward accumulation for RL algorithms
-- **Load Balancing Effectiveness**: Distribution of tasks across available edge servers
-- **Mobility Handoff Performance**: Success rates and latency of user mobility handoffs
-- **CPU/Memory/Disk Usage**: Detailed resource consumption monitoring across edge servers
-- **Network Flow Scheduling Efficiency**: Effectiveness of bandwidth allocation algorithms
-- **Reinforcement Learning Rewards**: Cumulative rewards and learning curves for AI algorithms
+- **Topology Support**: Hierarchical multi-tier edge computing topologies
+- **Network Types**: Edge computing networks with mobile support
+- **Protocol Support**: Standard edge computing protocols
+- **Mobility Support**: Advanced mobility support for edge computing scenarios
+- **Network Delays**: Network flow scheduling with AI optimization
+- **Bandwidth Modeling**: AI-optimized bandwidth allocation
+- **Communication Patterns**: AI-enhanced communication optimization
 
-#### Others
-- **Custom AI Metrics**: Extensible through custom reward functions and performance indicators
-- **Output Format**: CSV export, statistical analysis, performance plots, AI training curves, power consumption reports
+### Device & Infrastructure Modeling
+- **Device Types**: Edge servers, mobile devices, IoT devices, cloud nodes
+- **Resource Modeling**: CPU, Memory, Storage, Network bandwidth, Energy consumption
+- **Heterogeneity Support**: Support for heterogeneous edge computing resources
+- **Scaling Capabilities**: Scalable edge computing infrastructures
+- **Hardware Abstraction**: Edge computing hardware abstraction models
+
+### Application & Workload Modeling
+- **Application Types**: AI/ML applications, Edge computing applications, IoT workloads
+- **Task Dependencies**: Task scheduling with AI optimization
+- **Data Flow Patterns**: AI-enhanced data flow optimization
+- **Service Migration**: AI-powered service migration strategies
+- **Workload Generation**: AI-driven workload generation and management
+- **QoS Requirements**: AI-optimized QoS management
+
+### Fault Tolerance & Reliability
+- **Failure Models**: Edge computing failure models with AI-based prediction
+- **Fault Detection**: AI-enhanced fault detection mechanisms
+- **Recovery Strategies**: Intelligent recovery strategies using AI models
+- **Reliability Metrics**: AI-optimized reliability measurements
+
+### Security & Privacy
+- **Security Modeling**: Basic security modeling capabilities
+- **Privacy Mechanisms**: Limited privacy support
+- **Attack Simulation**: Not explicitly supported
+- **Security Metrics**: Basic security metrics
+
+### Energy & Sustainability
+- **Energy Modeling**: Advanced energy management with AI optimization
+- **Power States**: AI-controlled power state management
+- **Energy Harvesting**: Not explicitly supported
+- **Carbon Footprint**: Sustainable edge computing focus with power consumption reduction
+
+---
+
+## Metrics & Evaluation
+- **Metric Architecture**: Application-Level with AI model performance metrics
+- **Output Configurability**: Configurable output with AI model performance data
+- **Custom Metric Support**: Yes, with AI model integration capabilities
+- **Notes**: Includes AI model performance metrics alongside traditional edge computing metrics
+
+---
 
 ## Technical Implementation
-### Setup & Installation
-- Dependencies: Python 3.7+, PyTorch, EdgeSimPy, NumPy, specialized AI libraries
-- Installation Complexity: Medium to High (multiple AI dependencies, PyTorch installation)
-  - Disclaimer: The Installation guide is not up to date as PyTorch had some changes.
-    Works with: Python 3.12.0, torch (new name of pytorch) and all latest versions of the packages
-- Platform Support: Cross-platform (Python-based with PyTorch compatibility)
-- Documentation Quality: Good (GitHub documentation, research paper, code examples)
+
+### Setup & Deployment
+- **Dependencies**: Python 3.x, TensorFlow/PyTorch, AI/ML libraries
+> **Note**: The installation guide is out-of-date as PyTorch had some "rebranding". It is possible with Python 3.12 and all latest torch packages
+- **Installation Complexity**: Medium (requires AI/ML dependencies)
+- **Platform Support**: Cross-platform (Python-based)
+- **Documentation Quality**: Good (research paper and GitHub documentation)
+- **Community Support**: Growing (rather small at the moment)
+
 ### Programming Interface
-- Configuration Method: Python scripting with AI model configuration
-- API Design: Object-oriented design extending EdgeSimPy with AI module integration
-- Extensibility: Highly extensible through custom AI algorithms, reward functions, and scheduling policies
-- Example Scenarios: Multiple AI algorithm implementations (MAB, DQN, GNN, Actor-Critic, Worst-fit baseline)
+- **Configuration Method**: Python-based configuration with AI model integration
+- **API Design**: Object-oriented with AI model extensions
+- **Extensibility**: Highly extensible through AI model integration
+- **Integration Capabilities**: Integration with AI/ML frameworks
+- **Example Scenarios**: AI-focused edge computing scenarios
+
 ### Performance & Scalability
-- Simulation Speed: Optimized for AI-driven edge computing scenarios
-- Memory Usage: Higher memory usage due to AI model storage and training
-- Parallelization: Limited by EdgeSimPy base (single-threaded discrete event simulation)
-- Large-scale Support: Supports multiple edge servers and numerous tasks with AI optimization
+- **Simulation Speed**: Optimized for AI-enhanced edge computing scenarios
+- **Memory Efficiency**: Efficient with AI model optimization
+- **Parallelization**: Support for AI model parallelization
+- **Large-scale Support**: Scalable edge computing with AI optimization
+- **Optimization Features**: AI-powered optimization features
+
 ### Validation & Accuracy
-- Validation Methods: Comparison against baseline algorithms (worst-fit), performance benchmarking
-- Accuracy Claims: Significant power consumption reduction through AI optimization
-- Known Limitations: Single-threaded execution, discrete event simulation constraints, AI model training overhead
-- Calibration Requirements: Requires proper AI hyperparameter tuning and reward function design
+- **Validation Methods**: Comparative studies with baseline algorithms
+- **Accuracy Claims**: Outperforms worst-fit baseline algorithms
+- **Benchmarking**: Performance comparisons with traditional approaches
+- **Known Limitations**: Requires AI/ML expertise, computational overhead
+- **Calibration Requirements**: AI model training and parameter tuning
+
+---
+## Research & Development Support
+
+### Experimental Design
+- **Scenario Management**: Python-based scenario configuration with AI integration
+- **Reproducibility**: Deterministic execution with AI model seed control
+- **Statistical Analysis**: AI model performance analysis capabilities
+- **Visualization**: AI model performance visualization
+
+### Data Generation & Management
+- **Synthetic Data Generation**: AI-driven synthetic data generation
+- **Real-world Data Integration**: Support for real-world edge computing datasets
+- **Data Pattern Support**: AI-learned data patterns
+- **Input Data**: Python configuration, AI model parameters
+- **Output Data**: AI performance metrics, traditional edge computing metrics
+- **Trace Generation**: AI-enhanced trace generation
+- **Data Validation**: AI-based data validation
 
 ---
 
 ## Assessment
+
 ### Strengths
-- **Cutting-edge AI Integration**: First simulator to integrate advanced AI algorithms (MAB, DQN, GNN, Actor-Critic) for edge computing
-- **Energy Focus**: Primary emphasis on power consumption optimization and sustainable edge computing
-- **Multiple AI Algorithms**: Comprehensive suite of reinforcement learning and AI approaches
-- **Research Innovation**: Novel combination of AI and edge computing simulation
-- **Proven Performance**: Demonstrated significant power consumption reduction over baseline algorithms
-- **Extensible AI Framework**: Easy integration of custom AI algorithms and reward functions
-- **Contemporary Relevance**: Addresses current trends in AI-driven edge computing
-- **EdgeSimPy Foundation**: Built on proven edge computing simulation framework
+- Integration of advanced AI models for intelligent resource management
+- Focus on energy optimization and sustainability
+- Advanced AI techniques (Multi-Armed Bandit, Deep Q-Networks, GNNs, Actor-Critic)
+- Active development with modern Python support
+- Significant power consumption reduction capabilities
+- Task scheduling optimization
+- Service migration intelligence
+- Network flow scheduling optimization
 
 ### Weaknesses
-- **High Complexity**: Requires expertise in both edge computing and AI/ML algorithms
-- **Resource Intensive**: Higher computational requirements due to AI model training and execution
-- **Limited Maturity**: Relatively new simulator with smaller community and fewer examples
-- **AI-Specific**: May be overkill for simple edge computing scenarios not requiring AI
-- **Dependency Heavy**: Multiple specialized AI libraries and frameworks required
-- **Learning Curve**: Steep learning curve for users unfamiliar with reinforcement learning
-- **Documentation Gaps**: Limited comprehensive documentation compared to mature simulators
+- Requires expertise in both edge computing and AI/ML
+- Higher computational overhead due to AI model execution
+- Limited to AI-focused scenarios
+- Relatively new with limited long-term validation
+- Dependency on AI/ML frameworks increases complexity
+- May be overkill for simple edge computing scenarios
 
 ### Best Use Cases
-- AI-driven edge computing research and development
-- Energy-efficient edge computing optimization
-- Reinforcement learning applications in edge environments
-- Intelligent task scheduling and service migration research
-- Sustainable edge computing studies
-- AI-based resource management algorithm development
-- Performance comparison of AI algorithms in edge computing
-- Advanced edge computing scenarios requiring intelligent decision-making
+- AI/ML-focused edge computing research
+- Energy optimization studies in edge computing
+- Intelligent resource management research
+- Task scheduling algorithm development
+- Service migration optimization
+- Scenarios requiring advanced AI-driven decision making
+- Sustainable edge computing research
 
 ### Worst Use Cases (Avoid when)
 - Simple edge computing scenarios without AI requirements
-- Quick prototyping without AI complexity
-- Educational purposes for basic edge computing concepts
-- Scenarios not requiring energy optimization
-- Real-time simulation needs (due to AI processing overhead)
-- Limited computational resources (AI models are resource-intensive)
-- Basic proof-of-concept simulations
-- Pure network performance evaluation without resource optimization
+- Scenarios with limited computational resources
+- Basic edge computing simulations
+- Non-AI focused research
+- Scenarios requiring real-time execution without AI overhead
+- Studies not focused on resource optimization
+
+### Maturity Assessment
+- **Development Status**: Inactive
+- **Industry Adoption**: Growing academic adoption
+- **Publication Impact**: Recent publication with growing interest
+- **Future Roadmap**: Continued development with AI model enhancements
 
 ---
 
 ## Additional Notes
-No native Kubernetes support, first AI-focused edge computing simulator, strong emphasis on reinforcement learning and energy optimization, requires AI/ML expertise, cutting-edge but complex, ideal for advanced research in AI-driven edge computing
+- Built on top of EdgeSimPy providing solid foundation
+- Focuses specifically on AI-enhanced edge computing scenarios
+- Strong emphasis on energy efficiency and sustainability
+- Represents cutting-edge approach to edge computing simulation
+- Requires understanding of both edge computing and AI/ML concepts
+- Suitable for advanced research in intelligent edge computing
