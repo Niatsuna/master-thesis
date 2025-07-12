@@ -28,5 +28,5 @@
   - [Paper](https://ieeexplore.ieee.org/document/8502760) & [Github](https://github.com/rtqayyum/fognetsimpp)
 - EmuFog
   - [Paper](https://ieeexplore.ieee.org/document/8368525) & [Github](https://github.com/emufog/emufog)
-- FogTorch
-  - [Paper](https://ieeexplore.ieee.org/document/7919155) & [Github](https://github.com/di-unipi-socc/FogTorch)
+- FogTorchΠ
+  - [Paper (FogTorch)](https://ieeexplore.ieee.org/document/7919155), [Paper (Extension FogTorchΠ)](https://ieeexplore.ieee.org/document/8654150) & [Github](https://github.com/di-unipi-socc/FogTorchPI/tree/multithreaded)
