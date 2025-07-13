@@ -61,7 +61,7 @@
 ---
 
 ## Metrics & Evaluation
-- **Metric Architecture**: Simulator-Level (raw event data accessible from any point)
+- **Metric Architecture**: Simulator-Level, but really flexible (raw data / events always accessible)
 - **Output Configurability**: Highly configurable (raw event data format)
 - **Custom Metric Support**: Yes, full access to all simulation events and data
 - **Notes**: No hidden variables, complete transparency of simulation data
