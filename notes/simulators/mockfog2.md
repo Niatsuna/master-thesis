@@ -6,7 +6,7 @@
 - **Base Framework**: Custom (Cloud-based emulation)
 - **First Published**: September 2021
   > **MockFog 1.0**: August 2019
-- **Last Updated** (Access: July 2025): June 2019
+- **Last Updated** (Access: July 2025): July 2020
 - [Paper](https://ieeexplore.ieee.org/document/9411706/) | [Code](https://github.com/MoeweX/MockFog2)
 - **Development Status**: Inactive
 
