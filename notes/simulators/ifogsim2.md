@@ -19,7 +19,7 @@
 
 ## Functional Capabilities
 - **Topology Support**: Hierachical (Multi-tier: Cloud-Fog-Edge-Device), Custom topologies
-- **Network Types**: WiFi, Cellular, Ehternet, Custom network types
+- **Network Types**: WiFi, Cellular, Ethernet, Custom network types
 - **Protocol Support**: TCP/IP, HTTP, MQTT, Custom protocols
 - **Mobility Support**: Advanced mobility models with real mobility datasets support
 - **Network Delays**: Propagation, Queueing, Processing, Transmission delays
@@ -43,21 +43,21 @@
 
 ### Fault Tolerance & Reliability
 - **Failure Models**: Device failures, Network failures, Service failures, Mobility-related failures
-- **Fault Detection**: Monitoring mechanicsms, Heartbeat protocols, Timeout-based detection
+- **Fault Detection**: Monitoring mechanisms, Heartbeat protocols, Timeout-based detection
 - **Recovery Strategies**: Service migration, Redundancy, Clustering-based recovery
 - **Reliability Metrics**: Service availability, Failure rate, Recovery time, Fault tolerance effectiveness
 
 ### Security & Privacy
 - **Security Modeling**: Basic security modeling capabilities
 - **Privacy Mechanisms**: Limited privacy support
-- **Attack Simulation**: Not excplicitly supported
+- **Attack Simulation**: Not explicitly supported
 - **Security Metrics**: Basic security-related metrics
 
 ### Energy & Sustainability
 - **Energy Modeling**: Device-level energy consumption modeling
-- **Power States**: Active, Idle Sleep states
-- **Energy Harvesting**: Not excplicitly supported
-- **Carbon Footprint**: Not excplicitly supported
+- **Power States**: Active, Idle, Sleep states
+- **Energy Harvesting**: Not explicitly supported
+- **Carbon Footprint**: Not explicitly supported
 
 ---
 
@@ -76,13 +76,13 @@
 - **Installation Complexity**: Medium
 - **Platform Support**: Cross-platform (via Java)
 - **Documentation Quality**: Good (tutorials, examples and research papers)
-- **Community Support**: Active (mainted by University of Melbourne Cloud Computing Lab)
+- **Community Support**: Sporadic (maintained by University of Melbourne Cloud Computing Lab)
 
 ### Programming Interface
 - **Configuration Method**: Java code configuration with XML support for topology definition
 - **API Design**: Object-oriented CloudSim-based API with extended modular components
 - **Extensibility**: Highly extensible through inheritance, interfaces and plugin architecture
-- **Integration Capabilities**: CloudSim compatibility, External tool intergation possible with manual implementation
+- **Integration Capabilities**: CloudSim compatibility, External tool integration possible with manual implementation
 - **Example Scenarios**: Audio Translation, Healthcare, Crowd-sensing scenarios
 
 ### Performance & Scalability
@@ -116,7 +116,7 @@
 - **Input Data**: Java configuration, XML files, Real-world mobility traces
 - **Output Data**: Console output (default), Custom file format requires manual implementation
 - **Trace Generation**: Synthetic trace generation, Real-world trace integration
-- **Data Validation**: Input validation, Consistency cehcks, Parameter validation
+- **Data Validation**: Input validation, Consistency checks, Parameter validation
 
 ---
 

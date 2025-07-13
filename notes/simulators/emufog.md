@@ -2,8 +2,8 @@
 ## Basic Information
  > **Disclaimer**: EmuFog is not a simulator but an emulator! 
  > It mimicks (replica) a real system using actual hardware/software components, rather than mimics the behaivour of a real system!
-- **Programming Language**: Kotlin 1.4 (JDK 11)
-- **Base Framework**: Custom (MaxiNet/Mininet-based)
+- **Programming Language**: Kotlin
+- **Base Framework**: MaxiNet/Mininet-based
 - **First Published**: October 2017
 - **Last Updated** (Access: July 2025): September 2020
 - [Paper](https://ieeexplore.ieee.org/document/8368525) | [Code](https://github.com/emufog/emufog)
@@ -22,7 +22,7 @@
 - **Topology Support**: Custom topologies from BRITE generator and real-world CAIDA datasets
 - **Network Types**: All network types supported by MaxiNet/Mininet (Ethernet, WiFi emulation)
 - **Protocol Support**: All protocols supported by MaxiNet/Mininet (TCP/IP, HTTP, custom protocols)
-- **Mobility Support**: Static (no explicit mobility modeling)
+- **Mobility Support**: Not supported
 - **Network Delays**: Realistic network delays through MaxiNet/Mininet emulation
 - **Bandwidth Modeling**: Configurable bandwidth between host devices and edge nodes
 - **Communication Patterns**: All patterns supported by underlying network stack
@@ -55,7 +55,7 @@
 - **Security Metrics**: Application and network-dependent security analysis
 
 ### Energy & Sustainability
-- **Energy Modeling**: Not explicitly supported
+- **Energy Modeling**: Not supported
 - **Power States**: Not modeled
 - **Energy Harvesting**: Not supported
 - **Carbon Footprint**: Not supported

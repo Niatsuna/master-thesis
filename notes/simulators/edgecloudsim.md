@@ -13,15 +13,15 @@
 - **Focus**: Mobile Edge Computing (MEC), General Edge Computing Simulation, Cloudlets
 - **Design Philosophy**: CloudSim-based framework designed for Edge Computing scenarios with focus on both computational and networking resources
 - **Architecture Pattern**: Modular (Five main modules: Core Simulation, Networking, Load Generator, Mobility, Edge Orchestrator)
-- **Key Innovation / Differentiator**: Advanced mobility modelling with realistic movement patterns, distance-based latency calculation, probabilistic edge orchestration
+- **Key Innovation / Differentiator**: Advanced mobility modelling with realistic movement patterns (not real trace integration), distance-based latency calculation, probabilistic edge orchestration
 
 ---
 
 ## Functional Capabilities
-- **Topology Support**: Hierachical (Multi-tier: Cloud-Edge-Mobile)
+- **Topology Support**: Hierarchical (Multi-tier: Cloud-Edge-Mobile)
 - **Network Types**: WLAN, WAN, Cellular networks
 - **Protocol Support**: Basic network protocols (not further specified)
-- **Mobility Support**: Advanced mobility models with realistic movement patterns
+- **Mobility Support**: Advanced mobility models with realistic movement patterns (not real trace integration)
 - **Network Delays**: Propagation, Queuing (single server queue model), Distance-based latency
 - **Bandwidth Modeling**: Fixed bandwidth allocation
 - **Communication Patterns**: Request-response patterns, Upload/Download modeling
@@ -29,7 +29,7 @@
 ### Device & Infrastructure Modeling
 - **Device Types**: Mobile devices, Edge servers, Cloud datacenters, WiFi access points
 - **Resource Modeling**: CPU (MIPS), Memory, Storage, Network bandwidth
-- **Heterogeneity Support**: Support for heterogenous edge server configurations
+- **Heterogeneity Support**: Support for heterogeneous edge server configurations
 - **Scaling Capabilities**: Hundreds of mobile devices and multiple edge servers
 - **Hardware Abstraction**: Generic hardware models with MIPS-based processing
 
@@ -54,7 +54,7 @@
 - **Security Metrics**: Not supported
 
 ### Energy & Sustainability
-- **Energy Modeling**: Not supported
+- **Energy Modeling**: Not supported; only resource utilization approximations
 - **Power States**: Active/Processing states only
 - **Energy Harvesting**: Not supported
 - **Carbon Footprint**: Not supported
@@ -63,7 +63,7 @@
 
 ## Metrics & Evaluation
 - **Metric Architecture**: Simulator-Level (centralized in SimLogger.java)
-- **Output Configurability**: Limited (console output, .log files)
+- **Output Configurability**: Limited (console output, .log files; MATLAB required for full visualization)
 - **Custom Metric Support**: Yes, but requires modifying SimLogger.java
 - **Notes**: 43 predefined metrics available, derived metrics often calculated in research papers
 
@@ -96,10 +96,11 @@
 - **Validation Methods**: Validated against theoretical models compared with other simulators
 - **Accuracy Claims**: Realistic modeling of MEC environments with validated networking models
 - **Benchmarking**: Comparison studies with other edge simulators
-- **Known Limitations**: Limited to discrete event simulation, simplified energy modeling through approximation of ressource utilization
+- **Known Limitations**: Limited to discrete event simulation, simplified energy modeling through approximation of resource utilization
 - **Calibration Requirements**: Proper configuration of network and mobility parameters
 
 ---
+
 ## Research & Development Support
 
 ### Experimental Design
@@ -111,8 +112,8 @@
 ### Data Generation & Management
 - **Synthetic Data Generation**: Poisson distribution for task arrival patterns, synthetic mobility traces with realistic movement patterns
 - **Real-world Data Integration**: Limited support for importing real-world mobility traces
-- **Data Pattern Support**: Periodic task generation, bursty traffic patterns, random mobilityp patterns
-- **Input Data**: XML configurations files Java parameter settings
+- **Data Pattern Support**: Periodic task generation, bursty traffic patterns, random mobility patterns
+- **Input Data**: XML configuration files, Java parameter settings
 - **Output Data**: Log files
 - **Trace Generation**: Synthetic mobility traces, Poisson-based task generation
 - **Data Validation**: Basic input validation for configuration parameters
@@ -123,10 +124,10 @@
 
 ### Strengths
 - Specifically designed for MEC scenarios
-- Execellent mobility modeling capabilities
+- Excellent mobility modeling capabilities
 - Realistic network modeling for WLAN / WAN with distance-based latency
 - Documentation with five example scenarios
-- modular architecture allows easy customization
+- Modular architecture allows easy customization
 
 ### Weaknesses
 - Inactive development
@@ -137,18 +138,18 @@
 - Single-threaded execution limits scalability
 - No security or privacy modeling capabilities
 - No energy modeling
-- Output is .log file formatted and therefore needs a translator for csv for matlab
+- Output is .log file formatted and therefore needs a translator for csv for MATLAB
 
 ### Best Use Cases
 - MEC research and evaluation
 - Task offloading algorithm development
 - MEC infrastructure planning and optimization
-- augmented reality and mobile application studies
-- network performance analysis in edge scenarios with mobility
+- Augmented reality and mobile application studies
+- Network performance analysis in edge scenarios with mobility
 
 ### Worst Use Cases (Avoid when)
 - Pure cloud computing simulations
-- large-scale IoT deployments without mobility requirements
+- Large-scale IoT deployments without mobility requirements
 - AI/ML-specific edge computing research
 - Scenarios requiring massive parallel execution
 - Security-focused edge computing research

@@ -1,6 +1,6 @@
 # YAFS (Yet Another Fog Simulator)
 ## Basic Information
-- **Programming Language**: Python 2.7
+- **Programming Language**: Python 2.7 (deprecated; significant limitation)
 - **Base Framework**: SimPy (discrete event simulator)
 - **First Published**: July 2019
 - **Last Updated** (Access: July 2025): June 2022
@@ -20,7 +20,7 @@
 - **Topology Support**: Complex Networks theory-based modeling (any topology possible)
 - **Network Types**: Generic network modeling through Complex Networks
 - **Protocol Support**: Generic protocol abstraction
-- **Mobility Support**: Dynamic topology changes, node mobility through topology evolution
+- **Mobility Support**: Dynamic topology changes, node mobility through topology evolution (not advanced mobility models)
 - **Network Delays**: Configurable network delays through link properties
 - **Bandwidth Modeling**: Configurable bandwidth through link attributes
 - **Communication Patterns**: Customizable routing through selection algorithms
@@ -114,7 +114,7 @@
 - **Input Data**: Python configuration, custom data formats
 - **Output Data**: Raw event data format
 - **Trace Generation**: Custom trace generation capabilities
-- **Data Validation**: Python-based validation
+- **Data Validation**: Python-based validation, Consistency checks
 
 ---
 

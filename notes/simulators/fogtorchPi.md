@@ -20,7 +20,7 @@
 - **Topology Support**: Hierarchical (IoT-Fog-Cloud continuum), Custom topologies
 - **Network Types**: Generic network links with QoS profiles, Configurable communication paths
 - **Protocol Support**: Generic communication protocols (abstracted through QoS profiles)
-- **Mobility Support**: Static deployment analysis (no dynamic mobility)
+- **Mobility Support**: Not supported
 - **Network Delays**: Latency modeling in milliseconds, Probabilistic network conditions
 - **Bandwidth Modeling**: Upload/Download bandwidth in Mbps, Probabilistic bandwidth profiles
 - **Communication Patterns**: Point-to-point communication, Thing-to-Fog communication, Component-to-component communication

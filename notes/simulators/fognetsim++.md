@@ -20,7 +20,7 @@
 - **Topology Support**: Custom topologies, Hierarchical networks, Mesh, Tree structures
 - **Network Types**: WiFi, Ethernet, Cellular, WAN, LAN, Custom network types
 - **Protocol Support**: TCP/IP, UDP, HTTP, Custom protocols via INET framework
-- **Mobility Support**: Advanced mobility models via INET framework
+- **Mobility Support**: Advanced via INET framework
 - **Network Delays**: Propagation, Queuing, Processing, Transmission delays with high precision
 - **Bandwidth Modeling**: Variable bandwidth, Congestion modeling, QoS-aware bandwidth allocation
 - **Communication Patterns**: Unicast, Multicast, Broadcast, Custom communication patterns

@@ -77,7 +77,7 @@
 - **Installation Complexity**: Medium (requires AI/ML dependencies)
 - **Platform Support**: Cross-platform (Python-based)
 - **Documentation Quality**: Good (research paper and GitHub documentation)
-- **Community Support**: Growing (rather small at the moment)
+- **Community Support**: Small and inactive (no recent development)
 
 ### Programming Interface
 - **Configuration Method**: Python-based configuration with AI model integration
@@ -101,6 +101,7 @@
 - **Calibration Requirements**: AI model training and parameter tuning
 
 ---
+
 ## Research & Development Support
 
 ### Experimental Design
@@ -112,7 +113,7 @@
 ### Data Generation & Management
 - **Synthetic Data Generation**: AI-driven synthetic data generation
 - **Real-world Data Integration**: Support for real-world edge computing datasets
-- **Data Pattern Support**: AI-learned data patterns
+- **Data Pattern Support**: AI-driven workload/data generation
 - **Input Data**: Python configuration, AI model parameters
 - **Output Data**: AI performance metrics, traditional edge computing metrics
 - **Trace Generation**: AI-enhanced trace generation
@@ -126,7 +127,7 @@
 - Integration of advanced AI models for intelligent resource management
 - Focus on energy optimization and sustainability
 - Advanced AI techniques (Multi-Armed Bandit, Deep Q-Networks, GNNs, Actor-Critic)
-- Active development with modern Python support
+- Modern Python support
 - Significant power consumption reduction capabilities
 - Task scheduling optimization
 - Service migration intelligence
@@ -161,7 +162,7 @@
 - **Development Status**: Inactive
 - **Industry Adoption**: Growing academic adoption
 - **Publication Impact**: Recent publication with growing interest
-- **Future Roadmap**: Continued development with AI model enhancements
+- **Future Roadmap**: No clear roadmap; future depends on community interest
 
 ---
 
