@@ -196,7 +196,7 @@
 **Deployment Metrics (QoS, Cost, Feasibility):**
 - FogTorchΠ (A)
 
-> **Insight**: Comprehensive, customizable application-leveled metrics and export (CSV) are required.
+> **Insight**: Comprehensive, customizable application-leveled metrics and export (CSV) are required. These should include metrics of all aspects of the simulation (e.g. Resources, Network Usage, Tasks Failure and Success Rates, etc.).
 
 ---
 
