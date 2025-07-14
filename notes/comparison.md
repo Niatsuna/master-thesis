@@ -131,6 +131,27 @@
 
 ---
 
+### Data Generation & Integration
+
+**Supports Both Synthetic Workload Generation and Real-world Trace Integration:**
+- iFogSim2 (synthetic and trace-based workloads, XML config)
+- YAFS (customizable distributions, timestamp arrays, supports real traces via Python)
+- EdgeAISim (AI-driven workload generation, supports real datasets)
+
+**Supports Only Synthetic Workload Generation:**
+- EdgeCloudSim (Poisson distribution, synthetic workloads)
+- FogNetSim++ (synthetic traffic via OMNeT++, scenario config)
+
+**Supports Only Real-world Data (No Synthetic Generation):**
+- MockFog 2.0, EmuFog (real application data, cloud logs; limited or no synthetic generation)
+
+**Limited Data Generation (Probabilistic Analysis, No Runtime Data):**
+- FogTorchΠ (probabilistic deployment analysis, limited runtime data generation)
+
+> **Insight**: The most flexible simulators support both synthetic workload generation and real-world trace integration. Some tools are limited to synthetic data, while emulators typically rely on real-world data from deployed applications and infrastructure. Limited data generation restricts the scope of
+
+---
+
 ### Fault Tolerance & Reliability
 **Configurable Failure Models & Recovery:**
 - iFogSim2, EdgeCloudSim, FogNetSim++, EdgeAISim
@@ -183,6 +204,7 @@
 > - Scenario-Level (Metrics are defined outside of Simulator and Application for each scenario)
 > - Simulator-Level (Metrics are defined **in** said Simulators code basis)
 > - Application-Level (Metrics are defined in the deployed Applications)
+
 **Customizable Metrics:**
 - **Simulator-Level:**
   - EdgeCloudSim, FogNetSim++ (scenario-level config possible via OMNeT++ NED/INI files), YAFS (flexible and close to application-level via Python scenario code)
