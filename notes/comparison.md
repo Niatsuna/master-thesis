@@ -148,7 +148,7 @@
 **Limited Data Generation (Probabilistic Analysis, No Runtime Data):**
 - FogTorchΠ (probabilistic deployment analysis, limited runtime data generation)
 
-> **Insight**: The most flexible simulators support both synthetic workload generation and real-world trace integration. Some tools are limited to synthetic data, while emulators typically rely on real-world data from deployed applications and infrastructure. Limited data generation restricts the scope of
+> **Insight**: The most flexible simulators support both synthetic workload generation and real-world trace integration. Some tools are limited to synthetic data, while emulators typically rely on real-world data from deployed applications and infrastructure. Limited data generation restricts simulations of valuable insights so both - synthetic and integration - should be considered.
 
 ---
 
