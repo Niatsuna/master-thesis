@@ -4,16 +4,18 @@
 
 ## Overview
 
-| Simulator    | Language | Sim vs Emu | Scale         | Focus                                 | Status    | First Published; Last Updated |
-| ------------ | -------- | ---------- | ------------- | ------------------------------------- | --------- | ----------------------------- |
-| iFogSim2     | Java     | Sim        | Large         | Mobility, Microservices, IoT          | Sporadic  | September 2017; August 2021   |
-| EdgeCloudSim | Java     | Sim        | Moderate      | Mobility, MEC                         | Inactive  | August 2018; October 2020     |
-| YAFS         | Python   | Sim        | Moderate      | Custom algorithms, IoT, Resource alloc| Inactive  | July 2019; June 2022          |
-| EdgeAISim    | Python   | Sim        | Moderate      | AI/ML resource management             | Inactive  | October 2023; February 2024   |
-| MockFog 2.0  | Node.js  | Emu        | Cloud-limited | Real infra emulation                  | Inactive  | September 2021; June 2021     |
-| FogNetSim++  | C++      | Sim        | Large         | Network-centric                       | Inactive  | October 2018; October 2018    |
-| EmuFog       | Kotlin   | Emu        | Large         | Real network emulation                | Inactive  | October 2017; September 2020  |
-| FogTorchΠ    | Java     | Sim        | Moderate      | Deployment analysis                   | Inactive  | May 2017; January 2019        |
+| Simulator    | Language | Sim vs Emu | Scale         | Focus                                                   | Status    | First Published; Last Updated |
+| ------------ | -------- | ---------- | ------------- | ------------------------------------------------------- | --------- | ----------------------------- |
+| iFogSim2     | Java     | Sim        | Large         | Mobility, Microservices, IoT                            | Sporadic  | September 2017; August 2021   |
+| EdgeCloudSim | Java     | Sim        | Moderate      | Mobility, MEC                                           | Inactive  | August 2018; October 2020     |
+| YAFS         | Python   | Sim        | Moderate      | Custom algorithms, IoT, Resource alloc                  | Inactive  | July 2019; June 2022          |
+| EdgeAISim    | Python   | Sim        | Moderate      | AI/ML resource management                               | Inactive  | October 2023; February 2024   |
+| MockFog 2.0  | Node.js  | Emu        | Cloud-limited | Real infra emulation                                    | Inactive  | September 2021; June 2021     |
+| FogNetSim++  | C++      | Sim        | Large         | Network-centric                                         | Inactive  | October 2018; October 2018    |
+| EmuFog       | Kotlin   | Emu        | Large         | Real network emulation                                  | Inactive  | October 2017; September 2020  |
+| FogTorchΠ    | Java     | Sim        | Moderate      | Deployment analysis                                     | Inactive  | May 2017; January 2019        |
+| Fogify       | Python   | Emu        | Cloud-limited | Container-based, reproducible, cloud-native edge/fog    | Active    | November 2020; April 2023     |
+| iContinuum   | Python   | Emu        | Cloud-limited | Cloud-to-edge continuum, orchestration, reproducibility | Active    | July 2024; April 2024         |
 
 ---
 
@@ -23,15 +25,15 @@
 - iFogSim2, EdgeCloudSim, FogNetSim++, EdgeAISim, MockFog 2.0, FogTorchΠ
 
 **Custom / Flexible Topologies:**
-- YAFS (complex networks, arbitrary topologies), EmuFog (import from BRITE/CAIDA, custom)
+- YAFS (complex networks, arbitrary topologies), EmuFog (import from BRITE/CAIDA, custom), Fogify (YAML-defined, arbitrary), iContinuum (YAML-defined, arbitrary)
 
-> **Insight**: Simulators should at least support hierarchical/multi-tier and at best custom/flexible topologies.
+> **Insight**: Simulators/emulators should support both hierarchical and flexible/custom topologies.
 
 ---
 
 ### Network Types
 **WiFi, Cellular, Ethernet, WAN/LAN:**
-- iFogSim2, EdgeCloudSim, FogNetSim++, EmuFog
+- iFogSim2, EdgeCloudSim, FogNetSim++, EmuFog, Fogify, iContinuum (emulated via Linux networking)
 
 **Generic / Custom Network Modeling:**
 - YAFS, FogTorchΠ (abstracted through QoS profiles), MockFog 2.0 (depends on cloud provider)
@@ -45,7 +47,7 @@
 
 ### Protocol Support
 **Standard Protocols (TCP/IP, HTTP, MQTT, UDP):**
-- iFogSim2, FogNetSim++, EmuFog
+- iFogSim2, FogNetSim++, EmuFog, Fogify, iContinuum (all protocols supported by containers)
 
 **Generic / Abstracted Protocols:**
 - EdgeCloudSim, YAFS, FogTorchΠ
@@ -54,7 +56,7 @@
 - EdgeAISim
 
 **Real Infrastructure Protocols:**
-- MockFog 2.0 (all protocols supported by underlying infrastructure)
+- MockFog 2.0
 
 > **Insight**: Protocol abstraction and customization are necessary for diverse application support.
 
@@ -65,12 +67,12 @@
 - iFogSim2 (real datasets), EdgeCloudSim (movement patterns), FogNetSim++ (INET framework), EdgeAISim (AI-optimized)
 
 **Basic / Dynamic Topology Changes:**
-- YAFS
+- YAFS, Fogify, iContinuum (dynamic topology changes, but not advanced mobility models)
 
 **No Mobility Support:**
 - FogTorchΠ, MockFog 2.0, EmuFog
 
-> **Insight**: Mobility is crucial for mobile edge (e.g. IoT) / fog scenarios, but optional for static deployments.
+> **Insight**: Mobility is crucial for mobile edge/fog scenarios, but optional for static deployments.
 
 ---
 
@@ -82,7 +84,7 @@
 - YAFS
 
 **Real Devices (VMs, Containers):**
-- MockFog 2.0, EmuFog
+- MockFog 2.0, EmuFog, Fogify, iContinuum (containers/VMs as nodes, highly customizable)
 
 **Component-based / Deployment Focus:**
 - FogTorchΠ
@@ -99,7 +101,7 @@
 - YAFS
 
 **Real Resource Limits:**
-- MockFog 2.0, EmuFog
+- MockFog 2.0, EmuFog, Fogify, iContinuum (container resource limits: CPU, memory, storage, bandwidth)
 
 **Discrete Resource Specs:**
 - FogTorchΠ
@@ -122,7 +124,7 @@
 - FogNetSim++
 
 **Real Applications (Containerized):**
-- MockFog 2.0, EmuFog
+- MockFog 2.0, EmuFog, Fogify, iContinuum (real containerized applications, microservices, IoT workloads)
 
 **Deployment Mapping (No Runtime Simulation):**
 - FogTorchΠ
@@ -143,12 +145,12 @@
 - FogNetSim++ (synthetic traffic via OMNeT++, scenario config)
 
 **Supports Only Real-world Data (No Synthetic Generation):**
-- MockFog 2.0, EmuFog (real application data, cloud logs; limited or no synthetic generation)
+- MockFog 2.0, EmuFog, Fogify, iContinuum (real application data, logs; synthetic possible via application logic)
 
 **Limited Data Generation (Probabilistic Analysis, No Runtime Data):**
 - FogTorchΠ (probabilistic deployment analysis, limited runtime data generation)
 
-> **Insight**: The most flexible simulators support both synthetic workload generation and real-world trace integration. Some tools are limited to synthetic data, while emulators typically rely on real-world data from deployed applications and infrastructure. Limited data generation restricts simulations of valuable insights so both - synthetic and integration - should be considered.
+> **Insight**: Most flexible simulators support both synthetic and real-world trace integration.
 
 ---
 
@@ -160,7 +162,7 @@
 - YAFS
 
 **Real-world Failures & Recovery:**
-- MockFog 2.0, EmuFog
+- MockFog 2.0, EmuFog, Fogify, iContinuum (node/link failures, resource exhaustion, container restart/migration)
 
 **Probabilistic Analysis:**
 - FogTorchΠ
@@ -177,7 +179,7 @@
 - EdgeCloudSim, YAFS, FogTorchΠ
 
 **Real Security Implementations:**
-- MockFog 2.0, EmuFog (depends on deployed applications; not simulated, only real-world implementations possible)
+- MockFog 2.0, EmuFog, Fogify, iContinuum (depends on deployed applications; not simulated, only real-world implementations possible)
 
 > **Insight**: Security is important for sensitive applications, but is not always mandatory.
 
@@ -191,7 +193,7 @@
 - EdgeCloudSim
 
 **No Energy Modeling:**
-- YAFS, FogTorchΠ, EmuFog
+- YAFS, FogTorchΠ, EmuFog, Fogify, iContinuum (no built-in energy modeling, but real consumption can be measured externally)
 
 **Real Energy Consumption (Cloud Billing):**
 - MockFog 2.0
@@ -212,7 +214,7 @@
   - iFogSim2, EdgeAISim
 
 **Real System Metrics (Application-Level):**
-- MockFog 2.0,  EmuFog
+- MockFog 2.0, EmuFog, Fogify, iContinuum (metrics from real containers/applications, fully configurable via monitoring tools)
 
 **Deployment Metrics (QoS, Cost, Feasibility) (Application-Level):**
 - FogTorchΠ
@@ -223,7 +225,7 @@
 
 ### Extensibility & Customization
 **Highly Extensible (Python/Java):**
-- YAFS, EdgeAISim, iFogSim2
+- YAFS, EdgeAISim, iFogSim2, Fogify, iContinuum (YAML, Python API, plugins, custom resource/network models)
 
 **Modular but Requires Expertise:**
 - EdgeCloudSim, FogNetSim++
@@ -246,7 +248,7 @@
 - EdgeCloudSim, YAFS, EdgeAISim, FogTorchΠ
 
 **Cloud-limited:**
-- MockFog 2.0
+- MockFog 2.0, Fogify, iContinuum (scalable to hundreds of containers, hardware-limited)
 
 > **Insight**: Scalability is required for realistic edge/fog scenarios and should at least cover the "moderate" aspect.
 
@@ -268,7 +270,11 @@
 **Academic Docs, Limited Support:**
 - FogTorchΠ
 
-> **Insight**: Good documentation and (multiple) examples are essential for usability and reproducibility. EdgeCloudSim's YouTube playlist is helpful, but written documentation is limited.
+**Good Docs, Active Community:**
+- **Fogify, iContinuum (active development, examples, tutorials)**
+
+> **Insight**: Good documentation and (multiple) examples are essential for usability and reproducibility. 
+> **Note**: EdgeCloudSim has a documentation as a YT Playlist and is very limited in the written documentation.
 
 ---
 
@@ -276,6 +282,7 @@
 **Scenario Saving/Loading, Deterministic Execution:**
 - iFogSim2 (XML topology, Java config), EdgeCloudSim (XML config), YAFS (Python scripts, reproducible with seed), FogNetSim++ (OMNeT++ config files, GUI), EdgeAISim (Python scripts, seed control)
 - MockFog 2.0, EmuFog, FogTorchΠ (deployment scripts/configs, limited scenario management)
+- Fogify, iContinuum (YAML scenario files, reproducible deployments, deterministic via container orchestration)
 
 > **Insight**: Scenario management and reproducibility are essential for academic research and peer review. Simulators should support saving/loading scenarios and deterministic execution via seed control.
 
@@ -287,6 +294,7 @@
 - YAFS, EdgeAISim (validation possible via custom scripts and comparison; user-driven, not built-in)
 - MockFog 2.0, EmuFog (validation against real infrastructure)
 - FogTorchΠ (probabilistic validation, deployment feasibility)
+- Fogify, iContinuum (empirical validation via real application execution, benchmarking supported)
 
 > **Insight**: Validation and accuracy are essential for trustworthy results. Simulators should provide means for benchmarking and empirical validation.
 
@@ -297,6 +305,7 @@
 - EdgeCloudSim (YouTube tutorials, XML config), iFogSim2 (examples, Java/XML, graphical monitoring), YAFS (Python scripts, examples), EdgeAISim (Python, examples)
 - FogNetSim++ (OMNeT++ GUI, built-in visualization), FogTorchΠ (academic docs)
 - MockFog 2.0, EmuFog (script-based, minimal UI)
+- Fogify, iContinuum (YAML config, Python API, external visualization via Grafana/Prometheus, good error feedback)
 
 > **Insight**: Usability is essential for broad adoption. Simulators should offer intuitive configuration, error handling, clear feedback, and visualization tools.
 
@@ -307,6 +316,7 @@
 - iFogSim2, EdgeCloudSim, YAFS, EdgeAISim (CSV export, Python/Java ecosystem, MATLAB integration)
 - FogNetSim++ (OMNeT++ integration, visualization), FogTorchΠ (CSV output)
 - MockFog 2.0, EmuFog (real system logs, cloud APIs)
+- Fogify, iContinuum (integration with Docker, Kubernetes, monitoring tools, data export via logs/metrics)
 
 > **Insight**: Integration and interoperability enable advanced workflows and data analysis.
 
@@ -325,6 +335,7 @@
 - FogNetSim++ (OMNeT++ supports parallel simulation), iFogSim2 (optimized for large-scale), EmuFog (real infrastructure, scalable)
 - EdgeCloudSim, YAFS, EdgeAISim (single-threaded, moderate scale; EdgeAISim may support AI model parallelization via PyTorch)
 - MockFog 2.0 (cloud-limited)
+- Fogify, iContinuum (multi-container, multi-host via Kubernetes, efficient orchestration)
 
 > **Insight**: Performance optimization is important for large-scale scenarios.
 
@@ -334,5 +345,6 @@
 **Edge AI/ML, Containerization, New Network Tech:**
 - EdgeAISim (AI/ML workloads), MockFog 2.0, EmuFog (containerization, real infra), FogNetSim++ (INET/OMNeT++ for new network tech)
 - iFogSim2, EdgeCloudSim, YAFS (can be extended for new tech)
+- Fogify, iContinuum (cloud-native, containerization, Kubernetes, real microservices, supports emerging paradigms)
 
-> **Insight**: Support for emerging technologies ensures future relevance. Simulators should provide means to model and simulate new technologies and paradigms as they emerge.
+> **Insight**: Support for emerging technologies ensures future relevance.

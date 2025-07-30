@@ -30,3 +30,7 @@
   - [Paper](https://ieeexplore.ieee.org/document/8368525) & [Github](https://github.com/emufog/emufog)
 - FogTorchΠ
   - [Paper (FogTorch)](https://ieeexplore.ieee.org/document/7919155), [Paper (Extension FogTorchΠ)](https://ieeexplore.ieee.org/document/8654150) & [Github](https://github.com/di-unipi-socc/FogTorchPI/tree/multithreaded)
+- Fogify
+  - [Paper](https://ieeexplore.ieee.org/document/9355701) & [Github](https://github.com/UCY-LINC-LAB/Fogify)
+- iContinuum
+  - [Paper](https://ieeexplore.ieee.org/abstract/document/10643932) & [Github](https://github.com/disnetlab/iContinuum)
