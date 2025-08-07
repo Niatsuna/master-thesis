@@ -1,33 +1,37 @@
 \chapter{Introduction}
 Edge computing has emerged as a transformative paradigm that extends computational capabilities from centralized cloud infrastructure to the network's periphery, 
-enabling low-latency processing, reduced bandwidth consumption, and enhanced privacy for distributed applications [\cite{7488250}]. 
-With IoT devices projected to grow exponentially [\cite{7488250}, \cite{10258346}], organizations increasingly adopt edge computing architectures to support IoT deployments, 
-autonomous systems, and real-time analytics. Consequently, the demand for robust simulation environments has become increasingly critical for system design, performance evaluation, and deployment planning.
+reducing latency, minimizing bandwidth usage and enabling applications that require immediate response times [\cite{7488250}].
+The development has thereby led edge computing as a complement and extension for cloud computing [\cite{ASHOURI2021100346}]. 
+With IoT devices projected to grow exponentially [\cite{7488250}, \cite{10258346}], the demand for real-time, low-latency applications, has led organizations to 
+increasingly adopt edge computing architectures to support IoT deployments, autonomous systems, and real-time analytics.  
+Consequently, robust simulation environments has become increasingly critical for system design, performance evaluation, and deployment planning.
 
 The complexity and heterogeneity inherent in edge computing environments present significant challenges for researchers and developers seeking to evaluate system performance, 
-optimize resource allocation, and validate architectural decisions before costly real-world deployments. However, 
-deploying and testing edge computing solutions in real-world scenarios presents substantial obstacles, including high costs, time commitments, and physical constraints 
+optimize resource allocation, and validate architectural decisions before costly real-world deployments. 
+However, deploying and testing edge computing solutions in real-world scenarios presents substantial obstacles, including high costs, time commitments, and physical constraints 
 that make them highly impractical for research and development purposes [\cite{ASHOURI2021100346}, \cite{7488250}]. 
 
-Consequently, numerous edge computing simulators have been developed within the research community, each offering distinct capabilities, architectural approaches, and evaluation metrics. 
+Hence, numerous edge computing simulators have been developed within the research community, each offering different foci, distinct capabilities, architectural approaches, and evaluation metrics. 
 These simulators serve as essential tools for analyzing resource allocations, algorithms, configurations, and deployment strategies before committing to physical implementations.
 
-Despite the rapid growth of the edge computing simulation landscape, existing simulators often exhibit different aspects and potentially incomplete or biased simulation environments [\cite{ASHOURI2021100346}]. 
-Many simulators focus on specific aspects of edge computing while potentially overlooking other critical factors that influence real-world performance. 
-As containerized applications and orchestration platforms like Kubernetes become the standard for researchers and developers alike, the need to extend these technologies to edge environments has become critical, 
-yet there remains a gap in understanding which simulation tools best capture the complexities of container orchestration at the edge. The absence of standardized evaluation criteria and comprehensive comparative 
-analyses leaves researchers and developers without clear guidance on which simulators possess the necessary characteristics to accurately model edge computing scenarios. This gap in knowledge not only hinders research 
-reproducibility but also potentially leads to suboptimal design decisions based on insufficient simulation foundations.
+Despite the rapid growth of the edge computing simulation landscape, existing simulators often present different aspects and potentially incomplete or biased simulation environments [\cite{ASHOURI2021100346}]. 
+Many simulators focus on specific aspects of edge computing while potentially overlooking other critical factors that influence real-world performance.
+Additionally, as research does progress in new technologies that become available and standardized like machine learning, contrainerized applications and orchestrations platforms with for example Kubernetes, the need to extend 
+these technologies to edge environments has become critical.
+Yet there remains a gap in understanding which aspects are essential or only recommended in the simulation landscape.
 
-The primary objective of this thesis is to establish a comprehensive framework for evaluating edge computing simulators while additionally demonstrating its practical application through the enhancement of an existing 
-simulation platform. This research addresses the fundamental question of what constitutes the essential requirements and characteristics that define a comprehensive and effective edge computing simulator. 
-To answer this question, this thesis examines the key similarities and differences among current state-of-the-art edge computing simulators in multiple aspects, constructs a requirements catalogue to guide the 
-development and assessment of such simulators, and evaluates to what extent an existing simulator can be improved through the application of identified requirements and best practices.
-This research employs a mixed-methods approach combining systematic literature analysis, comparative evaluation, and practical implementation. 
-The methodology encompasses four distinct phases that are focused in more detail in their respective chapters. 
-Before any of the phases, the necessary foundations for this work are explored. 
-This is followed by the first phase, which examines the current state-of-the-art edge computing simulation landscape. 
-In Chapter 4, a requirements catalogue is constructed based on the previous findings. 
-The third and fourth phases are depicted in Chapter 5 and feature the analysis of the current state of the edge computing simulator Ecoscape in 
-comparison to the requirements catalogue, as well as the implementation of missing and revision of insufficient characteristics. 
-At the end, an evaluation takes place to determine if the resulting edge computing simulator is indeed superior to its previous version.
+The absence of standardized evaluation criteria and comprehensive comparative analyses leaves researchers and developers without clear guidance on which simulators possess the necessary 
+characteristics to accurately model edge computing scenarios. 
+This gap in knowledge not only hinders research reproducibility but also potentially leads to suboptimal design decisions based on insufficient simulation foundations.
+
+This is the primary objective of this thesis, in which we establish a framework for evaluating edge computing simulators and guide researches and developers alike in creating new simulators while additionally 
+demonstrating its practical application through the enhancement of an existing one.
+This work addresses the fundamental question of what essential accounts for requirements and characteristics that define a comprehensive and effective edge computing simulator.
+
+To answer this question, this thesis starts off with the exploration of the necessary foundations.
+Chapter 3 examines the key similarities and differences among current state-of-the-art edge computing simulators in multiple dimensions to evaluate the current state of the edge computing simulation landscape and its missing 
+capabilities.
+Based on the comparison, the subsequently following chapter focuses on the construction of the requirements catalogue which entails the previous mentioned essential requirements and characteristics.
+In Chapter 5, we present the practical application on the edge computing simulator Ecoscape by first analyse the current state of the simulator in regards to our constructed requirements catalogue as well as 
+enhancing its state to meet the expectations layed upon by the analysis.
+Relatively at the end, we evaluate our enhanced version of Ecoscape, and additionally come to a conclusion with a gaze ahead at future work.
