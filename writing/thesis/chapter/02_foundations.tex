@@ -2,13 +2,122 @@
 This chapter establishes the theoretical, in form of conceptual foundations, as well as technical foundations, like the technical components that make up Ecoscape architecture, 
 which are both essential for understanding the presented work in the following chapters.
 
-The first section introduces edge computing fundamentals, including its defining characteristics, architectural models, and the challenges that necessitate simulation-based research approaches.
+The first section introduces edge computing fundamentals, including its defining characteristics, architectural models, and the challenges that necessitate simulation-based research approaches as well as a quick glance at a few use cases and applications.
 The second section explores simulation principles and methodologies, providing the theoretical framework for understanding how edge computing systems can be effectively modeled and evaluated.
 Subsequently, the technical foundations section examines the specific technologies employed in Ecoscape.
+% ------------------------------------------
 \section{Conceptual Foundations}
 \subsection{Edge Computing Fundamentals}
-\todo{Definition, Core Characteristics, Edge vs Cloud vs Fog Computing Paradigms, Architectures and Deployments, Challenges and Requirements, Use Cases and Applications}
+\subsubsection{Definition and Core Characteristics}
+The European Telecommunications Standards Institute (ETSI) describes edge computing as a ``system which provides an IT service environment and cloud-computing capabilities at the edge of an access network [...] in close proximity to its users'' [\cite{etsi_mec}].
+
+Edge computing therefore represents a distributed computing paradigm that brings computation and data storage closer to the sources of data generation, fundamentally challenging the traditional centralized cloud model.
+Unlike conventional cloud computing, where processing occurs in distant data centers, edge computing strategically positions computational resources at the network's periphery (also called the edge), enabling real-time data processing with minimal latency.
+
+The core principle underlying edge computing is data locality, which represents the concept that processing data near its point of origin reduces transmission overhead and improves response times.
+This approach addresses inherent limitations of cloud-centric architectures, particularly in scenarios requiring immediate decision-making or handling massive data volumes that would overwhelm network bandwidth if transmitted to centralized locations.
+Edge computing environments present some distinguished key characteristics, such as:
+
+\textbf{Ultra-low latency}: Edge nodes typically achieve response times of 1-20 milliseconds compared to cloud latencies of 100-500 milliseconds [\cite{8215403}, \cite{1019408}], making them suitable for time-critical applications such as atuonomous vehicle control or industrial automation.
+
+\textbf{Bandwidth Optimization}: By processing data locally, edge computing reduces the volume of data transmitted across wide-area networks, which addresses the growing concern of for example network congestion in IoT-dense environments.
+
+\textbf{Improved Reliability}: Due to being locally distributed, typical dependencies like the status of the central cloud server or a stable internet connection are no concerns in edge computing, making services more independent and more reliable.
+
+\textbf{Enhanced Privacy and Security}: Local data processing minimizes exposure of sensitive information during transmission, addressing regulatory compliance requirements and user privacy concerns.
+
+\subsubsection{Edge, Fog and Cloud Computing Paradigms}
+The computing landscape encompasses not only edge computing but also its complementary paradigms, fog and cloud computing, that form together a continuum from centralized to distributed processing.
+
+\textbf{Cloud computing} operates on the principle of centralized resource pooling, where vast computational resources are concentrated in geographically distributed but individually large data center.
+The model excels in scenarios requiring massive computational power, extensive storage capacity and global accessibility.
+However, cloud computing faces limitations in latency-sensitive applications, bandwidth-constrained environments and security-sensitive scenarios.
+
+\textbf{Fog computing} on the other hand, is the middle ground between edge and cloud computing, by extending cloud capabilities to the network edge through a hierachical architecture.
+Fog nodes serve as intermediate processing layers between end devices and cloud data centers in a region and therefore create an opportunity for regional coordination while maintaining some centralized oversight.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/edge_fog_cloud_diagram.pdf}
+  \caption{Three-tier architecture of cloud, fog and edge computing paradigms illustrating hierachical processing distribution and data flow patterns.}
+  \label{fig:edge-fog-cloud}
+\end{figure}
+
+The distinction between these paradigms often blurs in practice, as modern systems frequiently implementing hybrid approaches that leverage the strength of each layer [\cite{7488250}].
+This trend can also be observed in the simulation landscape, presenting a great amount of hybrid simulators.
+\subsubsection{Architectures and Deployments}
+Edge computing architectures exhibit significant diversity, reflecting the varied requirements of different application domains and deployment scenarios.
+However, most implementations share common structural elements that can be categorized into distinct architectural patterns.
+
+\textbf{Three-Tier Architecture} represents the prior described, showcased in \ref{fig:edge-fog-cloud} and most prevalent design pattern, consisting of cloud, fog/edge and device layers.
+In this model, lightweight edge fog nodes manage regional coordination and data aggregation, wehile cloud resources provide global oversight and resource-intensive computations.
+This hierarchical approach balances computational efficiency with management complexity.
+
+\textbf{Cloudlet-Based Architecture} focuses on the small-scale data centers positioned at network access points such as WiFi access points or cellular base stations. 
+These so called cloudlets provide VM-based services to nearby mobile devices, offering a clean abstraction that simplifies application development while maintaining proximity benefits. [\cite{5280678}]
+
+\textbf{Container-Based Edge Deployments} have gained prominence due to their lightweight nature and orchestration capabilities. Platforms like Kubernetes have been adapted for edge environments, enabling dynamic service deployment and management across heterogeneous edge infrastrcuture.
+This approach aprticularly suits scenarios requiring frequent application updates or multi-tenant environments.
+
+\textbf{Serverless Edge Computing} represents an emerging pattern where edge resources are abstracted as function-as-a-service platforms. 
+This model simplifies development by allowing developers to focus on business logic rathan than infrastructure management, while the platform handles resource allocation and scaling descisions.
+
+Deployment considerations vary significantly based on physical constraints, conncetivity patterns and operational requirements.
+Industrial deployments often emphasize robustness and real-time guarantees, while mobile edge deployments prioritize energy efficiency and seamless handoff capabilities.
+
+\subsubsection{Challenges and Requirements}
+Edge computing introduces unique technical and operational challenges that distinguish it from traditional distributed systems.
+These challenges stem from the fundamental trade-offs between bringing computation closer to data sources and maintaining system manageability and reliability.
+
+\cite{7488250} describes different challenges that need to be addressed when working in this field:
+
+\textbf{Resource Heterogeneity} describes the pool of different resource constraints regarding a wide range of diverse dvice types in edge environments. 
+Unlike cloud data centers with standardized hardware configurations, edge deployments span diverse device types, from resource-constrainted IoT devices to poerful edge servers. 
+This heterogeneity complicates application deployment, performance prediction and resource management strategies.
+
+\textbf{Network Variability} in edge environments exceeds that of traditional distributed systems due to diverse connectivity options ranging from high-speed fiber connections to 
+intermittent cellular or WiFi links. 
+Applications must adapt to varying bandwidth, latency and reliability characteristics often requiring sophisticated fault tolerance mechanisms.
+
+\textbf{Distributed Management Complexity} increases exponentially with the number of edge locations.
+Traditional centralized management approaches become impractical when managing thousands of geographically distributed edge nodes, necessitating new approaches to monitoring, updating and maintaining edge infrastructure.
+
+\textbf{Security and Trust} concerns are amplified in edge environments due to their geographically distribution leading to an increased attack surface and the physical accessibility of edge devices.
+Edge nodes often operate in unsecured locations requiring robust security mechanisms that function independently of central authority.
+
+\textbf{Data Consistency and Synchronization} challenges arise as the edge is a distributed system which inherits the general problem 
+when multiple nodes must maintan coherent views of shared data. Additionally due to limited and intermittent connectivity to central coordination services, these challenges are further complicated and can be challenging to tackle.
+
+
+\subsubsection{Use Cases and Applications}
+Edge computing has found widespread adoption across diverse application domains, each presenting unique requirements that drive the evolution of edge computing architectures and technologies.
+As different applications impose varying constraints on latency, reliability, processing capacity and data handling characteristics, a quick glance at the supported projects can present a valueable insight and knowledge for further discussions.
+
+\textbf{Autonomous and Connected Vehicles} represent one of the most known and most demanding edge computing applications requiring ulta-low latency decision-making for safety-critical operations.
+Edge nodes deployed at roadside infrastructure and within vehicles themselves must coordinate to procide seamless connectivity during high-speed mobility scenarios.
+The computational requirements span from simple sensor data aggregation to complex computer vision and machine learning inference for object detection and path planning as well as quick decision making to guarantee the safety of everyone inside as well as outside of said vehicle. [\cite{9498627}, \cite{XIE2024}]
+
+\textbf{Industrial Internet of Things (IIoT) and Smart Manufacturing} applications leverage edge computing to achieve real-time process control and predictive maintenance in manufacturing environments.
+These deployments often require deterministic response times for safety interlocks and process control loops, demanding robust real-time operating systems and fault-tolerant architectures. [\cite{SAVAGLIO2024397}]
+
+\textbf{Smart City Infrastructure} inherits a broad range of edge computing applications including intelligent traffic management, environmental monitoring and public safety systems.
+These services extend not only to traffic but also smart waste management , air quality monitoring systems, pollution level observation and many more.
+The distributed nature of smart city applications and their strong connection to IoT devices requires sophisticated coordination mechanisms to manage city-wide optimization while maintaining local autonomy for critical services. [\cite{JARARWEH2020102394}]
+
+\textbf{Augmented and Virtual Reality (AR/VR)} applications push the boundaries of edge computing performance requirements while demanding both ultra-low latency and high computational throughput for real-time rendering and content delivery.
+Mobile AR application require strong computational resources near the user to compute complex computer vision algorithms and 3D rendering. Multi-user VR environments present additional challenges by maintaining synchronized shared virtual spaces across distributed edge infrastructure. [\cite{herabad2024optimizingserviceplacementedgetocloud}, \cite{11020287}]
+
+\textbf{Healthcare and Telemedicine} applications utilize edge computing to enable real-time patient monitoring and remote medical services while addressing strict data privacy and regulatory compliance requirements.
+Wearable medical devices and IoT sensors generate continuous streams of personal medical data that must be processed locally to detect any anomalies in patients and trigger immediate alerts when necessary to guarantee the safety of the patients and detect emergencies that may go under the radar when patients are alone.
+Edge-based medical analysis can provide preliminary diagnoses in remote locations where access to centralized medical expertise is limited, while ensuring that sensitive patient data remains within controlled environments. [\cite{9767142}]
+
+These diverse application domains illustrate a few of the broad spectrum of possible projects and their respectifve requirements that edge computing system must address.
+Each use case presents distinct challenges for edge computing simulators, requiring different modeling approaches for network characteristics, computational workloads, mobility patterns and failure scenarios.
+Understanding the spectrum provides essential context for developing comprehensive evaluation criteria for edge computing simulation tools.
+
+% ----------------------------------
 \subsection{Simulation in Computing Systems}
 \todo{Principles of Discrete Event Simulation, Simulation vs Emulation, Performance Modeling, Evaluation Metrics}
+% ------------------------------------------
 \section{Technical Foundations}
 \todo{Kubernetes, Kafka, Kepler, Chaos Mesh}
