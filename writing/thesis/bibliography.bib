@@ -203,6 +203,66 @@
   doi = {10.1109/WSC.2002.1166451}
 }
 
+@book{10.5555/3175917,
+author = {Hightower, Kelsey and Burns, Brendan and Beda, Joe},
+title = {Kubernetes: Up and Running Dive into the Future of Infrastructure},
+year = {2017},
+isbn = {1491935677},
+publisher = {O'Reilly Media, Inc.},
+edition = {1st},
+abstract = {Legend has it that Google deploys over two billion application containers a week. Hows that possible? Google revealed the secret through a project called Kubernetes, an open source cluster orchestrator (based on its internal Borg system) that radically simplifies the task of building, deploying, and maintaining scalable distributed systems in the cloud. This practical guide shows you how Kubernetes and container technology can help you achieve new levels of velocity, agility, reliability, and efficiency. Authors Kelsey Hightower, Brendan Burns, and Joe Bedawhove worked on Kubernetes at Google and other organizatons explain how this system fits into the lifecycle of a distributed application. You will learn how to use tools and APIs to automate scalable distributed systems, whether it is for online services, machine-learning applications, or a cluster of Raspberry Pi computers. Explore the distributed system challenges that Kubernetes addresses Dive into containerized application development, using containers such as Docker Create and run containers on Kubernetes, using the docker image format and container runtime Explore specialized objects essential for running applications in production Reliably roll out new software versions without downtime or errors Get examples of how to develop and deploy real-world applications in Kubernetes}
+}
+
+@article{10.1145/3539606,
+author = {Carri\'{o}n, Carmen},
+title = {Kubernetes Scheduling: Taxonomy, Ongoing Issues and Challenges},
+year = {2022},
+issue_date = {July 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {55},
+number = {7},
+issn = {0360-0300},
+url = {https://doi.org/10.1145/3539606},
+doi = {10.1145/3539606},
+abstract = {Continuous integration enables the development of microservices-based applications using container virtualization technology. Container orchestration systems such as Kubernetes, which has become the de facto standard, simplify the deployment of container-based applications. However, developing efficient and well-defined orchestration systems is a challenge. This article focuses specifically on the scheduler, a key orchestrator task that assigns physical resources to containers. Scheduling approaches are designed based on different Quality of Service (QoS) parameters to provide limited response time, efficient energy consumption, better resource utilization, and other things. This article aims to establish insight knowledge into Kubernetes scheduling, find the main gaps, and thus guide future research in the area. Therefore, we conduct a study of empirical research on Kubernetes scheduling techniques and present a new taxonomy for Kubernetes scheduling. The challenges, future direction, and research opportunities are also discussed.},
+journal = {ACM Comput. Surv.},
+month = dec,
+articleno = {138},
+numpages = {37},
+keywords = {survey, containers, scheduling, orchestration, Kubernetes}
+}
+
+@inproceedings{10.1145/3578244.3583737,
+author = {Koziolek, Heiko and Eskandani, Nafise},
+title = {Lightweight Kubernetes Distributions: A Performance Comparison of MicroK8s, k3s, k0s, and Microshift},
+year = {2023},
+isbn = {9798400700682},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3578244.3583737},
+doi = {10.1145/3578244.3583737},
+abstract = {With containers becoming a prevalent method of software deployment, there is an increasing interest to use container orchestration frameworks not only in data centers, but also on resource-constrained hardware, such as Internet-of-Things devices, Edge gateways, or developer workstations. Consequently, software vendors have released several lightweight Kubernetes (K8s) distributions for container orchestration in the last few years, but it remains difficult for software developers to select an appropriate solution. Existing studies on lightweight K8s distribution performance tested only small workloads, showed inconclusive results, and did not cover recently released distributions. The contribution of this paper is a comparison of MicroK8s, k3s, k0s, and MicroShift, investigating their minimal resource usage as well as control plane and data plane performance in stress scenarios. While k3s and k0s showed by a small amount the highest control plane throughput and MicroShift showed the highest data plane throughput, usability, security, and maintainability are additional factors that drive the decision for an appropriate distribution.},
+booktitle = {Proceedings of the 2023 ACM/SPEC International Conference on Performance Engineering},
+pages = {17–29},
+numpages = {13},
+keywords = {benchmark, container orchestration performance testing, containers, edge computing, kubernetes, lightweight kubernetes, load testing, resource-constrained devices},
+location = {Coimbra, Portugal},
+series = {ICPE '23}
+}
+
+% ---------
+% ECOSCAPE PAPER!!!
+@misc{reiter2025ecoscapefaulttolerancebenchmark,
+  title={Ecoscape: Fault Tolerance Benchmark for Adaptive Remediation Strategies in Real-Time Edge ML}, 
+  author={Hendrik Reiter and Ahmad Rzgar Hamid and Florian Schlösser and Mikkel Baun Kjærgaard and Wilhelm Hasselbring},
+  year={2025},
+  eprint={2507.22702},
+  archivePrefix={arXiv},
+  primaryClass={cs.PF},
+  url={https://arxiv.org/abs/2507.22702}, 
+}
+
 % ---------
 % Simulators
 % > CloudSim (Base)
