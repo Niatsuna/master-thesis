@@ -3,7 +3,7 @@ This chapter establishes the theoretical, in form of conceptual foundations, as 
 which are both essential for understanding the presented work in the following chapters.
 
 The first section introduces edge computing fundamentals, including its defining characteristics, architectural models, and the challenges that necessitate simulation-based research approaches as well as a quick glance at a few use cases and applications.
-The second section explores simulation principles and methodologies, providing the theoretical framework for understanding how edge computing systems can be effectively modeled and evaluated.
+The second section explores simulation principles and methodologies, providing the theoretical framework for understanding how edge computing systems can be effectively modeled.
 Subsequently, the technical foundations section examines the specific technologies employed in Ecoscape.
 % ------------------------------------------
 \section{Conceptual Foundations}
@@ -117,7 +117,47 @@ Understanding the spectrum provides essential context for developing comprehensi
 
 % ----------------------------------
 \subsection{Simulation in Computing Systems}
-\todo{Principles of Discrete Event Simulation, Simulation vs Emulation, Performance Modeling, Evaluation Metrics}
+\subsubsection{Principles of Discrete Event Simulation}
+Discrete Event Simulation (DES) forms the theoretical foundation for most edge computing simulators, providing a mathematical framework for modeling complex distributed systems through time-ordered event processing.
+Unlike continuous simulation models that evolve system state gradually over time, DES advances system state instantaneously at discrete points in time when events occur.
+
+At its core, DES is a event-driven execution model, where system evolution is governed by a chronologically ordered sequence of events.
+Each event represents a point in time when a system state change occur, such as a task arrival, task process, completion of computation or further network message delivery.
+This approach particularly suits distributed computing systems, such like edge computing, as state changes are typically triggered by discrete occurrences rather than continouous processes.
+
+For this approach, multiple mechanisms are essential for a functional DES-based simulator: [\cite{DES-sota}, \cite{DES-fptp}]
+
+\textbf{Event Scheduling} mechanisms form the core of any DES system, as the events are the heart of the approach. The event scheduler maintains a priority quque of future events, ordered by their scheduled execution time.
+When an event triggers, it may modify the system state and schedule additional future events, extending the sequence of related system behaviors.
+This process terminates by either a termination condition or if the event queue becomes empty.
+
+\textbf{State Management} in DES requires careful consideration of when and how system state change occur.
+The system needs to maintain a consistent view at each simulated time point, which requires all state modifications to be atomic.
+This principle becomes particularly important in distributed system simulation, where multiple concurrent events must be carefully coordinated to maintain causal relationships.
+
+Additionally, \textbf{Random Number Generation} and \textbf{Statistical Modeling} are crucial elements for enabling stochastic behaviors inherent in real distributed systems.
+Proper handling of randomness requires careful seed management for reproductibility, appropriate statistical distributiion selection for modeling system phenomena and sufficient simulation run length to achieve statiscal significance in results.
+
+\subsubsection{Simulation vs Emulation}
+For evaluating and testing edge computing tools, multiple approaches should be considered depending on the fundamental design choice that significanty impacts the capabilities, accuracy and performancy characteristics of edge computing tools.
+Understanding the distinction in these approaches is crucial for both developing and selecting appropriate evaluation methodologies.
+
+\textbf{Simulation} creates abstract models that capture the essential behavioral characteristics of target systems without implementing actual system components.
+Here, scalable and controllable can be defined and typically their behavior gets modelled through statistical approximations and simplified abstractions, enabling rapid evaluation of large-scale scenarios that would be impractical to deploy in reality.
+However, simulated behavior may not accurately reflect the complexity and unpredictability of real system implementations. [\cite{inproceedings-sim-vs-emu}]
+
+\textbf{Emulation}, on the other hand, bridges the gap between simulation and real deployment by combining acutal software implementations with virtualized or abstract hardware resources.
+Here, platforms execute real application code and system software while providing controlled, reproducible execution environments.
+Hence, emulation typically provides higher accuracy and realistic implementation-sepcific behaviors and interactions that simulations might overlook, for the price of greater computational resources and limits that scale evaluable scenarios. [\cite{inproceedings-sim-vs-emu}]
+
+Simulation and emulation do interrelate greatly, which results in \textbf{Hybrid} approaches being possible.
+These have merged to combine the benefits of both methodologies, by using detailed emulation for critical system components while employing simulation for large-scale or less critical elements. [\cite{inproceedings-sim-vs-emu}]
+
+The choice between simulation and emulation depends on evaluation objectives, available resources and required accuracy levels.
+Development and research focusing on algorithmic performance might benefit from simulation's scalability, while studies evaluating real system deployments might require emulation's higher fidelity.
+
+\todo{Maybe include standard performance metrics and evaluation methods ? Idk}
+
 % ------------------------------------------
 \section{Technical Foundations}
 \todo{Kubernetes, Kafka, Kepler, Chaos Mesh}
