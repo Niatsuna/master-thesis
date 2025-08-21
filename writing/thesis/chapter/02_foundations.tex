@@ -148,12 +148,12 @@ However, simulated behavior may not accurately reflect the complexity and unpred
 
 \textbf{Emulation}, on the other hand, bridges the gap between simulation and real deployment by combining acutal software implementations with virtualized or abstract hardware resources.
 Here, platforms execute real application code and system software while providing controlled, reproducible execution environments.
-Hence, emulation typically provides higher accuracy and realistic implementation-sepcific behaviors and interactions that simulations might overlook, for the price of greater computational resources and limits that scale evaluable scenarios. [\cite{inproceedings-sim-vs-emu}]
+Hence, emulation typically provides higher accuracy and realistic implementation-specific behaviors and interactions that simulations might overlook, at the cost of greater computational resources and limits to the scale of evaluable scenarios. [\cite{inproceedings-sim-vs-emu}]
 
-Simulation and emulation do interrelate greatly, which results in \textbf{Hybrid} approaches being possible.
-These have merged to combine the benefits of both methodologies, by using detailed emulation for critical system components while employing simulation for large-scale or less critical elements. [\cite{inproceedings-sim-vs-emu}]
+Simulation and emulation are closely interrelated, which results in \textbf{Hybrid} approaches being possible.
+These have emerged to combine the benefits of both methodologies, by using detailed emulation for critical system components while employing simulation for large-scale or less critical elements. [\cite{inproceedings-sim-vs-emu}]
 
-The choice between simulation and emulation depends on evaluation objectives, available resources and required accuracy levels.
+The choice between simulation and emulation depends on evaluation objectives, available resources, and required accuracy levels.
 Development and research focusing on algorithmic performance might benefit from simulation's scalability, while studies evaluating real system deployments might require emulation's higher fidelity.
 
 \todo{Maybe include standard performance metrics and evaluation methods ? Idk}
@@ -161,57 +161,57 @@ Development and research focusing on algorithmic performance might benefit from 
 % ------------------------------------------
 \section{Technical Foundations}
 Ecoscape represents a modern approach to edge computing simulation, developed by \cite{reiter2025ecoscapefaulttolerancebenchmark} to address the growing need for realistic evaluation of containerized edge deployments.
-Built upon the Kubernetes orchestration platform, Ecoscape integrates Apache Kafka for distributed data streaming, Kepler for energy consumption monitoring, Prometheus for metric collection with Grafana for visualization and Chaos Mesh for systematic reliability testing.
-This creates a comprehensive simulation environment that reflexts contemporary edge computing infrastucture.
+Built upon the Kubernetes orchestration platform, Ecoscape integrates Apache Kafka for distributed data streaming, Kepler for energy consumption monitoring, Prometheus for metric collection, Grafana for visualization, and Chaos Mesh for systematic reliability testing.
+This creates a comprehensive simulation environment that reflects contemporary edge computing infrastructure.
 
-In the following, these technologies get further explored to illustrate what their direct influence is and which aspect in Ecoscapes architecture they cover.
+In the following, these technologies are further explored to illustrate their direct influence and which aspects of Ecoscape's architecture they cover.
 % ----------------------------------
 \subsection{Kubernetes}
-Kubernetes\footnote{\url{https://kubernetes.io/}} (also known as K8s) is an open-source container orchestration platform that automates the deployment, scaling and management of containerized applications across distributed computing environments by implementing a master-worker architecture [\cite{10.5555/3175917}].
+Kubernetes\footnote{\url{https://kubernetes.io/}} (also known as K8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications across distributed computing environments by implementing a master-worker architecture [\cite{10.5555/3175917}].
 It provides a robust framework for managing microservices architectures by abstracting underlying infrastructure complexity.
-Core abstractions include Pods, as the smallest deployable units, Services for network endpoints and deployments for lifecycle management.
+Core abstractions include Pods, as the smallest deployable units, Services for network endpoints, and Deployments for lifecycle management.
 
-Kubernetes has evolved from the cloud-native container orchestration platform to a fundamental standardized technology for managing distributed edge computing deployments.
-Its declarative configuration model and extensive ecosystem make it particularly well-suited for the complex requirements of edge infrastucture management [\cite{10.1145/3539606}].
+Kubernetes has evolved from a cloud-native container orchestration platform to a fundamental standardized technology for managing distributed edge computing deployments.
+Its declarative configuration model and extensive ecosystem make it particularly well-suited for the complex requirements of edge infrastructure management [\cite{10.1145/3539606}].
 
-Edge-Specific Kubernetes Distributions suchs as K3s\footnote{\url{https://k3s.io/}} and MicroK8s\footnote{\url{https://microk8s.io/}} have merged to address the resource constraints and operational requirements of edge environments [\cite{10.1145/3578244.3583737}].
-These lightweight distribution reduce memory footprint and eleminate dependencies on external databases, making them suitable for deployment on resource-constrained edge hardware while maintaining compatibility with standard Kubernetes APIs.
+Edge-specific Kubernetes distributions such as K3s\footnote{\url{https://k3s.io/}} and MicroK8s\footnote{\url{https://microk8s.io/}} have emerged to address the resource constraints and operational requirements of edge environments [\cite{10.1145/3578244.3583737}].
+These lightweight distributions reduce memory footprint and eliminate dependencies on external databases, making them suitable for deployment on resource-constrained edge hardware while maintaining compatibility with standard Kubernetes APIs.
 
-Furthermore, does Kubernetes support custom resource definitions (CRDs) and operators which provide mechanisms for encoding edge-specific operational knowledge into Kubernetes control plane.
-Edge computing operators can therefore automate complex deployment patterns, manage application lifecycle across heterogeneous hardware and implemnt domain-specific optimization strategies while maintaining integration with standard Kubernetes tooling.
+Furthermore, Kubernetes supports custom resource definitions (CRDs) and operators, which provide mechanisms for encoding edge-specific operational knowledge into the Kubernetes control plane.
+Edge computing operators can therefore automate complex deployment patterns, manage application lifecycle across heterogeneous hardware, and implement domain-specific optimization strategies while maintaining integration with standard Kubernetes tooling.
 
-Additionally, the cluster federation and multi-cluster management capabilities of Kubernetes enable coordinated management of edge deployments across multiple geographic locations.
+Additionally, cluster federation and multi-cluster management capabilities of Kubernetes enable coordinated management of edge deployments across multiple geographic locations.
 
 % ----------------------------------
 \subsection{Prometheus and Grafana}
 Prometheus\footnote{\url{https://prometheus.io/}} provides metrics collection and monitoring capabilities essential for observability in distributed edge computing environments.
 
-Due to prometheus's pull-based monitoring architecture, agents to maintain persistent connections to central monitoring systems are not further required and with a time-series database, multiple metrics can be stored efficiently across a hterogeneous distributed infrastructure.
-Additionally, service discovery integration allows prometheus to automatically discover and monitor new edge nodes and services as they join or leave the deployment, making it adapt to changes in a dynamic edge enviornment where node frequently change due to mobility, maintenance or scaling operations.
+Due to Prometheus's pull-based monitoring architecture, agents to maintain persistent connections to central monitoring systems are not required, and with a time-series database, multiple metrics can be stored efficiently across a heterogeneous distributed infrastructure.
+Additionally, service discovery integration allows Prometheus to automatically discover and monitor new edge nodes and services as they join or leave the deployment, making it adaptable to changes in a dynamic edge environment where nodes frequently change due to mobility, maintenance, or scaling operations.
 
-This all get further supported by Grafana's\footnote{\url{https://grafana.com/}} visualization capabilities which transform raw metrics data into actionable insights through customizable dashboards, alerting mechanisms and data exploration interfaces.
+This is further supported by Grafana's\footnote{\url{https://grafana.com/}} visualization capabilities, which transform raw metrics data into actionable insights through customizable dashboards, alerting mechanisms, and data exploration interfaces.
 
-This seemless intergration between Prometheus and Grafana creates a complete adaptable, customizable and observable monitoring stack that enables developers and researches to understand system behavior, identify anomalies and bottlenecks as well as respond to operational issues in real-time.
+This seamless integration between Prometheus and Grafana creates a complete, adaptable, customizable, and observable monitoring stack that enables developers and researchers to understand system behavior, identify anomalies and bottlenecks, and respond to operational issues in real time.
 
 % ----------------------------------
 \subsection{Apache Kafka}
 Apache Kafka's\footnote{\url{https://kafka.apache.org/}} (hereinafter called Kafka) distributed streaming platform capabilities address critical data management requirements in edge computing environments, particularly for scenarios requiring real-time data processing and reliable message delivery across distributed infrastructure.
 
-The platform's partition-based scaling model allows fine-grainded control over data locality and processing distribution, which are deemed crucial capabilities for edge scenarios with bandwith constrains. With the Kafka connect ecosystem extensive integration capabilities are provided via edge data sources and sinks, which enables streamlined data pipeline construction without custom coding.
-The connector framework supports various protocols, such like industrial protocols, IoT platforms and database systems, making it widely adaptable in different applications.
+The platform's partition-based scaling model allows fine-grained control over data locality and processing distribution, which are crucial capabilities for edge scenarios with bandwidth constraints. With the Kafka Connect ecosystem, extensive integration capabilities are provided via edge data sources and sinks, enabling streamlined data pipeline construction without custom coding.
+The connector framework supports various protocols, such as industrial protocols, IoT platforms, and database systems, making it widely adaptable in different applications.
 
 Sophisticated real-time analytics are enabled due to Kafka Streams processing capabilities within the Kafka ecosystem, reducing the complexity of processing architectures.
-Hence, stream processing applications can implement complex event processing, data enrichment and aggregation logic while maintaining the fault tolerance and scalability charactistics of the underlying Kafka platform.
+Hence, stream processing applications can implement complex event processing, data enrichment, and aggregation logic while maintaining the fault tolerance and scalability characteristics of the underlying Kafka platform.
 % ----------------------------------
 \subsection{Kepler}
-Kepler\footnote{\url{https://sustainable-computing.io/}} (Kubernetes-based Efficient Power Level Exporter) represents a specialized monitoring solution designed to provide granular energy consumption visbility in containerized edge environments.
+Kepler\footnote{\url{https://sustainable-computing.io/}} (Kubernetes-based Efficient Power Level Exporter) represents a specialized monitoring solution designed to provide granular energy consumption visibility in containerized edge environments.
 This addresses the growing importance of energy efficiency in edge computing deployments.
 
-The energy consumption gets calculated based on the ratio of resources used to total energy.
+The energy consumption is calculated based on the ratio of resources used to total energy.
 The total energy consumption is collected from Running Average Power Limit (RAPL) zones and other hardware sensors.
-For systems the power level can be then determine by dividing the total energy into active and idle based on for example CPU usage ratio.
-On the other hand, for processes the power level can be calulated by dividing the power used by a given resource based on the ratio of the process and system resource utilization.
-This can not only happen with CPU usage but also for example GPU usage and other resources.
+For systems, the power level can then be determined by dividing the total energy into active and idle based on, for example, CPU usage ratio.
+On the other hand, for processes, the power level can be calculated by dividing the power used by a given resource based on the ratio of the process and system resource utilization.
+This can not only happen with CPU usage but also, for example, GPU usage and other resources.
 
 Based on that, Kepler can assign each process, system and container an energy consumption level, which becomes particularly valuable in battery-powered edge deployments where energy efficiency directly impact operational sustainability.
 
@@ -222,5 +222,5 @@ Additionally, Machine Learning-Based Energy Modeling capabilities enable energy 
 Chaos Mesh\footnote{\url{https://chaos-mesh.org/}} provides chaos engineering powered capabilities specifically designed for Kubernetes environments, enabling systematic reliability testing of edge computing systems under various failur conditions and operational stresses.
 
 Under the motto of "Break Your System Constructively", Chaos Mesh allows for simulated abnormalities that might realisticly occur, such as network-level chaos experiments and resource-based chaos testing.
-Here, multiple variables and failures can be simulated, including but not only network partitions, latency variations and bandwidth limitations as well as CPU throttling, memory limitations and disk space restrictions.
+Here, multiple variables and failures can be simulated, including but not limited to network partitions, latency variations and bandwidth limitations as well as CPU throttling, memory limitations and disk space restrictions.
 These experiments enable validation of application resilience to the network unreliability characteristic of edge deployments as well as evaluation at degradation behaviors and additional resource managment effictiveness.
