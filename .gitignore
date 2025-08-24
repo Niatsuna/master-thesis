@@ -17,6 +17,7 @@
 *.soc
 *.synctex.gz
 *.run.xml
+*.bbl-SAVE-ERROR
 
 !writing/kcss/*
 !presentation/*
