@@ -170,6 +170,14 @@ Large-scale and time-accelerated scenarios also struggle with Fogify, as its har
 
 % ----------------------------------
 \subsection{iContinuum}
+iContinuum [\cite{sim-icontinuum}] joins Fogify as a python based emulator that uses docker containerization and kubernetes to emulate linux networking.
+Here, it is also designed to be realistic and reproducible, but other than the previous, focuses on cloud-to-edge, orchestration and reproducibility of large-scale experimentations. 
+
+iContinuum succeeds in its goals by serving realistic and reproducible cloud-to-edge continuum testbeds while maintaining a multi-domain orchestration and declarative scenario description.
+It is therefore suitable for orchestration research across the cloud-edge continuum, testing real applications in distributed scenarios and in network-based resource emulation.
+
+However, just like its competitor, it is hardware-limited in its scalability and has no synthetic time like simulators in this field.
+Additionally, it has no built-in energy modeling, making it not as suitable for large-scale, time-accelerated or energy-focused simulation.
 
 % ------------------------------------------
 \section{Comparative Analysis}
