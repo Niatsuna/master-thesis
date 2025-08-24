@@ -37,7 +37,7 @@ By testing each simulator, we also ensure that each one is still deployable and 
 In the following each of the ten representatives gets quickly introduced, by stating which criteria they fulfill and by a quick rundown of their capabilities, foci and current development status as well as their strengths and weaknesses.
 This section is only to quickly introduce the representatives and a further more detailed rundown is present in the subsequent section as each important capability gets compared.
 % ----------------------------------
-\subsection{EdgeCloudSim}
+\subsection{EdgeCloudSim}\label{sec:EdgeCloudSim}
 EdgeCloudSim [\cite{sim-edgecloudsim}] is a highly cited and widely adapted edge computing simulator, which focuses on Mobile Edge Computing (MEC) via cloudlets and general edge computing simulation.
 With it being first published August 2018, it is one of the older simulators in this list. As of this thesis, EdgeCloudSim was last updated October 2020.
 
@@ -52,7 +52,7 @@ It is therefore less suitable for pure IoT or cloud computing scenarios and show
 Furthermore, it is only single-threaded, which leads to scalability limitations, and has no security, privacy or energy modeling.
 
 % ----------------------------------
-\subsection{iFogSim2}
+\subsection{iFogSim2}\label{sec:iFogSim2}
 iFogSim2 [\cite{sim-ifogsim2}] is another highly cited and widely adapted edge computing simulator, which builds upon its previous version iFogSim [\cite{sim-base-ifogsim1}].
 It is, just like EdgeCloudSim, based on CloudSim [\cite{sim-base-cloudsim}] and focuses also on MEC scenarios but extends its scope to IoT, fog computing and microservices.
 iFogSim2 is developed as a CloudSim-based framework designed for comprehensive Edge/Fog computing scenarios with focus on mobility, clustering and microservice orchestration, and was first published in September 2021.
@@ -71,7 +71,7 @@ Therefore, it performs relatively poorly for real-time system simulation require
 scenarios requiring extensive energy modeling.
 
 % ----------------------------------
-\subsection{YAFS}
+\subsection{YAFS}\label{sec:YAFS}
 Yet Another Fog Simulator (YAFS) [\cite{sim-yafs}] is a highly cited simulator which was first published in July 2019 and last updated June 2022.
 Other than iFogSim2 and EdgeCloudSim, YAFS is written in Python 2.7 and extends EdgeSimPy [\cite{sim-base-edgeSimpy}] and focuses on IoT, fog and edge computing as well as resource allocation.
 YAFS is designed to be lightweight, robust and highly configurable based on complex network theory with minimal class structure.
@@ -86,7 +86,21 @@ Just like its competitors, it struggles with being single-threaded and therefore
 With this, YAFS is not ideal for production or commercial environments, large-scale parallel simulations or research that focus on energy or security.
 
 % ----------------------------------
-\subsection{Mockfog 2.0}
+\subsection{EmuFog}\label{sec:EmuFog}
+EmuFog [\cite{sim-emufog}] is highly citated, widely adopted and well established extensible emulation framework for large-scale fog computing written in Kotlin and based on MaxiNet\footnote{\url{https://maxinet.github.io/}} [\cite{sim-base-maxinet}] and Mininet\footnote{\url{https://mininet.org/}} [\cite{sim-base-mininet}].
+\todo{Is it okay to have a citation and a footnote ? is it too much ? Idk}
+First published in October 2017 and updated until September 2020, EmuFog focuses on large-scale fog computing infrastructure emulation while mainly addressing the network emulation.
+
+It provides highly accurate results and supports docker containerization and both synthetic and real-world topologies.
+EmuFog has a good scalable architecture and efficient fog node placement algorithms with cost optimizations, making it a sufficient tool for network performance analysis 
+in fog environments, application deployment and orchestration testing as well as large-scale fog infrastructure evaluation.
+
+On the other hand, EmuFog has no mobility nor energy modeling and requires high computational resources for large-scale emulation.
+Due to that, large projects are expensive and mobile or energy projects or research is not recommended with EmuFog.
+Additionally, its overhead is quite high, making it inefficient for quick prototyping and algorithm development.
+
+% ----------------------------------
+\subsection{Mockfog 2.0}\label{sec:Mockfog 2.0}
 Mockfog 2.0 [\cite{sim-mockfog2}] is a widely adopted and well established tool in the simulation landscape and is a successor of the previous Mockfog (1.0) [\cite{sim-base-mockfog1}].
 It is not a simulator like the previous mentioned, but an cloud-based emulator written in Node.js, which focuses on fog and edge computing for real application testing.
 The emulator was first published 2021 and the development halted around June 2021.
@@ -104,33 +118,30 @@ It is not suitable for large-scale theoretical studies and cannot test theoretic
 Additionally, it has limited mobility support making it inefficient for some projects.
 
 % ----------------------------------
-\subsection{EmuFog}
-EmuFog [\cite{sim-emufog}] is highly citated, widely adopted and well established extensible emulation framework for large-scale fog computing written in Kotlin and based on MaxiNet\footnote{\url{https://maxinet.github.io/}} [\cite{sim-base-maxinet}] and Mininet\footnote{\url{https://mininet.org/}} [\cite{sim-base-mininet}].
-\todo{Is it okay to have a citation and a footnote ? is it too much ? Idk}
-First published in October 2017 and updated until September 2020, EmuFog focuses on large-scale fog computing infrastructure emulation while mainly addressing the network emulation.
+\subsection{Fogify}\label{sec:Fogify}
+Fogify [\cite{sim-fogify}] is a Python based emulator that focuses on fog/edge computing in a cloud-native container orchestration based network emulation.
+It is designed to be realistic, reproducible and to server scalable fog/edge testbeds using containers.
+First published in November 2020, Fogify shows a relatively active development with a modern docker and kubernetes based approach for linux networking.
 
-It provides highly accurate results and supports docker containerization and both synthetic and real-world topologies.
-EmuFog has a good scalable architecture and efficient fog node placement algorithms with cost optimizations, making it a sufficient tool for network performance analysis 
-in fog environments, application deployment and orchestration testing as well as large-scale fog infrastructure evaluation.
+Due to being realistic and reproducible fog/edge testbeds, it shines at testing real applications in such scenarios.
+Furthermore, due to its container and kubernetes integration it supports declarative scenario description and therefore being relatively easy to configure and quite modern.
 
-On the other hand, EmuFog has no mobility nor energy modeling and requires high computational resources for large-scale emulation.
-Due to that, large projects are expensive and mobile or energy projects or research is not recommended with EmuFog.
-Additionally, its overhead is quite high, making it inefficient for quick prototyping and algorithm development.
+Sadly, it features no built-in energy modeling which makes it insufficient for energy-focused research unless the energy-consumption is instrumented externally.
+Large-scale and time-accelerated scenarios also struggle with Fogify, as its hardware-limited scalability stands in the way.
 
 % ----------------------------------
-\subsection{EdgeAISim}
-EdgeAISim [\cite{sim-edgeAIsim}] is a relatively new simulator, first published in October 2023, and focuses on the growing trend of artificial intelligence on the edge.
-It features an extension to EdgeSimPy [\cite{sim-base-edgeSimpy}], which is written in Python, and focuses on resource management and energy optimization for artificial intelligence and machine learning workflows on the edge.
+\subsection{iContinuum}\label{sec:iContinuum}
+iContinuum [\cite{sim-icontinuum}] joins Fogify as a python based emulator that uses docker containerization and kubernetes to emulate linux networking.
+Here, it is also designed to be realistic and reproducible, but other than the previous, focuses on cloud-to-edge, orchestration and reproducibility of large-scale experimentations. 
 
-The integration of advanced AI models for intelligent resource management as well as the use of advanced artificial intelligence techniques like multi-armed bandit, Deep Q-Networks (DQN) and GNNs, makes it an 
-efficient simulator in regards to scenarios of energy optimization studies, intelligent resource management and task scheduling algorithm development on the edge.
+iContinuum succeeds in its goals by serving realistic and reproducible cloud-to-edge continuum testbeds while maintaining a multi-domain orchestration and declarative scenario description.
+It is therefore suitable for orchestration research across the cloud-edge continuum, testing real applications in distributed scenarios and in network-based resource emulation.
 
-As EdgeAISim is a relatively small extension and has a very strict focus, it lacks in multiple other features that its competitors present.
-Due to this, scenarios without artificial intelligence requirements don't reap any benefits from this simulator, as the workflow either hindered by additional workload or is simply 
-delegated to EdgeSimPy.
+However, just like its competitor, it is hardware-limited in its scalability and has no synthetic time like simulators in this field.
+Additionally, it has no built-in energy modeling, making it not as suitable for large-scale, time-accelerated or energy-focused simulation.
 
 % ----------------------------------
-\subsection{FogNetSim++}
+\subsection{FogNetSim++}\label{sec:FogNetSim++}
 FogNetSim++ [\cite{sim-fognetsim++}] is relatively well known and established tool written in C++ and first published October 2018.
 It is based on the OMNeT++\footnote{\url{https://omnetpp.org/}} and INET\footnote{\url{https://inet.omnetpp.org/}} Framework and focuses on network-centric fog environemnts with distributed fog systems.
 The development halted as of the same month.
@@ -145,7 +156,7 @@ Adittionally, the documentation is relatively limited and due to the focus prima
 This makes the simulator relatively inefficient for quick prototyping and real-time system simulation as well as energy- and security-focused studies.
 
 % ----------------------------------
-\subsection{FogTorch$\Pi$}
+\subsection{FogTorch$\Pi$}\label{sec:FogTorchPi}
 FogTorch$\Pi$ [\cite{sim-fogtorchpi}] is a well established probabilistic analysis tool in graph structure application deployment.
 Written in Java in May 2017, FogTorch$\Pi$ focuses on fog computing, Quality of Service (QoS) aware deployment optimization as well as IoT application deployment.
 With its probabilistic QoS-assurance and resource consumption estimation for eligible deployments of fog application with focus on deployment descision support, it serves a unique focus in the simulation landscape.
@@ -156,28 +167,38 @@ Therefore, it is best used for fog application deployment planning, QoS-aware de
 
 However, it features no runtime simulation capabilties and the deployment analysis is rather static with no dynamic reconfiguration or adaptation.
 Furthermore, no ernergy or security modeling is present and its limited scalability makes it inefficient for energy or security based large-scaled projects.
-% ----------------------------------
-\subsection{Fogify}
-Fogify [\cite{sim-fogify}] is a Python based emulator that focuses on fog/edge computing in a cloud-native container orchestration based network emulation.
-It is designed to be realistic, reproducible and to server scalable fog/edge testbeds using containers.
-First published in November 2020, Fogify shows a relatively active development with a modern docker and kubernetes based approach for linux networking.
-
-Due to being realistic and reproducible fog/edge testbeds, it shines at testing real applications in such scenarios.
-Furthermore, due to its container and kubernetes integration it supports declarative scenario description and therefore being relatively easy to configure and quite modern.
-
-Sadly, it features no built-in energy modeling which makes it insufficient for energy-focused research unless the energy-consumption is instrumented externally.
-Large-scale and time-accelerated scenarios also struggle with Fogify, as its hardware-limited scalability stands in the way.
 
 % ----------------------------------
-\subsection{iContinuum}
-iContinuum [\cite{sim-icontinuum}] joins Fogify as a python based emulator that uses docker containerization and kubernetes to emulate linux networking.
-Here, it is also designed to be realistic and reproducible, but other than the previous, focuses on cloud-to-edge, orchestration and reproducibility of large-scale experimentations. 
+\subsection{EdgeAISim}\label{sec:EdgeAISim}
+EdgeAISim [\cite{sim-edgeAIsim}] is a relatively new simulator, first published in October 2023, and focuses on the growing trend of artificial intelligence on the edge.
+It features an extension to EdgeSimPy [\cite{sim-base-edgeSimpy}], which is written in Python, and focuses on resource management and energy optimization for artificial intelligence and machine learning workflows on the edge.
 
-iContinuum succeeds in its goals by serving realistic and reproducible cloud-to-edge continuum testbeds while maintaining a multi-domain orchestration and declarative scenario description.
-It is therefore suitable for orchestration research across the cloud-edge continuum, testing real applications in distributed scenarios and in network-based resource emulation.
+The integration of advanced AI models for intelligent resource management as well as the use of advanced artificial intelligence techniques like multi-armed bandit, Deep Q-Networks (DQN) and GNNs, makes it an 
+efficient simulator in regards to scenarios of energy optimization studies, intelligent resource management and task scheduling algorithm development on the edge.
 
-However, just like its competitor, it is hardware-limited in its scalability and has no synthetic time like simulators in this field.
-Additionally, it has no built-in energy modeling, making it not as suitable for large-scale, time-accelerated or energy-focused simulation.
+As EdgeAISim is a relatively small extension and has a very strict focus, it lacks in multiple other features that its competitors present.
+Due to this, scenarios without artificial intelligence requirements don't reap any benefits from this simulator, as the workflow either hindered by additional workload or is simply 
+delegated to EdgeSimPy.
+
+\begin{figure}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{l | c | c | X }
+    \hline
+    \textbf{Name} & \textbf{Language} & \textbf{Type} & \textbf{Focus} \\\hline
+    EdgeCloudSim  & Java & Sim & Mobile Edge Computing, General Edge Computing\\\hline
+    iFogSim2      & Java & Sim & IoT, Mobile Edge Computing, Microservices\\\hline
+    YAFS          & Python & Sim & IoT, resource allocation, complex networks theory\\\hline
+    EmuFog        & Kotlin & Emu & Large-scale fog infrastructure\\\hline
+    Mockfog 2.0   & Node.js & Emu & Real application testing, Cloud-based emulation\\\hline
+    Fogify        & Python & Emu & Container orchestration, Network emulation\\\hline
+    iContinuum    & Python & Emu & Orchestration, Large-scale experimentation\\\hline
+    FogNetSim++   & C++ & Sim & Realistic network-centric distributed systems\\\hline
+    FogTorch$\Pi$ & Java & Sim & IoT application deployment, QoS-aware deployment optimization\\\hline
+    EdgeAISim     & Python & Sim & AI/ML Edge Computing, Resource management, Energy optimization\\\hline
+  \end{tabularx}
+  \caption{Summary of all representatives of edge computing simulation landscape}
+  \label{tab:overview-table-representatives}
+\end{figure}
 
 % ------------------------------------------
 \section{Comparative Analysis}
