@@ -203,33 +203,125 @@ delegated to EdgeSimPy.
 
 % ------------------------------------------
 \section{Comparative Analysis}
-In the following, we further dive into each aspect that is presented by the representatives and find similarities and differences.
+In the following, we further dive into each aspect of the representatives and find similarities and differences.
 To do that, we first introduce our analysis framework, which covers which aspects we observe, what value they bring to the simulation landscape and what the general structure for our comparison is.
 After that we start with the comparison, covering each aspect and dive into further insights that come up during the process.
-Additionally, we highlight some common patterns and findins as well as mention some gaps due to missing capabilities, limitations and emerging requirements.
+Additionally, we highlight some common patterns and findings as well as mention some gaps due to missing capabilities, limitations and emerging requirements.
 
 % ----------------------------------
 \subsection{Analysis Framework}
 To systematically compare each representative with different architectures, foci and implementation approaches, we establish a foundation in form of a framework.
 Given that our selected representatives range from simulators to emulators with varying specialized purposes, direct feature-to-feature comparison would be insufficient.
 Instead, our framework considers both the specific goals of each representative and the influence of it in the edge computing simulation landscape.
+A feature of a fog-edge emulator, may not be a great fit for a cloud-edge simulator, but still can have some insights and useful information regarding implementation or general design.
 
 The framework encompasses six core dimensions that collectively address the complete software lifecycle from development, through deployment to its usage and assessment.
 This holistic approach ensures our analysis captures not only what they can do, but also how well it serves researches and users across diverse edge computing scenarios.
 
 \subsubsection{Architectural Dimensions}
+The architectural foundation determines the flexibility, maintainability and ability to accurately represent edge computing environments.
+It concerns itself with the design choices during the development of the simulator.
+This can include the choice of the coverage scope, simulation paradigm, the general design philosophy, architecture patterns and integrations capabilities.
+
+Which layer the simulator covers, is important to understand its purpose and capabilities. 
+The coverage scope not only determines requirements for protocols and other features, but also different use cases and therefore the general focus.
+It further can determine required modeling complexity, affects scalability requirements and shapes varied approaches during development and usage.
+Furthermore, some capabilities, requirements and approaches can be essential for a layer in general.
+
+The choice of the simulation paradigm ,on the other hand, determines whether simulators employ discrete-event simulation for network dynamics, 
+continuous-time modeling for resource consumption, agent-based approaches for autonomous behavior or hybrid combinations that leverage multiple paradigms simultaneously.
+As all these different paradigms, can have influence over simulation accuracy, time and resource usage, the selection should be not made hastely.
+
+Hence, the general design philosophy is a criticial point, as it can not only determine the simulation paradigm but also can directly influence the focus of the simulator.
+As we established, different foci doesn't mean that no insight can be gained for ther simulators. This is also true for the design philosphy.
+
+Additionally, the choice of a modular or monoltihc architecture pattern, is a foundational choice, as modular designs are known to be more maintainable by separating concerns into independent components, and 
+monolithc implementations are deemed to be compacter by integrating all functionality within unified frameworks.
+
+This extends to the integration of external tools, real-world system and other simulation platforms through APIs, data exchange protocols and worklfow integration support.
+A closed process can be difficult to work with, as dynamic changes, collecting metrics and other processes that could be deemed useful from the outside are blocked off.
+Nonetheless, they can be deemed secure, as no external tool can interfere with a running scenario and distort results.
+On the other side, a open process could be insecure but easy to work with.
+Additionally, blocking the important tools but allowing non-essential tools in, could be deemed just as insufficient and risky in terms of useability and security.
+How much integration should be allowed and what integrations are necessary, is another aspect of the architectural design process.
 
 \subsubsection{Functional Capabilities}
+Functional capabilities encompass the breadth and depth of the edge computing scenarios each simulator can represent.
+This does include general functionalities as well as focus-based capabilities, which needs to be weighted.
+
+The general functionalities encompasses for example network modeling, device and infrastructure modeling and application and worload modeling as well as fault tolerance and reliability modeling and security and privacy concerns.
+
+Network modeling assesses support for diverse network types, protocol implementations and realistic network conditions including variable delays, bandwidth constraint and congestion-aware behavior.
+Additionally, simulated topologies and other feature can have impact in the network modeling as well, making it a core point in the simulator of choice.
+
+Device and infrastructure modeling examines the range of supported device types from resource-constrained sensors to powerful edge servers, including resource modeling, heterogeneity support for diverse device capabilities and realistic scaling bahavior that reflects hardware constraints and performance characteristics.
+The degree in which these device needs to be models are in correlation of the level of detail the simulator wants to accomplished and the focus.
+
+Application and workload modeling investigates support for different application architectures, task dependency patterns and data flow models.
+This includes evaluation of service migration capabilities, workload generation methods and QoS requirement modeling for latency, throughput and reliability constraints.
+
+This gets extended by modeling fault tolerance and checking for reliability of the simulated devices and networks.
+If the network modeling concerns itself with the aspects of variable delays, fault tolerance concerns itself with the case of failing nodes and devices that would maybe cause these delays.
+By modeling fault tolerance, the simulator can check if the scenario is reliable in cases where devices disconnect. 
+
+Furthermore, security and privacy of the simulator as well as the application are important for personal use as well as developing security-aware applications.
+These points can be further extended by focus-based capabilities, as every type of focus can have qualifing capabilities for the edge computing landscape.
+For example, if the focus lies on mobile devices, mobility modeling is necessary to model different delay and different data generation based on movement and distance to other nodes.
+Energy consumption and sustainability can also be capabilities important for the simulator that need to be observed and weighted based on their respective influence in the edge computing simulation landscape.
 
 \subsubsection{Performance and Scalability}
+Performance characteristics directly impact practical utility for large-scale edge computing studies.
+A simulator that can't be scaled or performs badly in realistic deployment requirements, can be deemed insufficient.
+As scalability is a core aspect of the edge, it is a critical aspect that needs to be analysed for each simulation.
+
+Computational efficiency measures simulation execution speed relative to scenario complexity, memory usage patterns and effectiveness of optimization features including caching, checkpointing and incremental simulation capabilities.
+
+Scalability limits determine practical boundaries for scenario complexity, including maximum supportable network nodes, concurrent applications and realistic scenario sizes before performance degrades unacceptably.
+This assessment examines parallelization support through multi-threading, distributed processing or GPU acceleration and evaluates how performance scales with increasing scenario complexity.
+
+Resource requirements document hardware dependencies, platform support across operating systems and scaling relationships between simulation complexity and computational demands.
+The evaluation includes assessment of memory efficiency, CPU utilization patterns and any spezialized hardware requirements that might limit accessibility or deployment flexibility.
 
 \subsubsection{Usability}
+Usability factors significantly influence simulator adoption and research productivity.
 
-\subsubsection{Extensibility}
+An evaluation of the setup and deployment procress asseses installation complexity, dependency management and documentation quality as well as community support avalability.
+This includes examination of platform compatibility, deployment options and the overall barrier to entry for new users.
+
+Programming interface analysis compares configuration methods from graphical interfaces to prorgammic APIs, evaluating the balance btween ease of use and flexibility.
+The assessment considers API design quality, example scenario availability and the steepness of the learning curve required for productive use across different users expertise levels.
+This does not only include the pure usage of said simulator but also the further development.
+Furthermore, it also observes the strictness of the simulator, as a simulator which can only be used for one specific scenario may not be suited in general.
+
+Research workflow integration examines support for experimental design including scenario management, parameter sweep capabilities, reproducibility mechanisms through seed control and deterministic execution and statistical analysis features.
+Effective simulators should provide data export capabilities, visualization support and integration with external analysis tools to support rigourous experimental methodologies and interpretation of the results in general.
+
+\subsubsection{Extensibility and Customization}
+Extensibility determines a simulator's ability to evolve with changing research needs and support novel edge computing concepts.
+This ensures that the simulator grows with the changing simulation landscape, adapt modern approaches and can be customized for a variety of scenarios and use cases.
+Hence, this aspect is highly dependent on other factors such as the architecture pattern but can also be achieved and influenced by other internal as well as external features.
+
+Plugin architecture is a common way of adding new functionality without modifiying core code.
+To assess this architecture, the availability of well-defined extension points, plugin management systems and the ease of integrationg custom components need to observed.
+
+Programming extensibility evaluates API completeness and choice of programming language for custom development, scripting support for automation and the flexibility of extending exisiting models or creating entirely new behavioral representations.
+This includes assessment of inheritance mechanisms, interface design and the complexity required for implementing custom device types, protocols or application models.
+
+Data and metric extensibility investigates capabilities for custom metric definitions, support for novel data patterns, integration with real-world datasets and mechanisms for extending output analysis capabilities.
+Robust extensibility should enable researchers to adapt simulators for emerging edge computing paradigms without requiring dfundamental architectural chanegs.
 
 \subsubsection{Validation and Evaluation}
+Validation capabilities ensure simulation credibility and enable meaningful research conclusion.
+The accuracy of the simulators results is important, as inaccurate results defeat the whole purpose of the process as a whole.
 
-\todo{To Cover aspects. e.g. Architectural dimensions, functional capabilities, performance and scalability, usability, extensibility, validation and evaluation}
+Accuracy and validation asssesment examines built-in verification methods, calibration requirements against real-world data and documented accuracy claims with associated error bounds or precision levelvs.
+
+Benchmarking and comparison evlauates availability of standard benchmark scenarios, reference implementationsfor comparative analysis and built-in metrics that enable fair evlauation across different approaches.
+The assessment considers whether simulators provide validated baseline scenarios and support for reproductin published research results for comparison, review and transparency of the results.
+
+Metrics and analysis support examines the comprehensivesness of built-in measurement capabilities, configurability of ourput generation and support of custom metric definition.
+Effective evaluation support should, as mentioned in previous aspects, include statiscal analysis features, data export capabilities in standard formats and visualization tools that facilitate both real-time monitoring and post processing analysis of simulation results. 
+
 % ----------------------------------
 \subsection{Analysis \& Results}
 \todo{Actual Comparison with Results, Strength and Weaknesses, ...}
