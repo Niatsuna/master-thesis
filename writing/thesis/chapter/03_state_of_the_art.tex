@@ -216,7 +216,7 @@ Given that our selected representatives range from simulators to emulators with 
 Instead, our framework considers both the specific goals of each representative and the influence of it in the edge computing simulation landscape.
 A feature of a fog-edge emulator, may not be a great fit for a cloud-edge simulator, but still can have some insights and useful information regarding implementation or general design.
 
-The framework encompasses six core dimensions that collectively address the complete software lifecycle from development, through deployment to its usage and assessment.
+The framework encompasses five core dimensions that collectively address the complete software lifecycle from development, through deployment to its usage and assessment.
 This holistic approach ensures our analysis captures not only what they can do, but also how well it serves researches and users across diverse edge computing scenarios.
 
 \subsubsection{Architectural Dimensions}
@@ -274,10 +274,7 @@ Computational efficiency measures simulation execution speed relative to scenari
 Scalability limits determine practical boundaries for scenario complexity, including maximum supportable network nodes, concurrent applications and realistic scenario sizes before performance degrades unacceptably.
 This assessment examines parallelization support through multi-threading, distributed processing or GPU acceleration and evaluates how performance scales with increasing scenario complexity.
 
-Resource requirements document hardware dependencies, platform support across operating systems and scaling relationships between simulation complexity and computational demands.
-The evaluation includes assessment of memory efficiency, CPU utilization patterns and any spezialized hardware requirements that might limit accessibility or deployment flexibility.
-
-\subsubsection{Usability}
+\subsubsection{Usability and User Experience}
 Usability factors significantly influence simulator adoption and research productivity.
 
 An evaluation of the setup and deployment procress asseses installation complexity, dependency management and documentation quality as well as community support avalability.
@@ -291,7 +288,6 @@ Furthermore, it also observes the strictness of the simulator, as a simulator wh
 Research workflow integration examines support for experimental design including scenario management, parameter sweep capabilities, reproducibility mechanisms through seed control and deterministic execution and statistical analysis features.
 Effective simulators should provide data export capabilities, visualization support and integration with external analysis tools to support rigourous experimental methodologies and interpretation of the results in general.
 
-\subsubsection{Extensibility and Customization}
 Extensibility determines a simulator's ability to evolve with changing research needs and support novel edge computing concepts.
 This ensures that the simulator grows with the changing simulation landscape, adapt modern approaches and can be customized for a variety of scenarios and use cases.
 Hence, this aspect is highly dependent on other factors such as the architecture pattern but can also be achieved and influenced by other internal as well as external features.
@@ -640,12 +636,133 @@ It can only be approximated by resource utilization based on scenario results, b
 However, it is mentioned in the documentation of EdgeCloudSim\footnote{\url{https://github.com/CagataySonmez/EdgeCloudSim}} as a needed feature for the simulator.
 
 \subsubsection{Performance and Scalability Comparison}
+Performance and scalability are playing a crucial part in software engineering and especially in edge computing simulation, because of the sheer amount of heterogeneous devices which each generates or compute data on the edge
+While comprehensive performance benchmarking across edge computing simulators remain limited, each tools respective paper made some effort to show general performance metrics and some comparisons where executed by other papers. [\cite{s23073492}, \cite{MECHALIKH2025103042}, \cite{fi11030055}]
+
+Computational efficiency is a varying factor across the simulator landscape based on architectural design choicces, modeling complexity and implementation optimization strategies.
+\begin{figure}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{ l | X | X | X | X }
+    \hline
+    \textbf{Name} & \textbf{Simulation Speed} & \textbf{Memory Usage} & \textbf{Optimization Features} & \textbf{Execution Model}\\
+    \hline\hline
+    EdgeCloudSim  & Moderate  & High      & Caching, Event optimization         & Single-threaded \\\hline
+    iFogSim2      & Moderate  & Moderate  & Mobile-specific optimization        & Single-threaded \\\hline
+    YAFS          & Fast      & Low       & Parallel processing, Caching        & Multi-threaded \\\hline
+    EmuFog        & Slow      & High      & Container optimization              & Real execution \\\hline
+    MockFog 2.0   & Slow      & High      & Limited optimization                & Real execution \\\hline
+    Fogify        & Moderate  & High      & Kubernetes optimization, Scheduling & Real execution, Kubernetes-based \\\hline
+    iContinuum    & Variable  & Moderate  & Adaptive optimization               & Hybrid, Kubernetes-based \\\hline
+    FogNetSim++   & Moderate  & Moderate  & Basic optimization                  & Single-threaded \\\hline
+    FogTorch$\Pi$ & Fast      & Moderate  & Container optimization              & Container-based \\\hline
+    EdgeAISim     & Variable  & High      & GPU acceleration, Model caching     & Hybrid CPU/GPU \\\hline
+  \end{tabularx}
+  \caption{Comparison overview of computational efficency}
+  \label{tab:analysis-performance}
+\end{figure}
+YAFS demonstrate superior computational efficiency through its custom-built descrete event engine with optimized data structures and parallel processing capabilities.
+Traditional simulators that rely on either CloudSim-based frameworks (EdgeCloudSim and iFogSim2), rely heavily on their deploy technologies like FogTorch$\Pi$ and FogNetSim++ or the emulators, are dependent on the performance of their foundations.
+The CloudSim-based frameworks show moderate performance limited by the framework's single-threaded architecture and extensive object creation in Java,
+while FogTorch$\Pi$ is relies heavily on its containers optimizations and the emulators face inherent efficiency constraints due to real application execution overhead, with Mockfog 2.0 showing the highest resource consumption due to full system emulation.
+Furthermore, EdgeAISim suffers additionally from the size of AI models, which results in high memory usage but its performance can vary based on deployed model and scenario.
+
+Additionally to note is, that iFogSim2 acitvely claims to have a 28\% better memory usage than its competitors [\cite{sim-ifogsim2}].
+
+Scalability limits, on the other hand, reveal a critical aspect in the edge computing simulation landscape, as its highly impacted by scenarios, simulation properties and hardware constraints.
+The maximum number of supported nodes is often not clearly stated [\cite{qi2025surveyopensourceedgecomputing}, but sometimes implied or in a very few comparison depicted for selected scenarios.
+
+Emulators are typically stated to have a low amount of maximum nodes, as they need to emulate a whole real system rather than simulation only certain aspects.
+However, emulators may achieve greater number of nodes by distribution [\cite{qi2025surveyopensourceedgecomputing}, \cite{sim-mockfog2}].
+This is especially stated for Mockfog 2.0, as ``MockFog’s scalability will usually be limited by the number of VMs that can be provisioned from the cloud provider of choice'' [\cite{sim-mockfog2}].
+Otherwise, they mainly rely with their scalability on their underlying technologies like Kubernetes. This is the case for iContinuum \cite{sim-icontinuum}.
+Fogify and Emufog have both scalability claims, but don't further classify or depict a benchmark for reviewing.
+\cite{sim-fogify} states for Fogify that ``the emulation execution environment should be scalable from topologies with a limited number of nodes, capable to run on a single laptop or PC, to hundreds or thousands nodes, running on a whole cluster.'' but don't provide any further necessary
+means or valueable benchmark to confirm or deny this claim, while \cite{sim-emufog} states something similar with EmuFog being capable to emulate large network topologies, but doesn't further clarify what this assessment mean nor provide any means to review this claim.
+
+For traditional simulators, some paper show comparison based on a shared scenario and simulation settings or just depict general metrics for their respective simulaotr.
+The general consesus is, that iFogSim2 and FogNetSim++ can present up to thousands of nodes on a large-scale basis, with the correct simulation setting.
+However, FogNetSim++ will quickly perform worse if the simulation is not correctly fine-tuned, as they simulate a greater network and focus more computational power for this network simulation.
+EdgeCloudSim is relatively near this large-scale assessment but falls off because of the same reasons, that the focus on mobility has a higher priority than scalability, making it fall off.
+Hence, in more complex scenarios EdgeCloudSim shows a relatively bad scalability but in the right circumstances large-scale scenarios it presents up to thousands of nodes.
+FogTorch$\Pi$ and EdgeAISim are mainly limited by their respective workload for AI/ML scenarios and cant be clearly classified.
+
+The most powerful simulator is in this list YAFS, as shown by \cite{sim-yafs} in comparison to iFogSim, with large-scale possible scenarios with thousands of nodes.
+Every source, however, puts scalability in high regards and challenge in edge computing simulation.
 
 \subsubsection{Usability and User Experience Comparsion}
 
-\subsubsection{Extensibility and Customization Comparison}
+The first step into using a tool is its setup and deployment process.
+CloudSim-based simulators like iFogSim2 and EdgeCloudSim demonstrate the easiest setup and deployment with standardized Java installation and shipment of all necessary addition dependencies.
+Their setup documentation is relatively useful and they ship with multiple example scenario that can be easily deployed to check if the setup was successful.
+However, it is to note that iFogSim2 is recommending IDEs for Windows Usage and EdgeCloudSims documentation is based on some videos rather than written text.
+FogNetSim++ is relatively complex, especially on Windows operation systems, with its key dependencies based on OMNeT++, INET and C++, and its documentation is relatively limited in comparison to the CloudSim-based simulators.
+FogTorch$\Pi$ and YAFS are realtively easy to setup, as they ship with required python package lists, but YAFs is quitely outdated with listed package versions as well as the deprecated python version.
+Container-based platforms face signifcant deployment barriers.
+EmuFog requires Linux-specific networking configurations, Mockfog 2.0 demands high-end hardware resources as it emualtes a full network, while Fogify and iContinuum require full Kubernetes cluster setup with associated operational complexity.
+EdgeAISim showed a different problem during setup, as the setup itself is not so complex but its documentation is quite lacking in some regards and is especially outdated with PyTorch and its extensions in regards that PyTorch's package had a name change and can no longer be installed using the provided command with any python version.
+
+As resource requirments vary significantly based on scenario complexity, simulatio duration and granularity, modeling fidelity and implmentation approaches, simple stated minimum requirements are not provided in the documentation of any tool directly other than underlying dependencies.
+The underlying dependencies mostly rely on deployed technologies and the programming language.
+Java-based tools often require Java 8 or higher, while mainly shipping every dependency.
+YAFS is developed in a deprecated Python 2.7, but can still be deployed with Python 3.12.4.
+EdgeAISim requires at least Python 3.7 and three additional packages for GPU workload as denoted in the documentation.
+FogNetSim++ require as the only C++ tool, the installation of OMNeT++ and INET.
+The emulators only require their contrainerization technologies, like Docker or a available Kubernetes-cluster.
+Other requirements just like minimum amount of RAM, CPU cores, etc. are not depicted in any official documentation or presented in any known comparison paper.
+
+Community support reveal stark differences in long-term sustainability and user accessibility across the simulator ecosystem.
+While high cited simulators (iFogSim2, EdgeCloudSim, YAFS) show relatively moderate-to-high community activity, other tools are reliant on their respective research domain and based on their age haven't shown quantifying involvement.
+Additionally, underlying technologies may hinder community support as for example OMNeT++ and INET as well as most emulators have a high learning curve, making external contributions limited.
+
+However, most tools provide a meaningful way to interact with them and configure scenarios as well as the respective tool.
+Most of them provide a configuration file, like an XML, YAML, API or can be configured using a script. 
+A majorty also features a hybrid approach, where for example topologies can be configured using a configuration file, but other features require direct modification of core code. 
+YAFS and EdgeAISim on the other hand, do not serve any configuration files and are purely python based.
+
+Due to their modular architecture, all tools in this list are highly extensible with plugins and further modules with development.
+Additionally, their bases, like CloudSim, provide extensions of their own that are combatible with the respective simulator.
+This makes every tool on this list able to integrate modern approaches and update their technologies if needed, ensuring their relevancy with emerging technologies in the future.
 
 \subsubsection{Validation and Evaluation Support Comparison}
+Validation and evaluation are crucial parts of an tool in the simulation landscape, as the results are the target of an simulation or emulation.
+The results need to be readable and meaningful, making metrics an important part of every tool.
+
+Traditional simulator provide customizable metrics that can be defined by the respective user.
+However, FogTorch$\Pi$ provides with its focus on deployment only deployment metrics, like QoS, Cost and Feasibility.
+Emulation platforms provide only real system metrics as they emulate the system and can mostly not be further customized.
+
+An interesting point here is where the metrics are defined, raised and collected.
+While iFogSim2 and EdgeAISim provide application-level defined and raised metrics, a majority of the traditonal simulators define and raise their metrics on simulator-level, meaning rather than definining each metric in the application on the device that should raise them, simulators 
+like EdegCloudSim and FogNetSim++ define their metrics in their code base and request each metric with the same definiton from every simulated device.
+FogNetSim++ provides additional scenario-level configuration via OMNeT++ and NED/INI files but EdgeCloudSim requires modification of the logger embedded in itself.
+This requires to have expertise in EdgeCloudSim and also has the problem of raising metrics that may not be available at simulated device or different scenarios.
+While application-level raised metrics fixes this problem, they may result in more modifications if a specific metric needs to be redefined or updated.
+YAFS on the other hand is on default simulator-level developed but can be configured with python scenario code to be close to application-level.
+Emulation platforms provide real system metrics on application-level as well, as they raise metrics from their respective containers and have fully configurable monitoring tools.
+
+The most standarized metrics in edge computing simulation are performance metrics like latency and throughput, as well as resource utilization like CPU, memory and bandwith usage.
+
+To evaluate most results, some visualization tool is often at least recommended or shipped with the simulator.
+For Kubernetes based tools, the visualization is often done by Grafana, and for every other tool the visualization is done by MATLAB\footnote{\url{https://www.mathworks.com/products/matlab.html}} or via python code with Matplotlib\footnote{\url{https://matplotlib.org/}}.
+FogNetSim++ is an outlier as it relies heavily on the visualization of OMNeT++.
+
+The results itself getting exported to readable output.
+MockFog 2.0 and EmuFog provide real system logs and cloud API responses that dependet on the application for its format.
+Fogify and iContinuum have a high error feedback with a combination of Prometheus and Grafana to visualize and monitor the running scenario in a browser.
+On other hand, EdgeCloudSim, YAFS and FogNetSim++ provide event log files while FogTorch$\Pi$ provides CSV files with deployment metrics.
+EdgeAISim provides AI performance metrics with visualization as an image file and iFogSim2 has no default file export implementation, but rather depict the results in the console.
+
+These results need to be reproducible to be valid ground for validations.
+To achieve this all tools provide to some extends scenario management for saving, loading and deterministicly execute scenarios.
+The majority of tools provide configuration and scenario files to manage this reproduceability, while YAFS and EdgeAISim apply a seed control approach.
+Kubernetes-based emulators like Fogify and iContinuum, additionally guarantee deterministic execution via container orchestration. 
+
+The validation itself is often not directly provided as a executeable implementation, but rather presenting in papers.
+iFogSim2, EdgeCloudSim and FogNetSim++ have published validation studies and some comparative benchmarking.
+YAFS provides validation architecture with custom scripts, while EdgeAISim needs to be user-driven and has no built-in validation.
+FogTorch$\Pi$ provides probabilistic validation and deployment feasibility.
+Emulation platforms provide validation against real infrastructure, making them authentic and realistic.
+
 % ----------------------------------
 \subsection{Key Findings \& Gap Analysis}
 \todo{Common patterns, performance leaders, comprehensive solutions, specialized tools}
