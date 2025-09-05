@@ -41,15 +41,15 @@ This section is only to quickly introduce the representatives and a further more
 EdgeCloudSim [\cite{sim-edgecloudsim}] is a highly cited and widely adapted edge computing simulator, which focuses on Mobile Edge Computing (MEC) via cloudlets and general edge computing simulation.
 With it being first published August 2018, it is one of the older simulators in this list. As of this thesis, EdgeCloudSim was last updated October 2020.
 
-EdgeCloudSim is based on CloudSim [\cite{sim-base-cloudsim}] and presents a modular architecture with advanced mobility modelling in Java.
-The general design philospohy is to create a CloudSim-based framework designed for Edge Computing scenarios with focus on both computational and networking resources.
-It supports cloud-edge mobile multi-tier topologies and different network types like WLAN, WAN and cellular networks.
+EdgeCloudSim is based on CloudSim [\cite{sim-base-cloudsim}] and presents a modular architecture with advanced mobility modeling in Java.
+The general design philosophy is to create a CloudSim-based framework designed for Edge Computing scenarios with a focus on both computational and networking resources.
+It supports cloud-edge mobile multi-tier topologies and different network types such as WLAN, WAN, and cellular networks.
 
-EdgeCloudSim is especially designed for MEC scenarios and shows excellent mobility modeling capabilities.
-Additionally to that, the mobility modeling gets supported by a realistic network modeling for WLAN and WAN with distance-based latency and due to its modular architecture, EdgeCloudSim allows easy customization.
-Sadly, the development halted as of October 2020 and due to it being focused on MEC scenarios the remaining scope is relatively limited.
-It is therefore less suitable for pure IoT or cloud computing scenarios and shows limited built-in support for modern artificial intelligence / machine learning workloads.
-Furthermore, it is only single-threaded, which leads to scalability limitations, and has no security, privacy or energy modeling.
+EdgeCloudSim is specifically designed for MEC scenarios and demonstrates excellent mobility modeling capabilities.
+Additionally, the mobility modeling is supported by realistic network modeling for WLAN and WAN with distance-based latency, and due to its modular architecture, EdgeCloudSim allows easy customization.
+However, development halted as of October 2020, and due to its focus on MEC scenarios, the remaining scope is relatively limited.
+It is therefore less suitable for pure IoT or cloud computing scenarios and shows limited built-in support for modern artificial intelligence and machine learning workloads.
+Furthermore, it is only single-threaded, which leads to scalability limitations, and has no security, privacy, or energy modeling.
 
 % ----------------------------------
 \subsection{iFogSim2}\label{sec:iFogSim2}
@@ -384,23 +384,23 @@ Network modeling capabilities demonstrate significant variation based on each re
 \end{figure}
 
 Topologies are often depicted as hierarchical with the most presented addition of custom topologies.
-EdgeCloudSim only supports hierarchical topologies and is therefore the most strict simulator in that comparison.
-Every other simulator and emulator does specifically support either hierarchical or custom topologies, which includes hierarchical.
-In general most of the simulators and emulators include a way to customize and configure topologies, which leads to a customizable scenarios and simulations.
-YAFS represents this aspect the most, as its focus on complex network-theory, allows it to freely deploy any topology.
+EdgeCloudSim only supports hierarchical topologies and is therefore the most restrictive simulator in that comparison.
+Every other simulator and emulator specifically supports either hierarchical or custom topologies, which includes hierarchical.
+In general, most of the simulators and emulators include a way to customize and configure topologies, which leads to customizable scenarios and simulations.
+YAFS represents this aspect the most, as its focus on complex network theory allows it to freely deploy any topology.
 EmuFog, on the other hand, stands out for its integration of custom as well as real-world datasets as topologies. 
-It uses the topologie generator BRITE [\cite{BRITE}] for custom topologies and the real-world datasets from CAIDA's Resource Catalog \footnote{\url{https://www.caida.org/}}, which makes it highly customizable and realistic as an emulator.
+It uses the topology generator BRITE [\cite{BRITE}] for custom topologies and real-world datasets from CAIDA's Resource Catalog \footnote{\url{https://www.caida.org/}}, which makes it highly customizable and realistic as an emulator.
 
 As a general rule, all simulators and emulators support standardized protocols for their respective network types.
 EdgeCloudSim simplifies network modeling to focus on mobile edge specifics, rather than additional abstraction of network and protocol types.
-This is realtively also the case for EdgAISim and emulators like EmuFog, Fogify and iContinuum.
+This is relatively also the case for EdgeAISim and emulators like EmuFog, Fogify, and iContinuum.
 As the latter are emulators, their respective emulated network is limited.
-The only exception is Mockfog 2.0, as it is highly configurable and support any network type and protocols, with the limitation that the deployed network type and protocols must be supported by the underlying cloud infrastructure.
-EdgeAISim is limited in its network capabilities by EdgeSimPy, which, as its based, does not provide extravagant protocols or types.
-iFogSim2 provides, on the other hand, a more comprehensive network modeling, as the default supported types are broader and custom network types and protocol types can be achieved.
+The only exception is Mockfog 2.0, as it is highly configurable and supports any network type and protocols, with the limitation that the deployed network type and protocols must be supported by the underlying cloud infrastructure.
+EdgeAISim is limited in its network capabilities by EdgeSimPy, which, as its base, does not provide extensive protocols or types.
+iFogSim2, on the other hand, provides more comprehensive network modeling, as the default supported types are broader and custom network types and protocol types can be achieved.
 
-FogTorch$\Pi$ is an outlier in this regard, as it not really has a direct network modelling but generic network links with configurable QoS profiles.
-The same profiles represent the protocols, making FogTorch $\Pi$ not really comparable to its competitors at a whole.
+FogTorch$\Pi$ is an outlier in this regard, as it does not have direct network modeling but rather generic network links with configurable QoS profiles.
+The same profiles represent the protocols, making FogTorch$\Pi$ not directly comparable to its competitors as a whole.
 
 \begin{figure}[H]
   \centering
@@ -423,29 +423,28 @@ The same profiles represent the protocols, making FogTorch $\Pi$ not really comp
   \label{tab:analysis-network-characteristics}
 \end{figure}
 
-Characteristics of said network modeling, show a broader unity as the network modeling itself.
-Almost all simulators, provide configurable bandwidth modeling per link or node.
+Characteristics of network modeling show broader unity than the network modeling itself.
+Almost all simulators provide configurable bandwidth modeling per link or node.
 
 Emulators generally depict a realistic network through emulation, while Mockfog 2.0 has further means for configuration.
-EdgeCloudSim has congestion-aware bandwidth modeling and based on the focus on MEC distance based and dynamic delay modeling.
-With this combination, it presents a robust and rather realistic approach for network modeling.
+EdgeCloudSim has congestion-aware bandwidth modeling and, based on its focus on MEC, distance-based and dynamic delay modeling.
+With this combination, it presents a robust and realistic approach for network modeling.
 iFogSim2 allows for different delay models to be used. 
-It supports propagation, queueing and processing delays, therefore presenting a greater selection for different scenarios.
+It supports propagation, queueing, and processing delays, therefore presenting a greater selection for different scenarios.
 FogTorch$\Pi$, on the other hand, provides probabilistic means for bandwidth and delay modeling.
-It is thereby less granualar in detail, as it may not capture fine-grained, event level interactions like packet collisions and protocol specific behaviors.
+It is thereby less granular in detail, as it may not capture fine-grained, event-level interactions like packet collisions and protocol-specific behaviors.
 This makes it limited in realism for protocol and network studies.
-Additionally it is rather static and validation may be challenging, as results dependent on well-calbrated to real-world data.
-However, probabilistic modeling allows to represent real-world variability if calibrated correctly and may catch uncertainty in network conditions like fluctuating bandwidth, random delays and failurs.
+Additionally, it is rather static and validation may be challenging, as results depend on well-calibrated real-world data.
+However, probabilistic modeling allows representation of real-world variability if calibrated correctly and may capture uncertainty in network conditions such as fluctuating bandwidth, random delays, and failures.
 
-Device and infrastructure modeling reveals fundamental differences in abstraction leveles and resource representations.
-Emulation platforms in general model real hardware constraints through container resource limits, providing authentic resource contention but with limited abstraction capabilities.
-Traditional simulators, like EdgeCloudSim, iFogSim2, and iFogNetSim++, show detailed and heterogeneous device modeling with CPU, memory, storage and energy consumption parameters.
-While specialized tools, like FogTorch$\Pi$, focus on ML-specific resource characteristics which includes GPU and inference accelerators.
-EdgeAISim is a combination of both aspects, as its base EdgeSimPy shows adaptation of Traditional simulators and the AI/ML based focus of EdgeAISim has some regards for GPU and inference accelerators.
-Last but not least, YAFS emphasizes computational flexibility through abstract resource containers, making it highly configurable and abstract.
+Device and infrastructure modeling reveals fundamental differences in abstraction levels and resource representations.
+Emulation platforms generally model real hardware constraints through container resource limits, providing authentic resource contention but with limited abstraction capabilities.
+Traditional simulators, like EdgeCloudSim, iFogSim2, and FogNetSim++, show detailed and heterogeneous device modeling with CPU, memory, storage, and energy consumption parameters.
+While specialized tools, like FogTorch$\Pi$, focus on ML-specific resource characteristics, including GPU and inference accelerators.
+EdgeAISim is a combination of both aspects, as its base EdgeSimPy adapts traditional simulators and the AI/ML-based focus of EdgeAISim has some regard for GPU and inference accelerators.
+Lastly, YAFS emphasizes computational flexibility through abstract resource containers, making it highly configurable and abstract.
 
-Thus with the general problem of heterogeneity on the edge, edge computing simulators should provide meaningful ways to model different aspects of devices and their infrastructure
-to simulate authentic behavior on the edge.
+Thus, with the general problem of heterogeneity on the edge, edge computing simulators should provide meaningful ways to model different aspects of devices and their infrastructure to simulate authentic behavior on the edge.
 
 Application and workload patterns also present similar level of variation as the device and infrastructure modeling.
 
@@ -505,16 +504,16 @@ Specialized tools, like EdgeAISim and FogTorch$\Pi$ provde domain-optimized appl
 
 Data generation is provided either syntehtic or with real-world dataset integration.
 Emulation in general features emulated real-world data, thereby only offering its integration.
-Traditional simulators on the other hand, provide always a way for synthetic data to generate.
-EdgeCloudSim has specific designed workload and poisson distribution for data generation, while FogNetSim++ focuses on the synthetic traffic via OMNeT++ and the scenario configuration.
-Both of these simulator provide no integration of real-world datasets.
-iFogSim2, YAFS and EdgeAISim on the other hand provide means to generate data synthetically and to integrate real-world datasets.
-Here, iFogSim2 allows XML configuration and trace-based workloads, YAFS allows for customizable distributions, timestamp arrays and support of real traces, while EdgeAISim support AI-driven workload generation and integration of real traces via EdgeSimPy.
-An outlier here lies within FogTorch$\Pi$ again, as its focuses more on deployment and is rather an analysis tool, its data generation is very limited for probabilistic deployment analysis and support only limited runtime data generation.
+Traditional simulators, on the other hand, always provide a way for synthetic data generation.
+EdgeCloudSim has specifically designed workload and Poisson distribution for data generation, while FogNetSim++ focuses on synthetic traffic via OMNeT++ and scenario configuration.
+Both of these simulators provide no integration of real-world datasets.
+iFogSim2, YAFS, and EdgeAISim, on the other hand, provide means to generate data synthetically and to integrate real-world datasets.
+Here, iFogSim2 allows XML configuration and trace-based workloads, YAFS allows for customizable distributions, timestamp arrays, and support of real traces, while EdgeAISim supports AI-driven workload generation and integration of real traces via EdgeSimPy.
+An outlier here is FogTorch$\Pi$ again, as it focuses more on deployment and is rather an analysis tool; its data generation is very limited for probabilistic deployment analysis and supports only limited runtime data generation.
 
 The data flow is modeled based on the focus of each project. 
-While emulators target real data processing and persistency, simulators target stream processing and inconsistency in the flow with mobile data patterns and bursty periodic behavior.
-Both kinds of flows represent authentic and realistic data behavior, as real world data is also inconsistent.
+While emulators target real data processing and persistency, simulators target stream processing and inconsistencies in the flow with mobile data patterns and bursty or periodic behavior.
+Both kinds of flows represent authentic and realistic data behavior, as real-world data is also inconsistent.
 
 Fault Tolerance and reliability support are demonstrated by varying sophistication levels across all evaluated tools.
 \begin{figure}[H]
@@ -545,7 +544,7 @@ Recovery is often achieved with task migration to other devices or simple restar
 \todo{Quick stuff i just noticed: Maybe change "Name" into "Tool" for all tables ?}
 
 Security and privacy is an aspect that varies drastically across the simulation landscape. 
-Not only in implemtation approaches and covered scenarios but also general existance in some tools.
+Not only in implementation approaches and covered scenarios but also general existence in some tools.
 \begin{figure}[H]
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X | X }
@@ -567,17 +566,17 @@ Not only in implemtation approaches and covered scenarios but also general exist
   \label{tab:analysis-security-n-privacy}
 \end{figure}
 
-Most tools do not present a default security mechanisms, privacy support or attack modeling, and abstract the concerns mostly to the application.
-The emulators in particular provide no implementation for testing the security or privacy in containers and rely heavily on the implemented security measure in their respective technologies. 
-They depict only attack modeling if its implemented in the application itself.
-The traditional simulators provide, with the exception of EdgeCloudSim and iFogSim2, no further implementation of security or privacy measures as well as attack modeling.
-YAFS and FogNetSim++, due to their highly customizable nature, show extensions point for said security and privacy concern but at the current state they also dont provide any in the default implementation.
-EdgeAISim also provides no default implementation of security and privacy measures, but provides an AI-based anomaly detection simulation, for a way to at least try to detect attacks.
+Most tools do not present default security mechanisms, privacy support, or attack modeling, and abstract these concerns mostly to the application.
+The emulators in particular provide no implementation for testing security or privacy in containers and rely heavily on the implemented security measures in their respective technologies. 
+They depict attack modeling only if it is implemented in the application itself.
+The traditional simulators provide, with the exception of EdgeCloudSim and iFogSim2, no further implementation of security or privacy measures or attack modeling.
+YAFS and FogNetSim++, due to their highly customizable nature, show extension points for security and privacy concerns but at the current state do not provide any in the default implementation.
+EdgeAISim also provides no default implementation of security and privacy measures, but provides an AI-based anomaly detection simulation, as a way to attempt attack detection.
 
-On the other hand, EdgeCloudSim and iFogSim2 provide relatively basic implementations of security mechanisms, that provide more means to simulate cost and overhead of encryptions and no real protocol-level securitym, which makes their implemented security relatively limited and mostly for research prototyping.
- 
-Mobility support is relatively focus-based capability for tools to have. 
-If the focus does not lie on mobile devices, for example in a static deployment, mobility could not be deemed necessary, on the hand multiple projects in the field of edge computing and most presentably in the field of IoT device, show usage of mobile devices and therefore their respective simualtors provide necessary means to simulate the network and data characteristics of mobility.
+On the other hand, EdgeCloudSim and iFogSim2 provide relatively basic implementations of security mechanisms, that provide more means to simulate cost and overhead of encryptions and no real protocol-level security, which makes their implemented security relatively limited and mostly for research prototyping.
+
+Mobility support is a relatively focus-based capability for tools to have. 
+If the focus does not lie on mobile devices, for example in a static deployment, mobility may not be deemed necessary; on the other hand, multiple projects in the field of edge computing and most notably in the field of IoT devices, show usage of mobile devices and therefore their respective simulators provide necessary means to simulate the network and data characteristics of mobility.
 \begin{figure}[H]
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X | X | X }
@@ -600,8 +599,8 @@ If the focus does not lie on mobile devices, for example in a static deployment,
 \end{figure}
 
 EdgeCloudSima nd iFogSim2 provide with their focus on mobile and IoT devices, advanced mobility support for simulations on the edge.
-Due to their robustness with handovers, location services and dynamic topologies, they provide essential features for mobility focus projects.
-YAFS, EdgeAISim and FogNetSim++ provide limited or user-extendable mobility, but are not as advanced on default as their previous mentioned competitors.
+Due to their robustness with handovers, location services, and dynamic topologies, they provide essential features for mobility-focused projects.
+YAFS, EdgeAISim, and FogNetSim++ provide limited or user-extendable mobility, but are not as advanced by default as their previously mentioned competitors.
 EdgeAISim especially provides no further implementation but relies mainly on its base EdgeSimPy in this regard.
 However, every other tool, regardless if emulator or simulator, disregards mobility entirely and therefore provides no implementation for such scenarios.
 
@@ -627,15 +626,16 @@ Energy consumption, as well, is a relatively sporadic deployed feature in the ed
   \label{tab:analysis-energy}
 \end{figure}
 
-Figure \ref{tab:analysis-energy} shows, that only iFogSim2 and EdgeAISim provide meaningful implementations for simulation energy consumption for energy concerns scenarios.
+Figure \ref{tab:analysis-energy} shows that only iFogSim2 and EdgeAISim provide meaningful implementations for simulating energy consumption for energy-focused scenarios.
 However, the emulators do not need to simulate energy consumption, as they emulate a real device and therefore can measure real energy usage externally.
-This provides energy consumptions based on total system consumption but also per container or pod and can be extended to per task if instrumented in the application.
+This provides energy consumption based on total system consumption but also per container or pod and can be extended to per task if instrumented in the application.
 
 Contrary to the belief that if we cover mobile devices, we always look out for battery life and energy consumption, EdgeCloudSim does not provide a meaningful energy consumption model.
 It can only be approximated by resource utilization based on scenario results, but no direct energy model is implemented.
 However, it is mentioned in the documentation of EdgeCloudSim\footnote{\url{https://github.com/CagataySonmez/EdgeCloudSim}} as a needed feature for the simulator.
 
-\subsubsection{Performance and Scalability Comparison}
+% ----------------------------------
+\subsection{Performance and Scalability Comparison}
 Performance and scalability are playing a crucial part in software engineering and especially in edge computing simulation, because of the sheer amount of heterogeneous devices which each generates or compute data on the edge
 While comprehensive performance benchmarking across edge computing simulators remain limited, each tools respective paper made some effort to show general performance metrics and some comparisons where executed by other papers. [\cite{s23073492}, \cite{MECHALIKH2025103042}, \cite{fi11030055}]
 
@@ -674,7 +674,7 @@ The maximum number of supported nodes is often not clearly stated [\cite{qi2025s
 Emulators are typically stated to have a low amount of maximum nodes, as they need to emulate a whole real system rather than simulation only certain aspects.
 However, emulators may achieve greater number of nodes by distribution [\cite{qi2025surveyopensourceedgecomputing}, \cite{sim-mockfog2}].
 This is especially stated for Mockfog 2.0, as ``MockFog’s scalability will usually be limited by the number of VMs that can be provisioned from the cloud provider of choice'' [\cite{sim-mockfog2}].
-Otherwise, they mainly rely with their scalability on their underlying technologies like Kubernetes. This is the case for iContinuum \cite{sim-icontinuum}.
+Otherwise, they mainly rely with their scalability on their underlying technologies and programming languages. This is the case for iContinuum \cite{sim-icontinuum}.
 Fogify and Emufog have both scalability claims, but don't further classify or depict a benchmark for reviewing.
 \cite{sim-fogify} states for Fogify that ``the emulation execution environment should be scalable from topologies with a limited number of nodes, capable to run on a single laptop or PC, to hundreds or thousands nodes, running on a whole cluster.'' but don't provide any further necessary
 means or valueable benchmark to confirm or deny this claim, while \cite{sim-emufog} states something similar with EmuFog being capable to emulate large network topologies, but doesn't further clarify what this assessment mean nor provide any means to review this claim.
@@ -691,77 +691,77 @@ Every source, however, puts scalability in high regards and challenge in edge co
 
 \subsubsection{Usability and User Experience Comparsion}
 
-The first step into using a tool is its setup and deployment process.
-CloudSim-based simulators like iFogSim2 and EdgeCloudSim demonstrate the easiest setup and deployment with standardized Java installation and shipment of all necessary addition dependencies.
-Their setup documentation is relatively useful and they ship with multiple example scenario that can be easily deployed to check if the setup was successful.
-However, it is to note that iFogSim2 is recommending IDEs for Windows Usage and EdgeCloudSims documentation is based on some videos rather than written text.
-FogNetSim++ is relatively complex, especially on Windows operation systems, with its key dependencies based on OMNeT++, INET and C++, and its documentation is relatively limited in comparison to the CloudSim-based simulators.
-FogTorch$\Pi$ and YAFS are realtively easy to setup, as they ship with required python package lists, but YAFs is quitely outdated with listed package versions as well as the deprecated python version.
-Container-based platforms face signifcant deployment barriers.
-EmuFog requires Linux-specific networking configurations, Mockfog 2.0 demands high-end hardware resources as it emualtes a full network, while Fogify and iContinuum require full Kubernetes cluster setup with associated operational complexity.
-EdgeAISim showed a different problem during setup, as the setup itself is not so complex but its documentation is quite lacking in some regards and is especially outdated with PyTorch and its extensions in regards that PyTorch's package had a name change and can no longer be installed using the provided command with any python version.
+The first step in using a tool is its setup and deployment process.
+CloudSim-based simulators like iFogSim2 and EdgeCloudSim offer straightforward setup and deployment through standardized Java installation and inclusion of all necessary dependencies.
+Their setup documentation is relatively useful and they ship with multiple example scenarios that can be easily deployed to check if the setup was successful.
+However, it is notable that iFogSim2 recommends IDEs for Windows usage and EdgeCloudSim's documentation is based on some videos rather than written text.
+FogNetSim++ is relatively complex, especially on Windows operating systems, with its key dependencies based on OMNeT++, INET, and C++, and its documentation is relatively limited in comparison to the CloudSim-based simulators.
+FogTorch$\Pi$ and YAFS are relatively easy to set up, as they ship with required Python package lists, but YAFS is somewhat outdated due to listed package versions and reliance on a deprecated Python version.
+Container-based platforms face significant deployment barriers.
+EmuFog requires Linux-specific networking configurations, Mockfog 2.0 demands high-end hardware resources as it emulates a full network, while Fogify and iContinuum require full Kubernetes cluster setup with associated operational complexity.
+EdgeAISim presents a different challenge during setup: while the installation process is not complex, the documentation is lacking in some areas and is especially outdated regarding PyTorch and its extensions. Notably, PyTorch’s package name has changed, making installation with the provided command incompatible with current Python versions.
 
-As resource requirments vary significantly based on scenario complexity, simulatio duration and granularity, modeling fidelity and implmentation approaches, simple stated minimum requirements are not provided in the documentation of any tool directly other than underlying dependencies.
-The underlying dependencies mostly rely on deployed technologies and the programming language.
+As resource requirements vary significantly based on scenario complexity, simulation duration and granularity, modeling fidelity, and implementation approaches, simple stated minimum requirements are not provided in the documentation of any tool directly other than underlying dependencies.
+The underlying dependencies primarily depend on the chosen technologies and programming language.
 Java-based tools often require Java 8 or higher, while mainly shipping every dependency.
 YAFS is developed in a deprecated Python 2.7, but can still be deployed with Python 3.12.4.
 EdgeAISim requires at least Python 3.7 and three additional packages for GPU workload as denoted in the documentation.
-FogNetSim++ require as the only C++ tool, the installation of OMNeT++ and INET.
-The emulators only require their contrainerization technologies, like Docker or a available Kubernetes-cluster.
-Other requirements just like minimum amount of RAM, CPU cores, etc. are not depicted in any official documentation or presented in any known comparison paper.
+FogNetSim++ requires, as the only C++ tool, the installation of OMNeT++ and INET.
+The emulators only require their containerization technologies, like Docker or an available Kubernetes cluster.
+Other requirements such as minimum amount of RAM, CPU cores, etc. are not specified in official documentation or presented in comparative studies.
 
-Community support reveal stark differences in long-term sustainability and user accessibility across the simulator ecosystem.
-While high cited simulators (iFogSim2, EdgeCloudSim, YAFS) show relatively moderate-to-high community activity, other tools are reliant on their respective research domain and based on their age haven't shown quantifying involvement.
-Additionally, underlying technologies may hinder community support as for example OMNeT++ and INET as well as most emulators have a high learning curve, making external contributions limited.
+Community support reveals stark differences in long-term sustainability and user accessibility across the simulator ecosystem.
+While highly cited simulators (iFogSim2, EdgeCloudSim, YAFS) show relatively moderate-to-high community activity, other tools are reliant on their respective research domain and, based on their age, have not shown quantifying involvement.
+Additionally, underlying technologies may hinder community support as, for example, OMNeT++ and INET as well as most emulators have a high learning curve, making external contributions limited.
 
-However, most tools provide a meaningful way to interact with them and configure scenarios as well as the respective tool.
-Most of them provide a configuration file, like an XML, YAML, API or can be configured using a script. 
-A majorty also features a hybrid approach, where for example topologies can be configured using a configuration file, but other features require direct modification of core code. 
-YAFS and EdgeAISim on the other hand, do not serve any configuration files and are purely python based.
+However, most tools provide a meaningful way to interact with and configure scenarios as well as the respective tool.
+Most of them provide a configuration file, like an XML, YAML, API, or can be configured using a script. 
+A majority also feature a hybrid approach, where, for example, topologies can be configured using a configuration file, while other features require direct modification of core code. 
+YAFS and EdgeAISim, on the other hand, do not serve any configuration files and are purely Python-based.
 
 Due to their modular architecture, all tools in this list are highly extensible with plugins and further modules with development.
-Additionally, their bases, like CloudSim, provide extensions of their own that are combatible with the respective simulator.
+Additionally, their bases, like CloudSim, provide extensions of their own that are compatible with the respective simulator.
 This makes every tool on this list able to integrate modern approaches and update their technologies if needed, ensuring their relevancy with emerging technologies in the future.
 
 \subsubsection{Validation and Evaluation Support Comparison}
-Validation and evaluation are crucial parts of an tool in the simulation landscape, as the results are the target of an simulation or emulation.
+Validation and evaluation are crucial parts of a tool in the simulation landscape, as the results are the target of a simulation or emulation.
 The results need to be readable and meaningful, making metrics an important part of every tool.
 
 Traditional simulator provide customizable metrics that can be defined by the respective user.
-However, FogTorch$\Pi$ provides with its focus on deployment only deployment metrics, like QoS, Cost and Feasibility.
+However, FogTorch$\Pi$ provides, with its focus on deployment, only deployment metrics, like QoS, cost, and feasibility.
 Emulation platforms provide only real system metrics as they emulate the system and can mostly not be further customized.
 
-An interesting point here is where the metrics are defined, raised and collected.
-While iFogSim2 and EdgeAISim provide application-level defined and raised metrics, a majority of the traditonal simulators define and raise their metrics on simulator-level, meaning rather than definining each metric in the application on the device that should raise them, simulators 
-like EdegCloudSim and FogNetSim++ define their metrics in their code base and request each metric with the same definiton from every simulated device.
-FogNetSim++ provides additional scenario-level configuration via OMNeT++ and NED/INI files but EdgeCloudSim requires modification of the logger embedded in itself.
-This requires to have expertise in EdgeCloudSim and also has the problem of raising metrics that may not be available at simulated device or different scenarios.
-While application-level raised metrics fixes this problem, they may result in more modifications if a specific metric needs to be redefined or updated.
-YAFS on the other hand is on default simulator-level developed but can be configured with python scenario code to be close to application-level.
-Emulation platforms provide real system metrics on application-level as well, as they raise metrics from their respective containers and have fully configurable monitoring tools.
+An interesting point here is where the metrics are defined, raised, and collected.
+While iFogSim2 and EdgeAISim provide application-level defined and raised metrics, a majority of the traditional simulators define and raise their metrics on simulator-level, meaning rather than defining each metric in the application on the device that should raise them, simulators 
+like EdgeCloudSim and FogNetSim++ define their metrics in their code base and request each metric with the same definition from every simulated device.
+FogNetSim++ provides additional scenario-level configuration via OMNeT++ and NED/INI files, but EdgeCloudSim requires modification of the logger embedded in itself.
+This requires expertise in EdgeCloudSim and also has the problem of raising metrics that may not be available at the simulated device or in different scenarios.
+While application-level raised metrics fix this problem, they may result in more modifications if a specific metric needs to be redefined or updated.
+YAFS, on the other hand, is by default simulator-level developed but can be configured with Python scenario code to be close to application-level.
+Emulation platforms also provide real system metrics at the application level, as metrics are collected from containers using configurable monitoring tools.
 
-The most standarized metrics in edge computing simulation are performance metrics like latency and throughput, as well as resource utilization like CPU, memory and bandwith usage.
+The most standardized metrics in edge computing simulation are performance indicators such as latency and throughput, as well as resource utilization metrics like CPU, memory, and bandwidth usage.
 
-To evaluate most results, some visualization tool is often at least recommended or shipped with the simulator.
-For Kubernetes based tools, the visualization is often done by Grafana, and for every other tool the visualization is done by MATLAB\footnote{\url{https://www.mathworks.com/products/matlab.html}} or via python code with Matplotlib\footnote{\url{https://matplotlib.org/}}.
-FogNetSim++ is an outlier as it relies heavily on the visualization of OMNeT++.
+To facilitate result evaluation, visualization tools are often recommended or included with the simulator.
+For Kubernetes-based tools, visualization is typically performed using Grafana, while other tools utilize MATLAB\footnote{\url{https://www.mathworks.com/products/matlab.html}} or Python libraries such as Matplotlib\footnote{\url{https://matplotlib.org/}}.
+FogNetSim++ is an outlier, as it relies heavily on OMNeT++ for visualization.
 
-The results itself getting exported to readable output.
-MockFog 2.0 and EmuFog provide real system logs and cloud API responses that dependet on the application for its format.
+The results themselves are exported to readable output.
+MockFog 2.0 and EmuFog provide real system logs and cloud API responses that depend on the application for their format.
 Fogify and iContinuum have a high error feedback with a combination of Prometheus and Grafana to visualize and monitor the running scenario in a browser.
-On other hand, EdgeCloudSim, YAFS and FogNetSim++ provide event log files while FogTorch$\Pi$ provides CSV files with deployment metrics.
-EdgeAISim provides AI performance metrics with visualization as an image file and iFogSim2 has no default file export implementation, but rather depict the results in the console.
+On the other hand, EdgeCloudSim, YAFS, and FogNetSim++ provide event log files while FogTorch$\Pi$ provides CSV files with deployment metrics.
+EdgeAISim provides AI performance metrics with visualization as an image file and iFogSim2 has no default file export implementation, but rather depicts the results in the console.
 
-These results need to be reproducible to be valid ground for validations.
-To achieve this all tools provide to some extends scenario management for saving, loading and deterministicly execute scenarios.
-The majority of tools provide configuration and scenario files to manage this reproduceability, while YAFS and EdgeAISim apply a seed control approach.
-Kubernetes-based emulators like Fogify and iContinuum, additionally guarantee deterministic execution via container orchestration. 
+These results must be reproducible to serve as a valid basis for validation.
+To achieve this, all tools provide, to some extent, scenario management for saving, loading, and deterministic execution of scenarios.
+The majority of tools provide configuration and scenario files to manage this reproducibility, while YAFS and EdgeAISim apply a seed control approach.
+Kubernetes-based emulators such as Fogify and iContinuum additionally guarantee deterministic execution through container orchestration. 
 
-The validation itself is often not directly provided as a executeable implementation, but rather presenting in papers.
-iFogSim2, EdgeCloudSim and FogNetSim++ have published validation studies and some comparative benchmarking.
+Validation is often not directly provided as an executable implementation, but is instead presented in research papers.
+iFogSim2, EdgeCloudSim, and FogNetSim++ have published validation studies and some comparative benchmarking.
 YAFS provides validation architecture with custom scripts, while EdgeAISim needs to be user-driven and has no built-in validation.
 FogTorch$\Pi$ provides probabilistic validation and deployment feasibility.
-Emulation platforms provide validation against real infrastructure, making them authentic and realistic.
+Emulation platforms validate against real infrastructure, enhancing authenticity and realism.
 
 % ----------------------------------
 \subsection{Key Findings \& Gap Analysis}
