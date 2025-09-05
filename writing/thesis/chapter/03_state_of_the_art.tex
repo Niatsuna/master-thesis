@@ -765,5 +765,58 @@ Emulation platforms validate against real infrastructure, enhancing authenticity
 
 % ----------------------------------
 \subsection{Key Findings \& Gap Analysis}
-\todo{Common patterns, performance leaders, comprehensive solutions, specialized tools}
-\todo{Missing capabilities, limited coverage area, scalability limitations, validation weaknesses, integration challenges, emerging requirements}
+The comparative analysis covers each aspect of the lifecycle of a edge computing simulation tool and reveals several patterns, leading implementation but also gaps in the simulation landscape.
+In this section we revisit some aspects and briefly state their insight as well as cover some gaps that came up during the comparison of the selected tools.
+
+\subsubsection{Key Findings}
+The comparative analysis reveals several significant patterns in the current edge computing simulation landscape:
+
+The architectural analysis revels a strong convergence toward modular architectural design patterns with all evaluated tools demonstrating as such.
+This supports not only extensibility and configuration but also maintance and affirms modularity as a key software principle.
+Traditional simulators predominantly employ Discrete Event Simulation (DES), whereas emulation-based tools leverage container technology.
+The coverage scope typically spans multiple layers of the computing continuum, with fog-edge combinations representing the minimum viable coverage.
+
+Regarding core capabilites, a clear distinction emerges between universal and specialized features.
+Network modeling, device and infrastructure modeling and application workload handling, with data generation and task scheduling, are deemed universal standardized capabilities present across all evaluated tools.
+However, advanced specialized features such as mobility modeling, energy consumption tracking or security and privacy mechanisms appear selectively and implemented only in tools with the respective focus.
+
+Performance characteristics vary significantly across the landscape.
+YAFS demonstrates superior computational efficiency through its optimized discrete event engine and parallel processing capabilities.
+iFogSim2 achieves notable memory optimization, reporting 28\% improved memory usage compared to competitors.
+Container-based emulators excel in realistic behavior reproduction but encounter inherent scalability limitations.
+
+The analysis also reveals the grade of comprehensive solutions and feature coverage, with iFogSIm2 emerging as the most versatile traditional simulator, offering broad feature coverage.
+EdgeCloudSim provides the most robust mobility modeling implementation among evaluated tools and Kubernetes-based emulators deliver the most comprehensive real-world deployment testing capabilities.
+
+\subsubsection{Gap Analysis}
+Despite the maturity of existing solutions, several significant gaps persist in the current edge computing simulation landscape:
+
+A critical limitation exists in energy modeling capabilities, as despite energy being a fundamental resource in edge computing, particularly for IoT and mobile devices, comprehensive energy modeling remains largely inadequate.
+Most tools either completely lack energy modeling or approximate it through external calculation around resource utilization metrics.
+This limitation is particularly notable in mobility-focused simulators like EdgeCloudSim, where battery life should be a crucial consideration.
+Key limitations include:
+\begin{itemize}
+    \item Absence of state-based energy modeling (active vs. idle states)
+    \item Insufficient battery lifecycle simulation
+    \item Limited application-specific energy profiling
+    \item Inadequate consideration of energy as a primary resource constraint
+    \item Lack of integration with renewable energy sources or energy harvesting
+\end{itemize}
+
+Security and privacy considerations represent another significant gap.
+Most tools lack comprehensive security modeling capabilities, often abstracting the concern to the application level.
+This limitation results in inadequate support for attack modeling and security validation frameworks, leaving critical aspects of edge computing security unexplored in simulation environments.
+
+Scalability remains a persistent challenge across the simulation landscape.
+Single-threaded architectures limit several traditional simulators, while real-world emulation faces inherent hardware resource constraints.
+These constraints limit the ability to simulate large-scale scenarios, which are increasingly relevant in real-world deployments.
+
+The validation of tools in the edge computing simulation landscape is inconsistent and limited with a lack of comparative performance metrics.
+Making real comparative performance validations complicated and relatively subjective to the deployed scenario.
+
+Finally, with new technologies emerging rapidly, some modern paradigms are limited in their support.
+Thus, new fields could become relatively hard to support, such like AI/ML frameworks and blockhcain but also green computing and sustainability metrics.
+
+These findings and gaps higjlight both the maturity of the current simulation landscape and areas requiring further development.
+
+
