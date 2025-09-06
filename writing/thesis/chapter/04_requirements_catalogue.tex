@@ -1,2 +1,124 @@
 \chapter{Requirements Catalogue}
-\todo{Derivation / Extraction from analysis, Functional Requirements, Non-Functional Requirements, Prioritiziaton, Definition}
+This chapter establishes a systematic requirements catalogue for edge computing simulators derived from the comparative analysis presented in the previous chapter.
+The catalogue's structure is derived from the analysis framework and the requirements are categorized into mandatory criteria, which represent essential capabilities that any modern edge computing simulator must possess, and highly recommended criteria, which significantly enhance a simulator's utility but may not be essential for basic functionality.
+
+% ----------------------------------
+\section{Architectural Dimensions}
+The fundamental architectural requirements define the structural foundation necessary for effective edge computing simulation.
+\subsection{Mandatory Criteria}
+A modular architecture represents the cornerstone requirement for modern edge computing simulators.
+Modularity ensures extensibility, maintainability and the ability to adapt to evolving edge computing paradigms.
+\begin{itemize}
+  \item \textbf{Component-based Architecture}:
+        The simulator must support clear separation of concerns between networking, computation and storage components while maintaining cohesive interaction capabilities.
+  \item \textbf{Multi-Tier Support}:
+        Coverage of at least two tiers of the computing continuum is essential, with simulators typically implementing either edge-fog or edge-cloud combinations.
+        This minimum two-tier requirement ensures basic distributed computing scenarios can be modeled effectively.
+  \item \textbf{Discrete Event Simulation (DES)}:
+        The underlying simulation engine must support discrete event simulation to enable accurate temporal modeling for edge computing scenarios.
+\end{itemize}
+
+\section{Functional Capabilities}
+The functional requirements define essential and desirable operational features for edge computing simulators.
+\subsection{Mandatory Criteria}
+Edge computing simulators must provide fundamental capabilities for modeling distributed computing environments to maintain operational effectiveness in the edge computing simulation landscape:
+\begin{itemize}
+  \item \textbf{Network Modeling}:
+        Support for configurable network topologies, bandwidth constraints and latency modeling must be included.
+        This extends to the basic routing capabilities and network protocol simulation to authentically simulate network behavior.
+  \item \textbf{Device and Infrastructure Modeling}:
+        Accurate representation of computational resources (CPU, memory, storage) and their constraints on heterogeneous device specifications and resource management is 
+        an active criteria of edge computing simulations.
+  \item \textbf{Application Workload Modeling}:
+        Tasks should be schedulable and resource allocation mechanisms should be presented.
+        This supports application deployment and execution modeling.
+        Additionally, data generation should at least be synthetic and should follow basic data flow patterns and messaging such as streams.
+  \item \textbf{Fault Tolerance Modeling}:
+        Every type of simulated entity provides their own failure types that need to be detected with for example health checks and timeouts, and need to be recovered from with different strategies.
+        This ensures realistic fault tolerance behavior in edge computing scenarios.
+\end{itemize}
+
+While not presented directly in the comparison but shown as significant in the gap analysis, \textbf{Energy Modeling} is positioned between mandatory and recommended requirements.
+At least a basic but realistic approximation should be provided and ideally the exact energy consumption should be modeled for each device in each state.
+
+\subsection{Recommended Criteria}
+While core features are mandatory, some advanced capabilities enhance the simulator's utility significantly but are solely based on the represented focus:
+\begin{itemize}
+  \item \textbf{Mobility Support}:
+        Device mobility modeling should influence network behavior based on realistic mobility patterns.
+        This should either be achieved via synthetic or real dataset integration.
+\end{itemize}
+
+Similar to energy modeling, \textbf{Security and Privacy Modeling} is not prominently represented in the comparison.
+Regardless, its importance should not be overlooked and should be considered for future research.
+However, based on the abstraction to application level and the importance of mobility, it is not as highly recommended as mobility support in the current state of the edge computing simulation landscape.
+
+% ----------------------------------
+\section{Performance and Scalability}
+Performance requirements ensure the simulator can handle realistic edge computing scenarios effectively.
+\subsection{Mandatory Criteria}
+\begin{itemize}
+  \item \textbf{Basic Scalability}:
+        A simulator must handle robust scenarios with a minimum of 1,000 nodes.
+        Efficient resource utilization should be provided during simulation.
+  \item \textbf{Execution Control}:
+        Simulations are to be executed deterministically and provide reproducible results across runs.
+        This needs to be managed by a scenario management system such as seed control management.
+        Basic performance optimization features should be provided to ensure stable simulations.
+  \item \textbf{Resource Management}:
+        Memory utilization should be managed efficiently and basic parallel execution support is provided.
+\end{itemize}
+
+\subsection{Recommended Criteria}
+\begin{itemize}
+  \item \textbf{Advanced Scalability}:
+        While basic scalability provides a foundation for edge computing simulation scenarios, large-scale scenarios are recommended.
+        Distributed execution capabilities should function with scenarios of at least 10,000 nodes.
+  \item \textbf{Performance Optimization}:
+        To further optimize performance, multi-threading and additional memory optimization features should be provided and supported.
+        Additionally, scenario acceleration capabilities are recommended.
+\end{itemize}
+% ----------------------------------
+\section{Usability and User Experience}
+Usability requirements ensure effective and user friendly utilization of the simulator.
+\subsection{Mandatory Criteria}
+\begin{itemize}
+  \item \textbf{Documentation}:
+        To ensure easy useability and further development, comprehensive setup and usage documentation is to be provided, with 2-5 basic usage examples and tutorials as well as API reference documentation.
+  \item \textbf{Configuration}:
+        Clear configuration mechansims should be provided to define scenarios with basic parameters.
+        For this, configuration should be available as a GUI or standardized file format like YAML, INI or XML.
+\end{itemize}
+\subsection{Recommended Criteria}
+\begin{itemize}
+  \item \textbf{User Interface}:
+        Idealy, the simulator has a user-friendly interface like a GUI to interact and select specific scenario parameters as well as real-time monitoring capabilities and graphical interactive visualization tools.
+\end{itemize}
+% ----------------------------------
+\section{Validation and Evaluation}
+Validation requirements ensure reliable and accurate simulation results, while also evaluating the simulator itself.
+\subsection{Mandatory Criteria}
+\begin{itemize}
+  \item \textbf{Basic Validation}:
+        Metrics must be deprived from application-level and collected on simulator-level.
+        Their definition must be customizable to allow different scenarios and applications, while the export must be readable and support standardized visualization and interpretation tools like MATLAB.
+        The results must be exportable in file formats like JSON or CSV.
+        The format must additionally be conclusive to be validating the simulation.
+  \item \textbf{Error Handling}:
+        Clear error handling with comprehensive logging capabilities are essential for debugging and validation, while the system must maintain data integrity during error conditions.
+
+\end{itemize}
+\subsection{Recommended Criteria}
+While not being present in most evaluated tools, in the future the catalogue can be extended by looking forward to these aspects:
+\begin{itemize}
+  \item \textbf{Advanced Validation}:
+        Support for comparative benchmarking against other simulators or real system to ensure authentic verification of results and comparasions to other tools.
+  \item \textbf{Integration Testing}:
+        Integration with continous integration pipelines and validation against real-world datasets when available, can support the integration of simulated scenarios into the real-world.
+\end{itemize}
+% ----------------------------------
+\section{Summary}
+This requirements catalogue establishes clear criteria for evaluating and developing edge computing simulators.
+The main aspect of a simulator is adaptability to different scenarios and evolution with the growing technology stack.
+Thus, extensibility and customization in form of configuration is an aspect that is prominently considered.
+Additionally, the modeling of heterogeneous devices and networks makes simulators authentic, making the requirements reflect both the current state of the art and anticipated future needs in edge computing, as identified through our comprehensive analysis.
