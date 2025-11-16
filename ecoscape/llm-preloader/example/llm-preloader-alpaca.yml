@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: preloader-dataset-alpaca
+  namespace: load
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: preloader-dataset-alpaca
+        image: niatsuna/llm-preloader:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: REPO_ID
+          value: 'tatsu-lab/alpaca'
+        volumeMounts:
+        - name: ecoscape-pvc
+          mountPath: /data
+      volumes:
+      - name: ecoscape-pvc
+        persistentVolumeClaim:
+          claimName: ecoscape-pvc

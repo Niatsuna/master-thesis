@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: preloader-model-qwen
+  namespace: sut
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: preloader-model-qwen
+        image: niatsuna/llm-preloader:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: REPO_ID
+          value: 'Qwen/Qwen2.5-0.5B-Instruct'
+        volumeMounts:
+        - name: ecoscape-pvc
+          mountPath: /models
+      volumes:
+      - name: ecoscape-pvc
+        persistentVolumeClaim:
+          claimName: ecoscape-pvc

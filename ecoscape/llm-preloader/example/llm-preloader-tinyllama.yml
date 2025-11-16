@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: preloader-model-tinyllama
+  namespace: sut
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: preloader-model-tinyllama
+        image: niatsuna/llm-preloader:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: REPO_ID
+          value: 'TinyLlama/TinyLlama-1.1B-Chat-v1.0'
+        volumeMounts:
+        - name: ecoscape-pvc
+          mountPath: /models
+      volumes:
+      - name: ecoscape-pvc
+        persistentVolumeClaim:
+          claimName: ecoscape-pvc
