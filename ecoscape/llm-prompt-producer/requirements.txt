@@ -1,0 +1,4 @@
+confluentconfluent_kafka >= 2.11.1
+prometheus-client >= 0.23.1
+requests >= 2.32.5
+numpy >= 2.3.3
