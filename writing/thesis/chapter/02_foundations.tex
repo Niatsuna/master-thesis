@@ -18,7 +18,7 @@ The core principle underlying edge computing is data locality, which represents 
 This approach addresses inherent limitations of cloud-centric architectures, particularly in scenarios requiring immediate decision-making or handling massive data volumes that would overwhelm network bandwidth if transmitted to centralized locations.
 Edge computing environments present some distinguished key characteristics, such as:
 
-\textbf{Ultra-low latency}: Edge nodes typically achieve response times of 1-20 milliseconds compared to cloud latencies of 100-500 milliseconds [\cite{8215403}, \cite{1019408}], making them suitable for time-critical applications such as atuonomous vehicle control or industrial automation.
+\textbf{Ultra-low latency}: Edge nodes typically achieve response times of 1-20 milliseconds compared to cloud latencies of 100-500 milliseconds [\cite{8215403}, \cite{1019408}], making them suitable for time-critical applications such as autonomous vehicle control or industrial automation.
 
 \textbf{Bandwidth Optimization}: By processing data locally, edge computing reduces the volume of data transmitted across wide-area networks, which addresses the growing concern of for example network congestion in IoT-dense environments.
 
@@ -94,14 +94,14 @@ Edge computing has found widespread adoption across diverse application domains,
 As different applications impose varying constraints on latency, reliability, processing capacity and data handling characteristics, a quick glance at the supported projects can present a valueable insight and knowledge for further discussions.
 
 \textbf{Autonomous and Connected Vehicles} represent one of the most known and most demanding edge computing applications requiring ulta-low latency decision-making for safety-critical operations.
-Edge nodes deployed at roadside infrastructure and within vehicles themselves must coordinate to procide seamless connectivity during high-speed mobility scenarios.
+Edge nodes deployed at roadside infrastructure and within vehicles themselves must coordinate to provide seamless connectivity during high-speed mobility scenarios.
 The computational requirements span from simple sensor data aggregation to complex computer vision and machine learning inference for object detection and path planning as well as quick decision making to guarantee the safety of everyone inside as well as outside of said vehicle. [\cite{9498627}, \cite{XIE2024}]
 
 \textbf{Industrial Internet of Things (IIoT) and Smart Manufacturing} applications leverage edge computing to achieve real-time process control and predictive maintenance in manufacturing environments.
 These deployments often require deterministic response times for safety interlocks and process control loops, demanding robust real-time operating systems and fault-tolerant architectures. [\cite{SAVAGLIO2024397}]
 
 \textbf{Smart City Infrastructure} inherits a broad range of edge computing applications including intelligent traffic management, environmental monitoring and public safety systems.
-These services extend not only to traffic but also smart waste management , air quality monitoring systems, pollution level observation and many more.
+These services extend not only to traffic but also smart waste management, air quality monitoring systems, pollution level observation and many more.
 The distributed nature of smart city applications and their strong connection to IoT devices requires sophisticated coordination mechanisms to manage city-wide optimization while maintaining local autonomy for critical services. [\cite{JARARWEH2020102394}]
 
 \textbf{Augmented and Virtual Reality (AR/VR)} applications push the boundaries of edge computing performance requirements while demanding both ultra-low latency and high computational throughput for real-time rendering and content delivery.
@@ -127,7 +127,7 @@ This approach particularly suits distributed computing systems, such like edge c
 
 For this approach, multiple mechanisms are essential for a functional DES-based simulator: [\cite{DES-sota}, \cite{DES-fptp}]
 
-\textbf{Event Scheduling} mechanisms form the core of any DES system, as the events are the heart of the approach. The event scheduler maintains a priority quque of future events, ordered by their scheduled execution time.
+\textbf{Event Scheduling} mechanisms form the core of any DES system, as the events are the heart of the approach. The event scheduler maintains a priority queque of future events, ordered by their scheduled execution time.
 When an event triggers, it may modify the system state and schedule additional future events, extending the sequence of related system behaviors.
 This process terminates by either a termination condition or if the event queue becomes empty.
 
@@ -136,10 +136,10 @@ The system needs to maintain a consistent view at each simulated time point, whi
 This principle becomes particularly important in distributed system simulation, where multiple concurrent events must be carefully coordinated to maintain causal relationships.
 
 Additionally, \textbf{Random Number Generation} and \textbf{Statistical Modeling} are crucial elements for enabling stochastic behaviors inherent in real distributed systems.
-Proper handling of randomness requires careful seed management for reproductibility, appropriate statistical distributiion selection for modeling system phenomena and sufficient simulation run length to achieve statiscal significance in results.
+Proper handling of randomness requires careful seed management for reproducibility, appropriate statistical distribution selection for modeling system phenomena and sufficient simulation run length to achieve statiscal significance in results.
 
 \subsubsection{Simulation vs Emulation}
-For evaluating and testing edge computing tools, multiple approaches should be considered depending on the fundamental design choice that significanty impacts the capabilities, accuracy and performancy characteristics of edge computing tools.
+For evaluating and testing edge computing tools, multiple approaches should be considered depending on the fundamental design choice that significantly impacts the capabilities, accuracy and performance characteristics of edge computing tools.
 Understanding the distinction in these approaches is crucial for both developing and selecting appropriate evaluation methodologies.
 
 \textbf{Simulation} creates abstract models that capture the essential behavioral characteristics of target systems without implementing actual system components.

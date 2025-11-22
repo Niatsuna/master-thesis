@@ -1,6 +1,6 @@
 \chapter{State-of-the-Art Simulator Analysis}
 A comprehensive analysis of the current edge computing simulation landscape is the focus of the following sections.
-The analysis provides the foundation for developing a systematic evaluation framework for edge computing simulators and begins by establishing
+The analysis provides the foundation for developing a systematic evaluation framework for edge computing simulators by establishing
 clear selection criteria for identifying representative simulators from the extensive body of research and development in this domain.
 Following a systematic selection process, ten representative edge computing simulators are examined, each offering distinct approaches to modeling edge computing environments.
 The chapter proceeds with detailed simulator profiles that introduce their core architectures, capabilities, and intended use cases, providing readers with essential background for understanding their respective strengths and limitations.
@@ -56,7 +56,7 @@ Furthermore, it is only single-threaded, which leads to scalability limitations,
 iFogSim2 [\cite{sim-ifogsim2}] is another highly cited and widely adapted edge computing simulator, which builds upon its previous version iFogSim [\cite{sim-base-ifogsim1}].
 It is, just like EdgeCloudSim, based on CloudSim [\cite{sim-base-cloudsim}] and focuses also on MEC scenarios but extends its scope to IoT, fog computing and microservices.
 iFogSim2 is developed as a CloudSim-based framework designed for comprehensive Edge/Fog computing scenarios with focus on mobility, clustering and microservice orchestration, and was first published in September 2021.
-The development seems to be relatively inactive, as the last meaningful update was done August 2021.
+The development seems to be inactive, as the last meaningful update was done August 2021.
 
 Just as its competitor EdgeCloudSim, it shows an advanced mobility support but provides ways to include real datasets for more realistic approaches.
 As for topology, iFogSim2 allows for multi-tier cloud-fog-edge-devices and custom topologies with their respective supported network and protocol types.
@@ -72,8 +72,8 @@ scenarios requiring extensive energy modeling.
 
 % ----------------------------------
 \subsection{YAFS}\label{sec:YAFS}
-Yet Another Fog Simulator (YAFS) [\cite{sim-yafs}] is a highly cited simulator which was first published in July 2019 and last updated June 2022.
-Other than iFogSim2 and EdgeCloudSim, YAFS is written in Python 2.7 and extends EdgeSimPy [\cite{sim-base-edgeSimpy}] and focuses on IoT, fog and edge computing as well as resource allocation.
+Yet Another Fog Simulator (YAFS) [\cite{sim-yafs}] follows EdgeCloudSim and iFogSim2 as respected foundational simulators in the simulation landscape. First published in July 2019 and last updated June 2022,
+YAFS is written in Python 2.7 and extends EdgeSimPy [\cite{sim-base-edgeSimpy}] and focuses on IoT, fog and edge computing as well as resource allocation.
 YAFS is designed to be lightweight, robust and highly configurable based on complex network theory with minimal class structure.
 
 It exceeds in being extremly lightweight and being highly configurable and extensible. 
@@ -88,7 +88,6 @@ With this, YAFS is not ideal for production or commercial environments, large-sc
 % ----------------------------------
 \subsection{EmuFog}\label{sec:EmuFog}
 EmuFog [\cite{sim-emufog}] is highly citated, widely adopted and well established extensible emulation framework for large-scale fog computing written in Kotlin and based on MaxiNet\footnote{\url{https://maxinet.github.io/}} [\cite{sim-base-maxinet}] and Mininet\footnote{\url{https://mininet.org/}} [\cite{sim-base-mininet}].
-\todo{Is it okay to have a citation and a footnote ? is it too much ? Idk}
 First published in October 2017 and updated until September 2020, EmuFog focuses on large-scale fog computing infrastructure emulation while mainly addressing the network emulation.
 
 It provides highly accurate results and supports docker containerization and both synthetic and real-world topologies.
@@ -109,7 +108,7 @@ Mockfog 2.0 presents a real infrastructure emulation in cloud environments to te
 It features docker containerization and automated experiment orchestration while maintaining a real cloud-based emulation with runtime network manipulation.
 
 Due to being a emulation, the resulting behavior is realistic and accurate. 
-Additionally, it allows for dynamic,realistic and scalable testing scenarios and reduces manual effort.
+Additionally, it allows for dynamic, realistic and scalable testing scenarios and reduces manual effort.
 With this it succeeds in its main goal of real application testing, but also is useful for validation of prototypes, algorithms and performance.
 Additionally, it can be used for infrastructure capacity planning and industrial research making it quite adaptable.
 
@@ -126,7 +125,7 @@ First published in November 2020, Fogify shows a relatively active development w
 Due to being realistic and reproducible fog/edge testbeds, it shines at testing real applications in such scenarios.
 Furthermore, due to its container and kubernetes integration it supports declarative scenario description and therefore being relatively easy to configure and quite modern.
 
-Sadly, it features no built-in energy modeling which makes it insufficient for energy-focused research unless the energy-consumption is instrumented externally.
+It features no built-in energy modeling which makes it insufficient for energy-focused research unless the energy-consumption is instrumented externally.
 Large-scale and time-accelerated scenarios also struggle with Fogify, as its hardware-limited scalability stands in the way.
 
 % ----------------------------------
@@ -147,12 +146,12 @@ It is based on the OMNeT++\footnote{\url{https://omnetpp.org/}} and INET\footnot
 The development halted as of the same month.
 
 FogNetSim++ succeeds in advance network modeling with packet-level precision and with the built on proven OMNeT++ framework it shows extensive networking capabilties.
-Furthermore, it present excellent scalabilities for large-scale network simulations and broad selection of debunnging and visualization tools.
+Furthermore, it present excellent scalabilities for large-scale network simulations and broad selection of debugging and visualization tools.
 Additionally, it also present deterministic and reproducible simulation results.
 This supports network performance analysis and protocol development as well as large-scale network simulation with fog nodes and academic research that requires high network simulation accuracy.
 
 However, due to being highly reliant on OMNeT++ and INET, further development and customization of the simulator require expertise and shows a steep learning curve and complex setup.
-Adittionally, the documentation is relatively limited and due to the focus primarly laying on networking other components are being neglected.
+Additionally, the documentation is relatively limited and due to the focus primarly laying on networking other components are being neglected.
 This makes the simulator relatively inefficient for quick prototyping and real-time system simulation as well as energy- and security-focused studies.
 
 % ----------------------------------
@@ -184,7 +183,7 @@ delegated to EdgeSimPy.
   \centering
   \begin{tabularx}{\textwidth}{l | c | c | X }
     \hline
-    \textbf{Name} & \textbf{Language} & \textbf{Type} & \textbf{Focus} \\
+    \textbf{Tool} & \textbf{Language} & \textbf{Type} & \textbf{Focus} \\
     \hline\hline
     EdgeCloudSim  & Java & Sim & Mobile Edge Computing, General Edge Computing\\\hline
     iFogSim2      & Java & Sim & IoT, Mobile Edge Computing, Microservices\\\hline
@@ -199,8 +198,9 @@ delegated to EdgeSimPy.
   \end{tabularx}
   \caption{Summary of representatives of the edge computing simulation landscape}
   \label{tab:overview-table-representatives}
+  %\vspace{-2mm}
+  \small\textit{Note:} Sim = Simulator, Emu = Emulator
 \end{figure}
-\todo{Do I need to add a footnote or something to describe what "Sim" and "Emu" is in type ?}
 
 % ------------------------------------------
 \section{Comparative Analysis}
@@ -216,7 +216,7 @@ Given that our selected representatives range from simulators to emulators with 
 Instead, our framework considers both the specific goals of each representative and the influence of it in the edge computing simulation landscape.
 A feature of a fog-edge emulator, may not be a great fit for a cloud-edge simulator, but still can have some insights and useful information regarding implementation or general design.
 
-The framework encompasses five core dimensions that collectively address the complete software lifecycle from development, through deployment to its usage and assessment.
+The framework encompasses five core dimensions that collectively address the complete software development life cycle (SDLC).
 This holistic approach ensures our analysis captures not only what they can do, but also how well it serves researches and users across diverse edge computing scenarios.
 
 \subsubsection{Architectural Dimensions}
@@ -229,7 +229,7 @@ The coverage scope not only determines requirements for protocols and other feat
 It further can determine required modeling complexity, affects scalability requirements and shapes varied approaches during development and usage.
 Furthermore, some capabilities, requirements and approaches can be essential for a layer in general.
 
-The choice of the simulation paradigm ,on the other hand, determines whether simulators employ discrete-event simulation for network dynamics, 
+The choice of the simulation paradigm, on the other hand, determines whether simulators employ discrete-event simulation for network dynamics, 
 continuous-time modeling for resource consumption, agent-based approaches for autonomous behavior or hybrid combinations that leverage multiple paradigms simultaneously.
 As all these different paradigms, can have influence over simulation accuracy, time and resource usage, the selection should be not made hastely.
 
@@ -243,7 +243,7 @@ monolithc implementations are deemed to be compacter by integrating all function
 Functional capabilities encompass the breadth and depth of the edge computing scenarios each simulator can represent.
 This does include general functionalities as well as focus-based capabilities, which needs to be weighted.
 
-The general functionalities encompasses for example network modeling, device and infrastructure modeling and application and worload modeling as well as fault tolerance and reliability modeling and security and privacy concerns.
+The general functionalities encompasses for example network modeling, device and infrastructure modeling and application and workload modeling as well as fault tolerance and reliability modeling and security and privacy concerns.
 Each of these functionalities can vary in implementation and approach based on multiple factors, just like if simulation or emulation is presented.
 
 Network modeling assesses support for supported topologies, diverse network types, protocol implementations and realistic network conditions including variable delays, bandwidth constraint and congestion-aware behavior.
@@ -280,7 +280,7 @@ Usability factors significantly influence simulator adoption and research produc
 An evaluation of the setup and deployment procress asseses installation complexity, dependency management and documentation quality as well as community support avalability.
 This includes examination of platform compatibility, deployment options and the overall barrier to entry for new users.
 
-Programming interface analysis compares configuration methods from graphical interfaces to prorgammic APIs, evaluating the balance btween ease of use and flexibility.
+Programming interface analysis compares configuration methods from graphical interfaces to APIs, evaluating the balance between ease of use and flexibility.
 The assessment considers API design quality, example scenario availability and the steepness of the learning curve required for productive use across different users expertise levels.
 This does not only include the pure usage of said simulator but also the further development.
 Furthermore, it also observes the strictness of the simulator, as a simulator which can only be used for one specific scenario may not be suited in general.
@@ -299,7 +299,7 @@ Programming extensibility evaluates API completeness and choice of programming l
 This includes assessment of inheritance mechanisms, interface design and the complexity required for implementing custom device types, protocols or application models.
 
 Data and metric extensibility investigates capabilities for custom metric definitions, support for novel data patterns, integration with real-world datasets and mechanisms for extending output analysis capabilities.
-Robust extensibility should enable researchers to adapt simulators for emerging edge computing paradigms without requiring dfundamental architectural chanegs.
+Robust extensibility should enable researchers to adapt simulators for emerging edge computing paradigms without requiring fundamental architectural changes.
 
 \subsubsection{Validation and Evaluation}
 Validation capabilities ensure simulation credibility and enable meaningful research conclusion.
@@ -307,16 +307,16 @@ The accuracy of the simulators results is important, as inaccurate results defea
 
 Accuracy and validation asssesment examines built-in verification methods, calibration requirements against real-world data and documented accuracy claims with associated error bounds or precision levelvs.
 
-Benchmarking and comparison evlauates availability of standard benchmark scenarios, reference implementationsfor comparative analysis and built-in metrics that enable fair evlauation across different approaches.
+Benchmarking and comparison evaluates availability of standard benchmark scenarios, reference implementations for comparative analysis and built-in metrics that enable fair evaluation across different approaches.
 The assessment considers whether simulators provide validated baseline scenarios and support for reproductin published research results for comparison, review and transparency of the results.
 
-Metrics and analysis support examines the comprehensivesness of built-in measurement capabilities, configurability of ourput generation and support of custom metric definition.
-Effective evaluation support should, as mentioned in previous aspects, include statiscal analysis features, data export capabilities in standard formats and visualization tools that facilitate both real-time monitoring and post processing analysis of simulation results. 
+Metrics and analysis support examines the comprehensivesness of built-in measurement capabilities, configurability of output generation and support of custom metric definition.
+Effective evaluation support should, as mentioned in previous aspects, include statistical analysis features, data export capabilities in standard formats and visualization tools that facilitate both real-time monitoring and post processing analysis of simulation results. 
 
 % ----------------------------------
 \newpage
 \subsection{Analysis \& Results}
-\todo{Missing introduction! (Do i really need one here ?)}
+The prior introduced framework shows a fundamental structure for the following comparison, in which all ten representative tools will be systematically analyzed, compared and organized based on the given categories aspect.
 
 \subsubsection{Architectural Dimensions Comparison}
 Starting with the architectural dimensions, the representives demonstrate some architectural diversity and some unity in their approach to edge computing simulation.
@@ -325,7 +325,7 @@ Starting with the architectural dimensions, the representives demonstrate some a
   \centering
   \begin{tabularx}{\textwidth}{ l | l | l | l }
     \hline
-    \textbf{Name} & \textbf{Coverage Scope} & \textbf{Sim. Paradigm} & \textbf{Arch. Pattern} \\
+    \textbf{Tool} & \textbf{Coverage Scope} & \textbf{Sim. Paradigm} & \textbf{Arch. Pattern} \\
     \hline\hline
     EdgeCloudSim  & Cloud-Edge-Mobile     & DES       & Modular\\\hline
     iFogSim2      & Cloud-Fog-Edge-Device & DES       & Modular\\\hline
@@ -367,7 +367,7 @@ Network modeling capabilities demonstrate significant variation based on each re
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X | X  }
     \hline
-    \textbf{Name} & \textbf{Network Types} & \textbf{Supported Protocols} & \textbf{Topology Support}\\
+    \textbf{Tool} & \textbf{Network Types} & \textbf{Supported Protocols} & \textbf{Topology Support}\\
     \hline\hline
     EdgeCloudSim  & WLAN, WAN, Cellular                         & HTTP, Custom                            & Hierarchical \\\hline
     iFogSim2      & WiFi, Ethernet, Cellular, Custom            & TCP/IP, HTTP, MQTT, Custom              & Hierarchical, Custom\\\hline
@@ -390,11 +390,11 @@ Every other simulator and emulator specifically supports either hierarchical or 
 In general, most of the simulators and emulators include a way to customize and configure topologies, which leads to customizable scenarios and simulations.
 YAFS represents this aspect the most, as its focus on complex network theory allows it to freely deploy any topology.
 EmuFog, on the other hand, stands out for its integration of custom as well as real-world datasets as topologies. 
-It uses the topology generator BRITE [\cite{BRITE}] for custom topologies and real-world datasets from CAIDA's Resource Catalog \footnote{\url{https://www.caida.org/}}, which makes it highly customizable and realistic as an emulator.
+It uses the topology generator BRITE [\cite{BRITE}] for custom topologies and real-world datasets from CAIDA's Resource Catalog\footnote{\url{https://www.caida.org/}}, which makes it highly customizable and realistic as an emulator.
 
 As a general rule, all simulators and emulators support standardized protocols for their respective network types.
 EdgeCloudSim simplifies network modeling to focus on mobile edge specifics, rather than additional abstraction of network and protocol types.
-This is relatively also the case for EdgeAISim and emulators like EmuFog, Fogify, and iContinuum.
+This is also the case in some regards for EdgeAISim and emulators like EmuFog, Fogify, and iContinuum.
 As the latter are emulators, their respective emulated network is limited.
 The only exception is Mockfog 2.0, as it is highly configurable and supports any network type and protocols, with the limitation that the deployed network type and protocols must be supported by the underlying cloud infrastructure.
 EdgeAISim is limited in its network capabilities by EdgeSimPy, which, as its base, does not provide extensive protocols or types.
@@ -407,7 +407,7 @@ The same profiles represent the protocols, making FogTorch$\Pi$ not directly com
   \centering
   \begin{tabularx}{\textwidth}{l | X | X }
     \hline
-    \textbf{Name} & \textbf{Bandwidth Modeling} & \textbf{Delay Modeling} \\
+    \textbf{Tool} & \textbf{Bandwidth Modeling} & \textbf{Delay Modeling} \\
     \hline\hline
     EdgeCloudSim  & Congestion-aware, configurable per link & Distance-based, dynamic\\\hline
     iFogSim2      & Variable, configurable per link/node    & Propagation, queueing, processing delays\\\hline
@@ -453,7 +453,7 @@ Application and workload patterns also present similar level of variation as the
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X | X | X }
     \hline
-    \textbf{Name} & \textbf{Application Architecture} & \textbf{Task Dependencies}\\
+    \textbf{Tool} & \textbf{Application Architecture} & \textbf{Task Dependencies}\\
     \hline\hline
     EdgeCloudSim  & Mobile application patterns, Back- and Foreground task classification & Parent-child relationships \\\hline
     iFogSim2      & Monolithic, Microservice                                              & DAG, Precedence constraints \\\hline
@@ -486,7 +486,7 @@ Specialized tools, like EdgeAISim and FogTorch$\Pi$ provde domain-optimized appl
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X }
     \hline
-    \textbf{Name} & \textbf{Data Generation} & \textbf{Data Flow Models}\\
+    \textbf{Tool} & \textbf{Data Generation} & \textbf{Data Flow Models}\\
     \hline\hline
     EdgeCloudSim  & Synthetic               & Mobile data patterns, Location-based \\\hline
     iFogSim2      & Synthetic, Integration  & Periodic, Bursty, IoT streams \\\hline
@@ -503,7 +503,7 @@ Specialized tools, like EdgeAISim and FogTorch$\Pi$ provde domain-optimized appl
   \label{tab:analysis-data-gen-n-flow}
 \end{figure}
 
-Data generation is provided either syntehtic or with real-world dataset integration.
+Data generation is provided either synthetically or with real-world dataset integration.
 Emulation in general features emulated real-world data, thereby only offering its integration.
 Traditional simulators, on the other hand, always provide a way for synthetic data generation.
 EdgeCloudSim has specifically designed workload and Poisson distribution for data generation, while FogNetSim++ focuses on synthetic traffic via OMNeT++ and scenario configuration.
@@ -521,7 +521,7 @@ Fault Tolerance and reliability support are demonstrated by varying sophisticati
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X | X }
     \hline
-    \textbf{Name} & \textbf{Failure Types} & \textbf{Detection Methods} & \textbf{Recovery Strategies}\\
+    \textbf{Tool} & \textbf{Failure Types} & \textbf{Detection Methods} & \textbf{Recovery Strategies}\\
     \hline\hline
     EdgeCloudSim  & Mobile device, Network failure  & Timeout                       & Task migration \\\hline
     iFogSim2      & Device, Network failure         & Heartbeat, Timeout            & Basic restart \\\hline
@@ -542,19 +542,17 @@ As figure \ref{tab:analysis-fault-tolerance} presents, emulators mainly focus on
 Traditional simulators on the other hand show a more device focused appoach by checking the state of the device and application via timeouts, heartbeats and health checks or by monitoring the general network for anomalies.
 Recovery is often achieved with task migration to other devices or simple restarts of the original failing devices or applications.
 
-\todo{Quick stuff i just noticed: Maybe change "Name" into "Tool" for all tables ?}
-
 Security and privacy is an aspect that varies drastically across the simulation landscape. 
 Not only in implementation approaches and covered scenarios but also general existence in some tools.
 \begin{figure}[H]
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X | X }
     \hline
-    \textbf{Name} & \textbf{Security Mechanisms} & \textbf{Privacy Support} & \textbf{Attack Modeling}\\
+    \textbf{Tool} & \textbf{Security Mechanisms} & \textbf{Privacy Support} & \textbf{Attack Modeling}\\
     \hline\hline
     EdgeCloudSim  & Secure offloading, Transmission encryption & None & None \\\hline
     iFogSim2      & Authentication, Encryption overhead, Trust models & Basic data anonymization & Limited, custom extensions possible \\\hline
-    YAFS          & None, custom extension required & None & None, custom extensionr equired  \\\hline
+    YAFS          & None, custom extension required & None & None, custom extension equired  \\\hline
     EmuFog        & None, relies on Docker/Mininet & None & None \\\hline
     MockFog 2.0   & None & None & None \\\hline
     Fogify        & None & None & None \\\hline
@@ -582,7 +580,7 @@ If the focus does not lie on mobile devices, for example in a static deployment,
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X | X | X }
     \hline
-    \textbf{Name} & \textbf{Mobility Models} & \textbf{Handover Support} & \textbf{Location Services} & \textbf{Dynamic Topology}\\
+    \textbf{Tool} & \textbf{Mobility Models} & \textbf{Handover Support} & \textbf{Location Services} & \textbf{Dynamic Topology}\\
     \hline\hline
     EdgeCloudSim  & Advance cellular models & Advanced  & Location-based services   & User mobility \\\hline
     iFogSim2      & Basic mobility models   & Limited   & Basic location-awareness  & Node mobility \\\hline
@@ -599,7 +597,7 @@ If the focus does not lie on mobile devices, for example in a static deployment,
   \label{tab:analysis-mobility}
 \end{figure}
 
-EdgeCloudSima nd iFogSim2 provide with their focus on mobile and IoT devices, advanced mobility support for simulations on the edge.
+EdgeCloudSim and iFogSim2 provide with their focus on mobile and IoT devices, advanced mobility support for simulations on the edge.
 Due to their robustness with handovers, location services, and dynamic topologies, they provide essential features for mobility-focused projects.
 YAFS, EdgeAISim, and FogNetSim++ provide limited or user-extendable mobility, but are not as advanced by default as their previously mentioned competitors.
 EdgeAISim especially provides no further implementation but relies mainly on its base EdgeSimPy in this regard.
@@ -610,7 +608,7 @@ Energy consumption, as well, is a relatively sporadic deployed feature in the ed
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X | X }
     \hline
-    \textbf{Name} & \textbf{Energy Modeling Scope} & \textbf{Optimization Support} & \textbf{Granularity}\\
+    \textbf{Tool} & \textbf{Energy Modeling Scope} & \textbf{Optimization Support} & \textbf{Granularity}\\
     \hline\hline
     EdgeCloudSim  & None                                & None                    & None \\\hline
     iFogSim2      & Basic device-level energy modeling  & Energy-aware placement  & Per device, per task, limited accuracy \\\hline
@@ -636,16 +634,16 @@ It can only be approximated by resource utilization based on scenario results, b
 However, it is mentioned in the documentation of EdgeCloudSim\footnote{\url{https://github.com/CagataySonmez/EdgeCloudSim}} as a needed feature for the simulator.
 
 % ----------------------------------
-\subsection{Performance and Scalability Comparison}
-Performance and scalability are playing a crucial part in software engineering and especially in edge computing simulation, because of the sheer amount of heterogeneous devices which each generates or compute data on the edge
+\subsubsection{Performance and Scalability Comparison}
+Performance and scalability are playing a crucial part in software engineering and especially in edge computing simulation, because of the sheer amount of heterogeneous devices which each generates or compute data on the edge.
 While comprehensive performance benchmarking across edge computing simulators remain limited, each tools respective paper made some effort to show general performance metrics and some comparisons where executed by other papers. [\cite{s23073492}, \cite{MECHALIKH2025103042}, \cite{fi11030055}]
 
-Computational efficiency is a varying factor across the simulator landscape based on architectural design choicces, modeling complexity and implementation optimization strategies.
+Computational efficiency is a varying factor across the simulator landscape based on architectural design choices, modeling complexity and implementation optimization strategies.
 \begin{figure}[H]
   \centering
   \begin{tabularx}{\textwidth}{ l | X | X | X | X }
     \hline
-    \textbf{Name} & \textbf{Simulation Speed} & \textbf{Memory Usage} & \textbf{Optimization Features} & \textbf{Execution Model}\\
+    \textbf{Tool} & \textbf{Simulation Speed} & \textbf{Memory Usage} & \textbf{Optimization Features} & \textbf{Execution Model}\\
     \hline\hline
     EdgeCloudSim  & Moderate  & High      & Caching, Event optimization         & Single-threaded \\\hline
     iFogSim2      & Moderate  & Moderate  & Mobile-specific optimization        & Single-threaded \\\hline
@@ -670,12 +668,12 @@ Furthermore, EdgeAISim suffers additionally from the size of AI models, which re
 Additionally to note is, that iFogSim2 acitvely claims to have a 28\% better memory usage than its competitors [\cite{sim-ifogsim2}].
 
 Scalability limits, on the other hand, reveal a critical aspect in the edge computing simulation landscape, as its highly impacted by scenarios, simulation properties and hardware constraints.
-The maximum number of supported nodes is often not clearly stated [\cite{qi2025surveyopensourceedgecomputing}, but sometimes implied or in a very few comparison depicted for selected scenarios.
+The maximum number of supported nodes is often not clearly stated [\cite{qi2025surveyopensourceedgecomputing}], but sometimes implied or in a very few comparison depicted for selected scenarios.
 
 Emulators are typically stated to have a low amount of maximum nodes, as they need to emulate a whole real system rather than simulation only certain aspects.
 However, emulators may achieve greater number of nodes by distribution [\cite{qi2025surveyopensourceedgecomputing}, \cite{sim-mockfog2}].
 This is especially stated for Mockfog 2.0, as ``MockFog’s scalability will usually be limited by the number of VMs that can be provisioned from the cloud provider of choice'' [\cite{sim-mockfog2}].
-Otherwise, they mainly rely with their scalability on their underlying technologies and programming languages. This is the case for iContinuum \cite{sim-icontinuum}.
+Otherwise, they mainly rely with their scalability on their underlying technologies and programming languages. This is the case for iContinuum [\cite{sim-icontinuum}].
 Fogify and Emufog have both scalability claims, but don't further classify or depict a benchmark for reviewing.
 \cite{sim-fogify} states for Fogify that ``the emulation execution environment should be scalable from topologies with a limited number of nodes, capable to run on a single laptop or PC, to hundreds or thousands nodes, running on a whole cluster.'' but don't provide any further necessary
 means or valueable benchmark to confirm or deny this claim, while \cite{sim-emufog} states something similar with EmuFog being capable to emulate large network topologies, but doesn't further clarify what this assessment mean nor provide any means to review this claim.
@@ -772,8 +770,8 @@ In this section we revisit some aspects and briefly state their insight as well 
 \subsubsection{Key Findings}
 The comparative analysis reveals several significant patterns in the current edge computing simulation landscape:
 
-The architectural analysis revels a strong convergence toward modular architectural design patterns with all evaluated tools demonstrating as such.
-This supports not only extensibility and configuration but also maintance and affirms modularity as a key software principle.
+The architectural analysis reveals a strong convergence towards modular architectural design patterns within all evaluated tools.
+This supports not only extensibility and configuration but also maintains and affirms modularity as a key software principle.
 Traditional simulators predominantly employ Discrete Event Simulation (DES), whereas emulation-based tools leverage container technology.
 The coverage scope typically spans multiple layers of the computing continuum, with fog-edge combinations representing the minimum viable coverage.
 
@@ -818,6 +816,6 @@ Making real comparative performance validations complicated and relatively subje
 Finally, with new technologies emerging rapidly, some modern paradigms are limited in their support.
 Thus, new fields could become relatively hard to support, such like AI/ML frameworks and blockhcain but also green computing and sustainability metrics.
 
-These findings and gaps higjlight both the maturity of the current simulation landscape and areas requiring further development.
+These findings and gaps highlight both the maturity of the current simulation landscape and areas requiring further development.
 
 
