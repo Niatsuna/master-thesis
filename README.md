@@ -1,4 +1,4 @@
-# Systematic Analysis and Improvement of Edge Computing Simulators (Master's Thesis) (2025)
+# Ecoscape as a Validated Edge-Cloud-Continuum Simulator: An LLM Use-Case Integration and Comparative Study (Master's Thesis) (2025)
 
 This repository is mostly the LaTeX files for my master's thesis.
 The raw files for the PDFs are located at `/writing`.
