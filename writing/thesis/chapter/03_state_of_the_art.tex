@@ -2,7 +2,7 @@
 A comprehensive analysis of the current edge computing simulation landscape is the focus of the following sections.
 The analysis provides the foundation for developing a systematic evaluation framework for edge computing simulators by establishing
 clear selection criteria for identifying representative simulators from the extensive body of research and development in this domain.
-Following a systematic selection process, ten representative edge computing simulators are examined, each offering distinct approaches to modeling edge computing environments.
+Following a systematic selection process, ten representative edge computing simulators and Ecoscape are examined, each representative offering distinct approaches to modeling edge computing environments and validate Ecoscape.
 The chapter proceeds with detailed simulator profiles that introduce their core architectures, capabilities, and intended use cases, providing readers with essential background for understanding their respective strengths and limitations.
 To support the systematic comparison of the ten representative simulators, we establish an analysis framework that defines the aspects and categories in which the comparison should take place.
 Subsequently, a structured comparative analysis examines these simulators in comparison to their competitors, revealing significant patterns and variations within the simulation landscape.
@@ -130,13 +130,14 @@ Large-scale and time-accelerated scenarios also struggle with Fogify, as its har
 
 % ----------------------------------
 \subsection{iContinuum}\label{sec:iContinuum}
-iContinuum [\cite{sim-icontinuum}] joins Fogify as a python based emulator that uses docker containerization and kubernetes to emulate linux networking.
+iContinuum [\cite{sim-icontinuum}] is an emulation toolkit from 2024 and is designed for the Edge-to-Cloud Continuum that utilizes a hybrid methodology for experimentation.
+While it achieved high-fidelity replication by leveraging containerization to run actual applications, its core strength lies in its use of Software-Defined Networking (SDN) which allows emulated environments in a strategically modelled simulation.
 Here, it is also designed to be realistic and reproducible, but other than the previous, focuses on cloud-to-edge, orchestration and reproducibility of large-scale experimentations. 
 
 iContinuum succeeds in its goals by serving realistic and reproducible cloud-to-edge continuum testbeds while maintaining a multi-domain orchestration and declarative scenario description.
 It is therefore suitable for orchestration research across the cloud-edge continuum, testing real applications in distributed scenarios and in network-based resource emulation.
 
-However, just like its competitor, it is hardware-limited in its scalability and has no synthetic time like simulators in this field.
+However, just like its competitor, it is hardware-limited in its scalability and has no synthetic time-acceleration like simulators in this field.
 Additionally, it has no built-in energy modeling, making it not as suitable for large-scale, time-accelerated or energy-focused simulation.
 
 % ----------------------------------
@@ -191,10 +192,11 @@ delegated to EdgeSimPy.
     EmuFog        & Kotlin & Emu & Large-scale fog infrastructure\\\hline
     Mockfog 2.0   & Node.js & Emu & Real application testing, Cloud-based emulation\\\hline
     Fogify        & Python & Emu & Container orchestration, Network emulation\\\hline
-    iContinuum    & Python & Emu & Orchestration, Large-scale experimentation\\\hline
+    iContinuum    & Python & Hybrid & Orchestration, Large-scale experimentation\\\hline
     FogNetSim++   & C++ & Sim & Realistic network-centric distributed systems\\\hline
     FogTorch$\Pi$ & Java & Sim & IoT application deployment, QoS-aware deployment optimization\\\hline
-    EdgeAISim     & Python & Sim & AI/ML Edge Computing, Resource management, Energy optimization\\\hline
+    EdgeAISim     & Python & Sim & AI/ML Edge Computing, Resource management, Energy optimization\\\hline\hline
+    Ecoscape      & Python & Hybrid & Fault Tolerance, Remediation Benchmarking\\\hline
   \end{tabularx}
   \caption{Summary of representatives of the edge computing simulation landscape}
   \label{tab:overview-table-representatives}

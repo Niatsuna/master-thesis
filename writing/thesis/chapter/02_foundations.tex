@@ -156,13 +156,19 @@ These have emerged to combine the benefits of both methodologies, by using detai
 The choice between simulation and emulation depends on evaluation objectives, available resources, and required accuracy levels.
 Development and research focusing on algorithmic performance might benefit from simulation's scalability, while studies evaluating real system deployments might require emulation's higher fidelity.
 
-\todo{Maybe include standard performance metrics and evaluation methods ? Idk}
+Although "simulator" in the strict methodological sense refers to abstract system modeling, the term is often used more broadly in the edge-computing literature to denote any tool that enables controlled and repeatable reproduction of system behavior.
+Under this broader interpretation, simulators may also encompass emulation-based and benchmarking frameworks, since these tools likewise "simulate" edge-cloud conditions in a controlled environment.
+This can also be observed by the tools themselves, with modern tools blurring the distinction by incorporating aspects of both categories at the same time.
+
+To address this terminological misalignment, the remainder of this thesis distinguishes between dominant emulation-based tools, referred to as emulators, and dominant simulation-based tools, referred to as simulators, while using the term tool as an umbrella designation for both.
+Tools that feature distinct simulation as well as emulation properties will be further referred as hybrids.
 
 % ------------------------------------------
 \section{Technical Foundations}
 Ecoscape represents a modern approach to edge computing simulation, developed by \cite{reiter2025ecoscapefaulttolerancebenchmark} to address the growing need for realistic evaluation of containerized edge deployments.
-Built upon the Kubernetes orchestration platform, Ecoscape integrates Apache Kafka for distributed data streaming, Kepler for energy consumption monitoring, Prometheus for metric collection, Grafana for visualization, and Chaos Mesh for systematic reliability testing.
-This creates a comprehensive simulation environment that reflects contemporary edge computing infrastructure.
+While it operates as a tool for statistical performance simulation, its core methodology is based on high-fidelity emulation building upon Kubernetes orchestration platform.
+Ecoscape integrates Apache Kafka for distributed data streaming, Kepler for energy consumption monitoring, Prometheus for metric collection, Grafana for visualization, and Chaos Mesh for systematic reliability testing.
+This creates a comprehensive simulation environment that reflects contemporary edge computing infrastructure while using real workloads in a simulated topology making it a modern hybrid approach for edge computing simulation.
 
 In the following, these technologies are further explored to illustrate their direct influence and which aspects of Ecoscape's architecture they cover.
 % ----------------------------------
