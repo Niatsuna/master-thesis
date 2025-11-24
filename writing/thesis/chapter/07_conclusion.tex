@@ -1,2 +1,32 @@
-\chapter{Conclusion and Future Work}
-\todo{Write this rather at the end}
+\chapter{Conclusion}
+This thesis investigated representatives of the current state-of-the-art edge computing simulation landscape to deduce similarities and differences and to crystallize criteria that should guide future tools to meet contemporary expectations. 
+The resulting requirements catalogue represents these findings while also serving as a framework to validate Ecoscape's own properties, through which we identified gaps in its sample of use-cases. 
+Through the development of a distributed Large Language Model deployment and comprehensive experimental evaluation, we demonstrated that Ecoscape accurately models resource saturation, scaling behavior, and heterogeneous hardware performance, while also providing an additional example for future researchers and developers using Ecoscape.
+
+The comparative study revealed that many categories showcase unity in the edge computing simulation landscape, with tools converging on fundamental requirements such as hierarchical infrastructure modeling, support for heterogeneous resources, and basic workload specification capabilities. 
+However, other properties were unexpectedly missing across multiple tools. 
+Energy modeling is one such aspect that remains underrepresented despite being an important factor in contemporary computing, especially with the rise of mobile devices that feature batteries. 
+A more significant issue in the field concerns the missing or misleading performance benchmarks that are either non-existent or fine-tuned to one tool while disregarding others, making objective comparison between simulators difficult and hindering reproducible research.
+
+Furthermore, this work makes several contributions to the Ecoscape ecosystem and edge computing research by featuring a functional use-case of an emerging technology that includes dual CPU/GPU support, efficient resource preloading via Persistent Volume Claims, and comprehensive Prometheus-based monitoring in an industry and research standardized environment like Kubernetes. 
+Through multiple experimental scenarios, we validated not only Ecoscape's ability to handle LLM workloads but also its reproducibility across different environments and its deterministic modeling. 
+The exceptional consistency observed across five repetitions per scenario, two deployment zones, and validation in both Minikube and a provided cluster environments demonstrates that Ecoscape provides reliable, deterministic modeling suitable for rigorous research.
+
+However, as this work focused on validating Ecoscape's core orchestration capabilities rather than featuring a comprehensive LLM performance analysis, the use-case can be further optimized in multiple aspects. 
+Model selection could be extended to larger models requiring distributed inference strategies, load patterns could incorporate realistic bursty traffic and diurnal cycles rather than steady-state patterns, and the deployment could be enhanced with multi-tenant resource contention scenarios to better reflect real-world edge environments. 
+The dual-environment validation on Minikube and a provided cluster strengthens the reproducibility claim but represents a limited sample of Kubernetes distributions and configurations. 
+Testing on additional platforms such as managed cloud Kubernetes services, on-premise clusters, or resource-constrained edge devices would further validate generalizability.
+
+This use-case therefore serves as a starting point and baseline for LLM deployments on the edge rather than a full-fledged production-ready deployment. 
+It can be further extended to feature model sharding across multiple devices, distributed processing in general, or can be utilized for multi-model pipelines that create tighter service coupling and more thoroughly exercise Ecoscape's network modeling capabilities. 
+Ecoscape itself can further build upon its use-case library by expanding its reach into different research fields such as video analytics, IoT data processing, federated learning, and real-time sensor fusion. 
+This would further demonstrate its available versatility across edge computing domains and build a comprehensive library of pre-configured examples to flatten the learning curve for newcomers to the tool, addressing the primary limitation identified in our requirements catalogue evaluation.
+
+Beyond the specific contributions to Ecoscape, this thesis provides the edge computing simulation field with a structured requirements catalogue that can guide both the evaluation of existing platforms and the development of future tools. 
+The systematic analysis methodology employed here can be repeated periodically to track the evolution of edge computing simulators, identify emerging trends, and update requirements as the field matures. 
+The identification of field-wide gaps—particularly in energy modeling and standardized benchmarking—provides clear direction for community-wide improvement efforts that would benefit all researchers working with edge computing simulation platforms.
+
+This thesis demonstrates that Ecoscape successfully fulfills the depicted requirements to be deemed a capable edge computing tool while also showcasing that it can handle LLM workloads with high fidelity. As edge AI continues to evolve, with increasingly sophisticated models deployed ever closer to data sources, simulation platforms like Ecoscape become essential tools for exploring design spaces before committing to expensive physical deployments. 
+The ability to model heterogeneous hardware, resource saturation, and scaling behavior with deterministic accuracy—as validated through our rigorous experimentation—enables researchers to make informed decisions about edge infrastructure design and deployment strategies without requiring access to extensive physical testbeds.
+The LLM use-case developed in this work provides both validation of the platform's current capabilities and a foundation for future research pushing the boundaries of edge AI systems. By bridging the gap between cutting-edge AI technologies and edge computing infrastructure research, this work contributes to both domains while providing practical value to the Ecoscape user community. 
+The combination of systematic requirements analysis, empirical validation through demanding workloads, and reusable implementation patterns positions Ecoscape as a mature platform ready for the next generation of edge computing research challenges.
