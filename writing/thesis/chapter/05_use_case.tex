@@ -127,7 +127,7 @@ This section outlines our evaluation approach while the detailed results from so
 We implemented a Prometheus-based metrics collection system integrated directly into the LLM Service which can then be further propagated via a Podmonitor into different namespaces.
 All metrics are exposed via a \textit{\/metrics} endpoint and include contextual labels that identify the deployment environment:
 \begin{itemize}
-  \item \textit{node\_id} : Unique identifier for the edge node running the service
+  \item \textit{node\_id} : Unique identifier for the node running the service
   \item \textit{node\_type} : Deployment tier (edge or cloud)
   \item \textit{device\_type} : Compute mode (cpu or gpu)
 \end{itemize}
