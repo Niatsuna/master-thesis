@@ -1,0 +1,93 @@
+{
+   "apiVersion": "apps/v1",
+   "kind": "Deployment",
+   "metadata": {
+      "name": "edge-zone1",
+      "namespace": "scalablemine-stu208763"
+   },
+   "spec": {
+      "replicas": 1,
+      "selector": {
+         "matchLabels": {
+            "app": "edge-zone1"
+         }
+      },
+      "template": {
+         "metadata": {
+            "labels": {
+               "app": "edge-zone1"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name" : "edge-zone1",
+                  "image": "niatsuna/llm-prompt-sut:cpu",
+                  "imagePullPolicy": "Always",
+                
+                  "env": [
+                     {
+                        "name": "BOOTSTRAP_SERVER",
+                        "value": "zone1-kafka-bootstrap.scalablemine-stu208763-kafka.svc:9092"
+                     },
+                     {
+                        "name": "INPUT_TOPIC",
+                        "value": "input"
+                     },
+                     {
+                        "name": "OUTPUT_TOPIC",
+                        "value": "reporter"
+                     },
+                     {
+                        "name": "MODEL_PATH",
+                        "value": "/models/Qwen2.5-0.5B-Instruct"
+                     },
+                     {
+                        "name": "METRICS_PORT",
+                        "value": "5000"
+                     },
+                     {
+                        "name": "NODE_ID",
+                        "value": "edge-zone1"
+                     }
+                  ],
+                  "ports": [
+                     {
+                        "containerPort": 80,
+                        "name": "web"
+                     },
+                     {
+                        "containerPort": 5000,
+                        "name": "metrics"
+                     }
+                  ],
+                  "resources": {
+                     "limits": {
+                        "cpu": "2",
+                        "memory": "4Gi"
+                     },
+                     "requests": {
+                        "cpu": "2",
+                        "memory": "4Gi"
+                     }
+                  },
+                  "volumeMounts": [
+                    {
+                      "name": "ecoscape-pvc",
+                      "mountPath": "/models"
+                    }
+                  ]
+               }
+            ],
+            "volumes": [
+              {
+                "name": "ecoscape-pvc",
+                "persistentVolumeClaim": {
+                  "claimName": "ecoscape-pvc"
+                }
+              }
+            ]
+         }
+      }
+   }
+}

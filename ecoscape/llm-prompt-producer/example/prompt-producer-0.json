@@ -1,0 +1,89 @@
+{
+   "apiVersion": "apps/v1",
+   "kind": "Deployment",
+   "metadata": {
+      "name": "data0",
+      "namespace": "scalablemine-stu208763-load"
+   },
+   "spec": {
+      "replicas": 1,
+      "selector": {
+         "matchLabels": {
+            "ecoscape/node": "kube1-3"
+         }
+      },
+      "template": {
+         "metadata": {
+            "labels": {
+               "ecoscape/node": "kube1-3"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name": "data0",
+                  "image": "niatsuna/llm-prompt-producer:latest",
+                  "imagePullPolicy": "IfNotPresent",
+                  "env": [
+                     {
+                        "name": "KAFKA_BOOTSTRAP_SERVERS",
+                        "value": "zone1-kafka-bootstrap.scalablemine-stu208763-kafka.svc:9092"
+                     },
+                     {
+                        "name": "KAFKA_TOPIC",
+                        "value": "input"
+                     },
+                     {
+                        "name": "DATASET_PATH",
+                        "value": "/data/alpaca/data_train.jsonl"
+                     },
+                     {
+                        "name": "METRICS_PORT",
+                        "value": "5000"
+                     },
+                     {
+                        "name": "BASE_RPS",
+                        "value": "0.2"
+                     },
+                     {
+                        "name": "LOAD_PATTERN",
+                        "value": "ramp_up"
+                     }
+                  ],
+                  "ports": [
+                     {
+                        "containerPort": 80,
+                        "name": "web"
+                     }
+                  ],
+                  "resources": {
+                     "limits": {
+                        "cpu": 1,
+                        "memory": "2Gi"
+                     },
+                     "requests": {
+                        "cpu": 1,
+                        "memory": "2Gi"
+                     }
+                  },
+                  "volumeMounts": [
+                     {
+                        "name": "ecoscape-pvc",
+                        "mountPath": "/data",
+                        "readOnly": true
+                     }
+                  ]
+               }
+            ],
+            "volumes": [
+               {
+                  "name": "ecoscape-pvc",
+                  "persistentVolumeClaim": {
+                    "claimName" : "ecoscape-pvc"
+                  }
+               }
+            ]
+         }
+      }
+   }
+}
