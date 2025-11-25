@@ -1,7 +1,16 @@
 # Ecoscape as a Validated Edge-Cloud-Continuum Simulator: An LLM Use-Case Integration and Comparative Study (Master's Thesis) (2025)
 
-This repository is mostly the LaTeX files for my master's thesis.
-The raw files for the PDFs are located at `/writing`.
-The directory `/presentation` holds the slides for both presentations regarding this thesis.
+This repository features files for my master's thesis.
 
-Github actions compiles the raw LaTeX files and updates the PDFs in the release sections, so no local compiling is necessary for simple viewers.
+- `/ecoscape` features implementations, experiments and example files for the deployed use-case.
+- `/notes` features mostly my notes from the start of the thesis
+- `/presentation` features my slides for my proposal and my thesis presentation.
+- `/writing` features the LaTeX files for my proposal and thesis
+
+Github actions are used to automatically compile the raw LaTeX files and updates the corresponding PDFs in the release sections.
+Local compiling is therefore not necessary for simple checking out this thesis.
+
+---
+
+> **Deadline:** 03.12.2025 \
+> **Submitted:** Soon
