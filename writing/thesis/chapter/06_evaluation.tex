@@ -21,30 +21,30 @@ It also allows for multiple setups like the comparison of nodes in a heterogeneo
 % ----------------------------------
 \subsection{Evaluation Methodology}
 As already touched upon in the previous paragraph, each scenario was executed five times to ensure reproducibility.
-To evaluate the services a podmonitor was deployed as an intermediary to solve namespace issues between prometheus and the services under test (SUTs).
+To evaluate the services, a podmonitor was deployed as an intermediary to solve namespace issues between prometheus and the services under test (SUTs).
 In case of metrics we observed mainly latency, CPU utilization, GPU utilization, memory usage, TTFT in the 95th percentile (P95) and TTPS.
 
 Each scenario executes for a total of 31 minutes, while 30 minutes are the actual evaluation and the remaining one minute is a pre-configured warm-up phase to ensure all data is loaded correctly and services are initialized.
 
-The described preloading of the dataset and model were executed before the any scenario and are not part of the scenarios itself.
+The described preloading of the dataset and model were executed before any scenario and are not part of the scenarios itself.
 
 Fault tolerance and further network modeling focused more on pod failures and crashes rather than bandwidth and delay, with using Chaos Mesh and natural pod crashes to simulate pod crashes.
 
 % ----------------------------------
 \subsection{Workload Generation}
 Each zone had for each scenario exactly one prompt producer using the previous introduced alpaca dataset.
-If not stated otherwise the used requests per second (RPS) and load pattern where $0.2$ ( 1 message every 5 seconds) and a poisson distribution respectively.
+If not stated otherwise the used requests per second (RPS) and load pattern were $0.2$ ( 1 message every 5 seconds) and a poisson distribution respectively.
 
 \subsection{LLM Service Configuration}
 Our evaluation utilizes three distinct node types representing the heterogeneous nature of edge computing environments.
-\textbf{Edge nodes} are resource-constrained with 2 CPU cores and 4 GiB of memeory, representing typical edge infrastructure.
+\textbf{Edge nodes} are resource-constrained with 2 CPU cores and 4 GiB of memory, representing typical edge infrastructure.
 \textbf{Cloud nodes} provide more capable resources with 4 CPU cores and 8 GiB of memory, operating either in CPU-only mode or with GPU acceleration.
 
 The LLM service utilizes the Qwen 2.5 - 0.5B Instruct model with 0.5 billion parameters.
 Edge nodes and Cloud nodes in CPU-only mode are enforced via docker image and PyTorch to only use the available CPU, while Cloud nodes in GPU mode where enforced with the same techniques to use their CUDA support.
-Resource quests and limits are configured according to node type via kubernetes deployment and therefore ensure realistic edge computing constraints while preventing resource contention.
+Resource requests and limits are configured according to node type via kubernetes deployment and therefore ensure realistic edge computing constraints while preventing resource contention.
 
-Additionally, the LLM were set to a temperature of $0.7$ to allow for authentic responses that a user would currently expect from modern free available AIs, as temperature indicates the novelty in the response. [\cite{du2025optimizingtemperaturelanguagemodels}, \cite{peeperkorn2024temperaturecreativityparameterlarge}]
+Additionally, the LLM were set to a temperature of $0.7$ to allow for authentic responses that a user would currently expect from modern free available AIs, as temperature indicates the novelty in the response [\cite{du2025optimizingtemperaturelanguagemodels}, \cite{peeperkorn2024temperaturecreativityparameterlarge}].
 Lower temperature would result in shorter and more strict to the training data responses, while higher temperature leads to more novel and sometimes creative responses with a risk of hallucinations as the examples in Figure \ref{tab:temp-example} show.
 This together with the variable of the \textit{maximum tokens} of a response can lead to different latencies, as more tokens and higher temperature result in longer possible responses.
 As a default value we opted for a relatively low number of 50 maxmimum tokens.
@@ -66,7 +66,7 @@ As a default value we opted for a relatively low number of 50 maxmimum tokens.
 
 % ----------------------------------
 \section{Experiments}
-With the previous denoted setup, we present in this section general consensus in all executed experimental scenarios and highlight three selected scenarios from our broader suite of validation experiments conducted to assess Ecoscape's infrastructure capabilites for LLM deployment.
+With the previous denoted setup, we present in this section general consensus in all executed experimental scenarios and highlight three selected scenarios from our broader suite of validation experiments conducted to assess Ecoscape's infrastructure capabilities for LLM deployment.
 The scenarios were chosen to demonstrate critical platform features like accurate modeling of resource saturation under load, predictable horizontal scaling behavior and faithful representation of performance heterogeneity across diverse hardware configurations.
 
 % ----------------------------------
@@ -83,12 +83,12 @@ None of the scenarios showed node failure other than simulated ones or expected 
 Network modeling parameters like bandwidth and delay influenced end-to-end message propagation as expected without affecting inter-service logic, consistent with  the architecture's loose coupling.
 
 Model initialization exhibits expected I/O contention patterns, as single-pod deployments loaded the model from shared storage in approximately 5 seconds, while concurrent initialization by multiple replicas induced proportional increases due to storage subsystem contention.
-The designated 1-minute warm-up interval accomodates this variation across deployment scales.
+The designated 1-minute warm-up interval accommodates this variation across deployment scales.
 
 % ----------------------------------
 \subsection{Scenario 1: Resource Limit Validation}
 \subsubsection{Objective \& Methodology}
-The goal of scenario 1 is to validate that Ecoscape is accurately model its saturation limit for a single node.
+The goal of scenario 1 is to validate that Ecoscape is accurately modeling its saturation limit for a single node.
 
 To achieve our goal we focus on the throughput of our prompt producer and the CPU Utilization, TTFT and TTPS of our LLM service.
 
@@ -138,9 +138,9 @@ Scenario 2 is concerning itself, with that Ecoscape accurately models linear sca
 
 For this, we deploy at the start one node of each type isolated from each other and increase the replicas steadily.
 We stay at the default $0.2$ RPS for the prompt producer but change the load pattern to constant to minimize the impact of the prompt producer on the service.
-We steadily increase every 5 minutes the amount of replicas by 1.
+We steadily increase the amount of replicas by 1 every 5 minutes.
 
-If Ecoscape accurately models linear scaling via replicas, than it is to be expected that the overall TTPS for the entire cluster should increase linearly with the number of replicas, while the individual replica's TTPS remain stable.
+If Ecoscape accurately models linear scaling via replicas, then it is to be expected that the overall TTPS for the entire cluster should increase linearly with the number of replicas, while the individual replica's TTPS remain stable.
 Some minimal variance in the TTPS are expected as this could be traced back to the prompt's difficulty and length.
 
 \subsubsection{Results \& Analysis}
@@ -159,7 +159,7 @@ Cloud nodes, regardless of CPU-only or GPU mode, behave exactly the same.
 % ----------------------------------
 \subsection{Scenario 3: Heterogeneous Resource Validation}
 \subsubsection{Objective \& Methodology}
-For our last highlighted scenario, we observe the actual performance difference between different node types to validate that Ecoscape accurately model the massive performance upgrade from specialized hardware like GPUs.
+For our last highlighted scenario, we observe the actual performance difference between different node types to validate that Ecoscape accurately models the massive performance upgrade from specialized hardware like GPUs.
 
 For Validation, we deploy a heterogeneous deployment with 5 edge nodes, 2 cloud nodes in CPU mode and 1 cloud node in GPU mode to showcase their respective difference.
 We apply the default values for the prompt producer and look at TTFT and TTPS as well as CPU Utilization and end-to-end latency for our indicating metrics.
@@ -172,7 +172,7 @@ Additionally, the GPU node provide the vastly superiror TTPS, showcasing the exp
 Our heterogeneous deployment show significant performance enhancement with GPU-acceleration, as the figures below show.
 CPU Utilization is, as expected, minimal, as the actual computation is done on the GPU.
 The TTFT is relatively low in comparison to the CPU nodes while some spikes are visibile in the TTPS metric.
-After further investigation, it was discovered that at these spikes multiple difficult and long prompt were present, resulting in long and novel responses.
+After further investigation, it was discovered that at these spikes multiple difficult and long prompts were present, resulting in long and novel responses.
 
 \begin{figure}[H]
   \centering
@@ -181,8 +181,8 @@ After further investigation, it was discovered that at these spikes multiple dif
   \label{graph:sc3_cpu}
 \end{figure}
 
-One interesting discovery was the comparison between the CPU nodes, as CPU utilization didn't not adapt to more CPUs and TTFT was at some datapoints worse on the cloud node than the edge node.
-Observing other experiments and researching underlying frameworks, it was discovered that this is a bottleneck from multiple factors including the model itself but also the amount of threads that can carry model , prompts and responses.
+One interesting discovery was the comparison between the CPU nodes, as CPU utilization didn't adapt to more CPUs and TTFT was at some datapoints worse on the cloud node than the edge node.
+Observing other experiments and researching underlying frameworks, it was discovered that this is a bottleneck from multiple factors including the model itself but also the amount of threads that can carry model, prompts and responses.
 This does not invalidate our findings in this scenario, but show more possible implementation optimizations for our deployed LLM service and model selection.
 
 \begin{figure}[H]
@@ -212,7 +212,7 @@ The experimental evidence provides a clear affirmative answer across multiple di
 
 \textbf{Heterogeneity support}: Ecoscape successfully orchestrated mixed deployments across edge and cloud nodes with different hardware characteristics like CPUs and GPUs, accurately representing the performance characteristics of each.
 
-\textbf{Reproducibility} : The consistent results across environments, zones and repetitions demonstrate that Ecoscape provides reliable, deterministic modeling suitable for research and development purposes.
+\textbf{Reproducibility}: The consistent results across environments, zones and repetitions demonstrate that Ecoscape provides reliable, deterministic modeling suitable for research and development purposes.
 
 These findings have practical implications for researchers and developers using Ecoscape for LLM-related experiments, such as a baseline for \textbf{resource planning} for small LLM deployments or general \textbf{scaling strategies} as observed by horizontal scalings effectiveness for increasing LLM throughput to some regard.
 Additionally, the performance difference between CPU and GPU modes quantifies the trade-off between deployment flexibility and performance which can impact \textbf{hardware selection}.
@@ -224,9 +224,10 @@ While our experiments validate Ecoscape's core capabilities, several limitations
 \textbf{Model size constraints:} We evaluated using a small sized 0.5B parameter model and tested deployment with various small models duet to edge node resource limitations.
 Larger models would require different deployment patterns not explored in this work like model sharding or offloading.
 
-\textbf{Workload pattern:} The Alpaca dataset provides diverse prompts, while our experiments often feature poission distribution, ramp up or constant as load patterns. Real-world deplyoments would benefit from additional expeiments with variable load profiles, realistic bursty traffic patterns and datasets with integrated time series to integrate data on more authentical level.
+\textbf{Workload pattern:} The Alpaca dataset provides diverse prompts, while our experiments often feature poisson distribution, ramp up or constant as load patterns.
+Real-world deplyoments would benefit from additional experiments with variable load profiles, realistic bursty traffic patterns and datasets with integrated time series to integrate data on more authentical level.
 
 \textbf{Network modeling:} While we configured network latency and bandwidth parameters, our loosely coupled architecture meant these primarily affected end-to-end latency rather than inter-service behavior.
 More distributed or tightly coupled architectures like distributed processing or model ensemble pipelines would exercise network modeling more thoroughly.
 
-These limitations do not invalidate our findings but rather identify oppertunities for future work and usage of this use-case by extending it to more complex scenarios.
+These limitations do not invalidate our findings but rather identify opportunities for future work and usage of this use-case by extending it to more complex scenarios.

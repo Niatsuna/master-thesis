@@ -2,7 +2,7 @@
 In this chapter, we cover the development of a Large Language Model (LLM) deployment use-case for Ecoscape.
 This use-case serves a dual purpose, as it provides a practical, pre-configured example for future Ecoscape users while it also validates Ecoscape's capability to handle resource-intensive, modern workloads.
 
-LLMs represent a particularly demanding class of applications, requiring substantial computational resources and careful resource management. [\cite{bai2024efficiencysystematicsurveyresourceefficient}]
+LLMs represent a particularly demanding class of applications, requiring substantial computational resources and careful resource management [\cite{bai2024efficiencysystematicsurveyresourceefficient}].
 By demonstrating successful LLM deployment on Ecoscape, we establish that the platform can adapt to emerging technologies and handle complex, high-resource workloads typical in contemporary edge computing scenarios.
 
 Rather than validating a specific LLM model's performance, we focus rather on evaluating Ecoscape's infrastructure capabilities and its ability to adapt to modern technologies, making it applicable in future projects in a various amount of research fields.
@@ -10,13 +10,13 @@ Rather than validating a specific LLM model's performance, we focus rather on ev
 % ----------------------------------
 \section{Motivation \& Research Question}
 Large Language Models (LLM) have become increasingly prevalent in general applications.
-From simple chatbots and virtual assistants to content generation and various tools, LLM is a rising technology in the current times. [\cite{xi2023risepotentiallargelanguage}]
+From simple chatbots and virtual assistants to content generation and various tools, LLM is a rising technology in the current times [\cite{xi2023risepotentiallargelanguage}].
 
 As EdgeAISim already has touched upon, is the field of edge computing not spared from various approaches to deploy LLM on the edge.
 
 Our LLM service implementation mimics a distributed architecture that processes user prompts and returns model-generated responses.
 The service is designed to be representative of real-world LLM deployments like ChatGPT\footnote{\url{https://openai.com/index/chatgpt/}}, Claude\footnote{\url{https://claude.com/product/overview}} or Gemini\footnote{\url{https://gemini.google/us/assistant/}} while remaining manageable within the constraints of a research environment.
-This use-case demonstrates serval key aspects of modern edge deployments:
+This use-case demonstrates several key aspects of modern edge deployments:
 \begin{itemize}
   \item \textbf{Resource intensity}: LLM inference requires significant CPU or GPU computation and memory usage
   \item \textbf{Large artifacts}: Model weights and dependencies result in multi-gigabyte container images
@@ -25,7 +25,8 @@ This use-case demonstrates serval key aspects of modern edge deployments:
 \end{itemize}
 Additionally, this use-case can be deployed to validate multiple aspects like the comparison of different LLMs, the evaluation of one specific LLM or it can even be further built upon to touch the topic of distributed processing via LLM on the edge, making it a grounded foundation for further development in this direction.
 
-This use-case addresses therefore the following research question: \textbf{Can Ecoscape effectively orchestrate resource-intensive LLM workload across heterogeneous edge computing environments ?}
+This use-case addresses therefore the following research question:\\
+\textbf{Can Ecoscape effectively orchestrate resource-intensive LLM workload across heterogeneous edge computing environments?}
 
 By implementing this use-case, we extend Ecoscape's documentation with a concrete example that future users can reference when deploying similar workloads or starting with Ecoscape in general.
 
@@ -51,9 +52,9 @@ The load generator depicts the functionality of data integration which was prese
 The implementation of the LLM deployment use-case is built upon several foundational technology choices that reflect current best practices in machine learning engineering and LLM deployment.
 \subsubsection{Programming Language \& Used Libraries}
 Python was selected as the primary implementation language due to its dominant position in the machine learning and natural language processing ecosystem.
-It has established itself as the de facto standard for LLM development and deployment supported by extensive libraries, active community development and comprehensive tooling. [\cite{raschka2020machinelearningpythonmain}, \cite{muellermichael2025pytheninaiandmachinelearning}]
+It has established itself as the de facto standard for LLM development and deployment supported by extensive libraries, active community development and comprehensive tooling [\cite{raschka2020machinelearningpythonmain}, \cite{muellermichael2025pytheninaiandmachinelearning}].
 
-PyTorch\footnote{\url{https://pytorch.org/}} serves as the deep learning framework for model loading in the LLM service and has gained a widespread adoption both reasearch and production environments [\cite{paszke2019pytorchimperativestylehighperformance}].
+PyTorch\footnote{\url{https://pytorch.org/}} serves as the deep learning framework for model loading in the LLM service and has gained a widespread adoption in both research and production environments [\cite{paszke2019pytorchimperativestylehighperformance}].
 The framework provides native support for both CPU and GPU execution, enabling cross-platform deployment strategies further visited in Section \ref{sec:use-case-compute-resource-flexibility}.
 
 Additionally, based on Ecoscape's infrastructure the service needs to derive metrics for prometheus and communicate with Kafka.
@@ -61,32 +62,26 @@ For these the official python adaptation of the \textit{prometheus client}\footn
 
 \subsubsection{Model \& Dataset Source}
 All models and datasets utilized in this implementation are sourced from HuggingFace\footnote{\url{https://huggingface.co/}}, a centralized repository and platform for machine learning models and datasets.
-HuggingFace has emerged as the primary distribution platform for pre-trained language models, offering standardized APIs through the \textit{transformers} and \textit{datasets} libraries and ensuring repoducibility through version-controlled model artifacts. [\cite{wolf2020huggingfacestransformersstateoftheartnatural}]
+HuggingFace has emerged as the primary distribution platform for pre-trained language models, offering standardized APIs through the \textit{transformers} and \textit{datasets} libraries and ensuring reproducibility through version-controlled model artifacts [\cite{wolf2020huggingfacestransformersstateoftheartnatural}].
 
 % ----------------------------------
 \subsection{Challenges}
 During implementation some challenges arose that either feature the heterogeneity of the edge, general LLM or Ecoscape's infrastructure as their cause.
 \subsubsection{Dataset \& Model Selection}
-The implementation requires selecting both an appropriate dataset and LLM that balance realistic workload chracteristics with resource constraints.
+The implementation requires selecting both an appropriate dataset and LLM that balance realistic workload characteristics with resource constraints.
 
 The prompt producer requires a dataset of prompts that represent realistic LLM usage patterns to mimic authentic real-world usage in realistic patterns.
 We selected the Alpaca [\cite{alpaca}] dataset (repository ID: \textit{tatsu-lab/alpaca}\footnote{\url{https://huggingface.co/datasets/tatsu-lab/alpaca}}) from Stanford University which is a widely-used instruction-following dataset in the LLM research community.
 Alpaca was selected based on its properties and credibility:
-It features around 52,000 instruction-following prompts ranging from tasks like questions answering, creative wrting, summarization and reasoning.
-Built upon the Self-Instruct framework[\cite{wang2023selfinstructaligninglanguagemodels}], it is designed for fine-tuning and evaluating LLMs with prompts diversifying in length and topics, which makes it a well-established authentic dataset with realistic workload.
+It features around 52,000 instruction-following prompts ranging from tasks like questions answering, creative writing, summarization and reasoning.
+Built upon the Self-Instruct framework [\cite{wang2023selfinstructaligninglanguagemodels}], it is designed for fine-tuning and evaluating LLMs with prompts diversifying in length and topics, which makes it a well-established authentic dataset with realistic workload.
 
 For the LLM Service, we selected Qwen 2.5 - 0.5 Instruct (repository ID: \textit{Qwen/Qwen2.5-0.5B-Instruct}) as the primary model for evaluation.
 This choice balances the heterogeneity in edge deployment with the available LLM pool, as edge nodes have strict resource constraints resulting in strict size constraint in the LLM selection.
 Qwen 2.5 - 0.5 Instruct has with its 0.5 billion parameters a approximated size of around 1-2 GB on disk and requires around 2-3 GB of RAM when loaded, making it suitable for this kind of deployment.
 Furthermore, the "Instruct" variant is specifically fine-tuned for instruction-following task, complementing the Alpaca dataset.
 
-To validate the generalizability of the deployment approach and ensure compatibility across different model architectures, we additionally tested the implementaion with the following similar LLMs:
-\begin{itemize}
-  \item Gemma 2B Instruct\footnote{\url{https://huggingface.co/google/gemma-2b-it}} : 
-  \item TinyLlama-1.1B-Chat-v1.0\footnote{\url{https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0}}
-  \item Phi-3-Mini-4K-Instruct\footnote{\url{https://huggingface.co/microsoft/Phi-3-mini-4k-instruct}}
-\end{itemize}
-
+To validate the generalizability of the deployment approach and ensure compatibility across different model architectures, we additionally tested the implementation with the following similar LLMs:
 \begin{itemize}
   \item \textbf{Gemma 2B Instruct}\footnote{\url{https://huggingface.co/google/gemma-2b-it}}: Validates scalability to larger models
   \item \textbf{TinyLlama-1.1B-Chat-v1.0}\footnote{\url{https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0}}: Alternative lightweight option
@@ -99,13 +94,13 @@ However, as our focus lies on validating Ecoscape's capabilities rather than the
 One of the most significant challenges in distributed LLM deployment is managing large artifacts. Without proper caching strategies, each service instance would need to download multi-gigabyte files during startup, creating unnecessary delays and network overhead.
 
 So would in our use-case, each startup result in an additional download for the necessary resource. In the case of the prompt producer, only the dataset is affected, but in case of the LLM service, each replica would simultanously download the same model which in our case would be 1-2 GB in size.
-As startup can have multiple causes (e.g. Scenario Start, Pod Crash), this overhead result in unnecessary delay based on the scenarios size and create a long living dependency on external services.
+As startup can have multiple causes (e.g. Scenario Start, Pod Crash), this overhead results in unnecessary delay based on the scenarios size and create a long living dependency on external services.
 This creates an impractical deployment scenario for edge environments where rapid scaling, recovery or offline operation may be required.
 
-We therefore use Persistent Volume Claims (PVCs) with initalization jobs to preload our resource before deployment into the cluster.
+We therefore use Persistent Volume Claims (PVCs) with initialization jobs to preload our resource before deployment into the cluster.
 PVCs are Kubernetes storage resources that persist beyond the lifecycle of individual pods and can be mounted by multiple pods simultaneously.
 By simple having one preloader job per resource, we can populate the PVC with our necessary resources before mounting the prompt producer and LLM service to gain access to said resource.
-This results in downlaoding each unique resource once rather than multiple times, descreasing our startup latency, scenario delay and dependency on external services.
+This results in downloading each unique resource once rather than multiple times, decreasing our startup latency, scenario delay and dependency on external services.
 
 \subsubsection{Compute Resource Flexibility}\label{sec:use-case-compute-resource-flexibility}
 Edge computing environments are inherently heterogeneous, with varying hardware capabilities across different nodes.
@@ -117,14 +112,14 @@ We implemented a flexible deployment strategy that supports both computes modes 
 By building two separate docker images we can allow for different PyTorch installations and docker images sizes while also having ways to enforce a CPU mode if necessary.
 Additionally, the service automatically detects available hardware at startup and can fall back to CPU-mode if no GPU is available.
 
-This combination allows for mixed deployments, resource-aware scheduling, cost optimizations and peferomance profiling if necessary, making the use-case more variable in its application.
+This combination allows for mixed deployments, resource-aware scheduling, cost optimizations and performance profiling if necessary, making the use-case more variable in its application.
 
 % ----------------------------------
 \section{Evaluation Methodology}
-To assess the effectiveness of our distributed LLM deployment on Ecoscape, we define serval key metrics inside the LLM service.
-This section outlines our evaluation approach while the detailed results from some of these metrics are presented in the following Chapter.
+To assess the effectiveness of our distributed LLM deployment on Ecoscape, we define several key metrics inside the LLM service.
+This section outlines our evaluation approach while the detailed results from some of these metrics are presented in the following chapter.
 
-We implemented a Prometheus-based metrics collection system integrated directly into the LLM Service which can then be further propagated via a Podmonitor into different namespaces.
+We implemented a Prometheus-based metrics collection system integrated directly into the LLM Service which can then be further propagated via a podmonitor into different namespaces.
 All metrics are exposed via a \textit{\/metrics} endpoint and include contextual labels that identify the deployment environment:
 \begin{itemize}
   \item \textit{node\_id} : Unique identifier for the node running the service
