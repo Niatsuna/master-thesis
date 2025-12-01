@@ -13,4 +13,4 @@ Local compiling is therefore not necessary for simple checking out this thesis.
 ---
 
 > **Deadline:** 03.12.2025 \
-> **Submitted:** Soon
+> **Submitted:** 01.12.2025, 16:28
